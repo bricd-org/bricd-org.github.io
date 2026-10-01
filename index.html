@@ -225,6 +225,7 @@
     box-shadow:var(--shadow);transition:.25s;
   }
   .proj:hover{box-shadow:var(--shadow-hover);transform:translateY(-3px);border-color:var(--line-2);}
+  .proj.proj--nofig{grid-template-columns:1fr;}
   .proj-fig{position:relative;min-height:280px;background:var(--panel-dark);overflow:hidden;}
   .proj-fig > img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;}
   .chip-thumb > img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;}
@@ -531,107 +532,78 @@
     </div>
     <div class="proj-list">
 
-
       <!-- Project 1 -->
-      <article class="proj">
-        <div class="proj-fig" style="background:#d1dad9;">
-          <img src="assets/projects/intelliscope-device.jpg" alt="Intelliscope ECG-PCG device: PCB with stethoscope diaphragm in its 3D-printed enclosure" loading="lazy" />
-        </div>
+      <article class="proj proj--nofig">
         <div class="proj-body">
           <span class="proj-index">PROJECT 01</span>
-          <h3>Intelliscope: A Simultaneous ECG-PCG Screening Tool for Cardiovascular Disease in Resource-Constrained Settings</h3>
-          <p class="desc">An end-to-end dual-modality device that records electrocardiogram and phonocardiogram signals together, with a real-time burst-adaptive NLMS noise-cancellation pipeline light enough for embedded hardware. Validated on real recordings from noisy hospital wards, it improved SNR by 30.32&nbsp;dB (ECG) and 37.01&nbsp;dB (PCG). Presented at IEEE EMBC&nbsp;2026 in Toronto and winner of the 2025 SLAAS Manamperi Main Award for the best inter-university final-year engineering project in Sri Lanka. The project began in 2020 as a low-cost AI-powered wireless stethoscope that won first runner-up in the IEEE CASS COVID-19 Special Student Design Competition at ISCAS&nbsp;2020, followed by a transfer-learning ECG-PCG screening paper at ISCAS&nbsp;2021.</p>
+          <h3>A Forward and Inverse Design Approach for Automated Analog Design Optimization and Layout using LLM Agent-based Analytical Modelling (Ongoing)</h3>
+          <p class="desc">An ongoing open-source framework that automates analog circuit sizing and layout in open PDKs, where silicon area on multi-project shuttles is a premium resource. It began as a hybrid mixed-variable particle-swarm optimizer built on the g<sub>m</sub>/I<sub>D</sub> methodology to minimize layout area while meeting design specifications — demonstrated on a low-power instrumentation amplifier in 130&nbsp;nm CMOS with a 90.33% gate-area reduction over existing implementations — and is being extended with LLM agent-based analytical modelling for both forward and inverse design.</p>
           <div class="tags">
-            <span class="tag">ECG + PCG</span>
-            <span class="tag">Adaptive Noise Cancellation</span>
-            <span class="tag">Embedded</span>
-            <span class="tag">Manamperi Award 2025</span>
-            <span class="tag">ISCAS 2021</span>
-            <span class="tag teal">EMBC 2026</span>
+            <span class="tag">LLM Agents</span>
+            <span class="tag">g<sub>m</sub>/I<sub>D</sub></span>
+            <span class="tag">Mixed-Variable PSO</span>
+            <span class="tag">Analog Layout</span>
+            <span class="tag">130nm CMOS</span>
+            <span class="tag teal">Ongoing</span>
           </div>
           <div class="specs">
-            <div class="s"><div class="v">30.3 dB</div><div class="k">ECG SNR gain</div></div>
-            <div class="s"><div class="v">37.0 dB</div><div class="k">PCG SNR gain</div></div>
-            <div class="s"><div class="v">2</div><div class="k">modalities</div></div>
-            <div class="s"><div class="v">Real-time</div><div class="k">on-device</div></div>
+            <div class="s"><div class="v">90.33%</div><div class="k">gate-area reduction</div></div>
+            <div class="s"><div class="v">INA</div><div class="k">low-power demo</div></div>
+            <div class="s"><div class="v">Fwd + Inv</div><div class="k">design modes</div></div>
+            <div class="s"><div class="v">130nm</div><div class="k">open PDK</div></div>
           </div>
           <div class="proj-links">
-            <a href="https://arxiv.org/abs/2510.23819" target="_blank" rel="noopener">
+            <a href="https://arxiv.org/abs/2604.04213" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 7h10M7 12h10M7 17h6"/></svg>
-              EMBC preprint
-            </a>
-            <a href="https://www.linkedin.com/posts/avishka-herath_research-entc-uom-ugcPost-7407672514522411009-c7jY" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5V9h3v10zM6.5 7.7a1.8 1.8 0 1 1 0-3.5 1.8 1.8 0 0 1 0 3.5zM19 19h-3v-5.3c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V19h-3V9h2.9v1.4h.04A3.2 3.2 0 0 1 16 8.6c3 0 3.6 2 3.6 4.6V19z"/></svg>
-              Awards &amp; milestones
-            </a>
-            <a href="https://ent.uom.lk/2026/07/05/a-final-year-group-research-paper-on-a-real-time-simultaneous-ecg-pcg-acquisition-system-has-been-accepted-to-ieee-embc-2026/" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 5h16v14H4zM8 9h8M8 13h5"/></svg>
-              ENTC news: EMBC
-            </a>
-            <a href="https://ent.uom.lk/2026/01/30/entc-wins-manamperi-main-award-2025-for-the-best-inter-university-final-year-undergraduate-project-in-engineering/" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 5h16v14H4zM8 9h8M8 13h5"/></svg>
-              ENTC news: Manamperi Award
-            </a>
-            <a href="https://ieeexplore.ieee.org/abstract/document/9401093" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 7h10M7 12h10M7 17h6"/></svg>
-              ISCAS 2021 paper
-            </a>
-            <a href="https://uom.lk/university_news/uom-wins-first-runner-award-2020-cass-covid-19-special-student-design-competition" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 5h16v14H4zM8 9h8M8 13h5"/></svg>
-              UoM news: CASS 2020
+              arXiv preprint
             </a>
           </div>
         </div>
       </article>
 
-
       <!-- Project 2 -->
       <article class="proj">
-        <div class="proj-fig" style="background:#fff;">
-          <img src="assets/projects/braineocare-shap-scalp-plots.jpg" alt="SHAP scalp plots localizing seizure focus for nine neonates" loading="lazy" />
+        <div class="proj-fig" style="background:#000;">
+          <img src="assets/projects/pll-2g4-unic-cass-chip.jpg" alt="UNIC-CASS chip layout with the 2.4 GHz PLL: top view with fillers and 2.5D top view" loading="lazy" />
         </div>
         <div class="proj-body">
           <span class="proj-index">PROJECT 02</span>
-          <h3>BraiNeoCare: Low-Cost Dry-Contact EEG and Explainable AI for Neonatal Seizure Detection &amp; Prediction</h3>
-          <p class="desc">A research line toward affordable seizure care for newborns, where continuous video-EEG is costly and needs specialists. It combines an adjustable 3D-printed headset with active dry-contact electrodes and a custom analog front end, a multimodal artifact-removal algorithm, and explainable deep-learning models that work from a reduced EEG montage — detecting seizures in real time and, with added ECG, predicting them up to 30 minutes before onset. Clinically evaluated against a commercial wet-electrode cEEG system at Lady Ridgeway Hospital for Children, with work published in IEEE TBME and IEEE SMC and accepted at IEEE BHI&nbsp;2026.</p>
+          <h3>A 2.4&nbsp;GHz LC-VCO Fractional-N Phase-Locked Loop in 130&nbsp;nm BiCMOS</h3>
+          <p class="desc">A type-II Δ-Σ fractional-N PLL with a cross-coupled differential LC-VCO and a custom spiral inductor (4&nbsp;nH, Q&nbsp;=&nbsp;16.8) modelled in OpenEMS — the first fully open-source RF IC design of its kind from Sri Lanka, demonstrating that high-performance radios are achievable in the open CMOS ecosystem. Published at SMACD&nbsp;2026 and submitted for fabrication through the UNIC-CASS 2025 program with full DRC, LVS and PEX sign-off.</p>
           <div class="tags">
-            <span class="tag">Dry-Contact EEG</span>
-            <span class="tag">Active Electrodes</span>
-            <span class="tag">Explainable AI</span>
-            <span class="tag">Neonatal Seizures</span>
-            <span class="tag teal">IEEE TBME</span>
-            <span class="tag teal">BHI 2026</span>
+            <span class="tag">IHP SG13G2 130nm</span>
+            <span class="tag">Fractional-N PLL</span>
+            <span class="tag">Δ-Σ Modulation</span>
+            <span class="tag">OpenEMS</span>
+            <span class="tag teal">UNIC-CASS 2025</span>
+            <span class="tag teal">SMACD 2026</span>
           </div>
           <div class="specs">
-            <div class="s"><div class="v">&gt; 0.8</div><div class="k">corr. vs clinical cEEG</div></div>
-            <div class="s"><div class="v">97.5%</div><div class="k">prediction accuracy</div></div>
-            <div class="s"><div class="v">30 min</div><div class="k">warning before onset</div></div>
-            <div class="s"><div class="v">+16.3%</div><div class="k">detection recall</div></div>
+            <div class="s"><div class="v">2.45 GHz</div><div class="k">center freq</div></div>
+            <div class="s"><div class="v">−100.8</div><div class="k">dBc/Hz @ 1MHz</div></div>
+            <div class="s"><div class="v">12.73 mW</div><div class="k">DC power</div></div>
+            <div class="s"><div class="v">0.347 mm²</div><div class="k">chip area</div></div>
           </div>
           <div class="proj-links">
-            <a href="https://ieeexplore.ieee.org/abstract/document/11230808" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 7h10M7 12h10M7 17h6"/></svg>
-              IEEE TBME
-            </a>
-            <a href="https://arxiv.org/abs/2511.14110" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 7h10M7 12h10M7 17h6"/></svg>
-              BHI preprint
-            </a>
-            <a href="https://ieeexplore.ieee.org/abstract/document/10831030" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 7h10M7 12h10M7 17h6"/></svg>
-              IEEE SMC
-            </a>
-            <a href="https://github.com/Dinuka-1999/BraiNeoCare" target="_blank" rel="noopener">
+            <a href="https://github.com/Manimohan05/SG13G2_2.4GHz_LC_VCO_FPLL" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.7.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C18 4.6 19 4.9 19 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
-              Detection repo
+              Repository
             </a>
-            <a href="https://github.com/Sithminii/BraiNeoCare" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.7.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C18 4.6 19 4.9 19 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
-              Prediction repo
+            <a href="https://ieeexplore.ieee.org/document/11647761/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 7h10M7 12h10M7 17h6"/></svg>
+              IEEE Xplore
             </a>
-            <a href="https://ent.uom.lk/2026/01/30/a-final-year-group-led-research-on-a-dry-contact-eeg-monitoring-system-accepted-for-publication-in-prestigious-ieee-tbme/" target="_blank" rel="noopener">
+            <a href="https://arxiv.org/abs/2607.08852" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 7h10M7 12h10M7 17h6"/></svg>
+              arXiv
+            </a>
+            <a href="https://ent.uom.lk/2026/05/11/a-research-on-an-open-source-2-4-ghz-lc-vco-fractional-n-pll-in-130-nm-bicmos-accepted-for-publication-in-the-smacd-2026/" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 5h16v14H4zM8 9h8M8 13h5"/></svg>
               ENTC news
+            </a>
+            <a href="https://www.linkedin.com/feed/update/urn:li:activity:7509967111998439424/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5V9h3v10zM6.5 7.7a1.8 1.8 0 1 1 0-3.5 1.8 1.8 0 0 1 0 3.5zM19 19h-3v-5.3c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V19h-3V9h2.9v1.4h.04A3.2 3.2 0 0 1 16 8.6c3 0 3.6 2 3.6 4.6V19z"/></svg>
+              Tape-out announcement
             </a>
           </div>
         </div>
@@ -640,31 +612,45 @@
       <!-- Project 3 -->
       <article class="proj">
         <div class="proj-fig" style="background:#fff;">
-          <img src="assets/projects/sar-adc-chip-layout.jpg" alt="Full-chip layout of the SAR ADC on the Efabless chipIgnite (Caravel) harness" loading="lazy" />
+          <img src="assets/projects/epitaxc-tile-layout.jpg?v=2" alt="Layout of the EpitaXC fully-differential op-amp tile on Tiny Tapeout SKY25a" loading="lazy" />
         </div>
         <div class="proj-body">
           <span class="proj-index">PROJECT 03</span>
-          <h3>A 100&nbsp;kSPS 8-bit Fully-Differential SAR ADC for Low-Power Applications</h3>
-          <p class="desc">A charge-redistribution SAR ADC with binary-weighted capacitor arrays, an auto-zeroed pre-amplifier and regenerative latch comparator, and digital SAR logic — aimed at battery- or RF-powered IoT and wearable/implantable medical devices. Built from scratch by ENTC undergraduates in ten weeks with Xschem, Ngspice, Netgen, OpenLane, Magic and KLayout, and submitted to the Efabless chipIgnite shuttle through the IEEE CASS UNIC-CASS 2024 program — ENTC's first CMOS tape-out.</p>
+          <h3>Dry-Contact Ear-EEG with Continuous Electrode-Skin Impedance Monitoring — Moving On Chip</h3>
+          <p class="desc">A dry-contact Ear-EEG system that injects a 1&nbsp;kHz driven-right-leg stimulus to continuously track electrode-skin impedance mismatch, using it as the reference for online adaptive motion-artifact cancellation (IEEE BioCAS&nbsp;2026). The team — Lohan Atapattu, Sajitha Madugalle, Imasha Nethmal and Erandee Jayathilaka — is now integrating the I/Q impedance-extraction path in CMOS: a fully-differential two-stage op-amp on Tiny&nbsp;Tapeout SKY25a (silicon received July&nbsp;2026) and fully-differential I/Q multipliers in IHP SG13G2 for UNIC-CASS&nbsp;2025, presented in a paper submitted to IEEE ICM&nbsp;2026.</p>
           <div class="tags">
             <span class="tag">SkyWater 130nm</span>
-            <span class="tag">Charge-Redistribution SAR</span>
-            <span class="tag">Fully-Differential</span>
-            <span class="tag">chipIgnite</span>
-            <span class="tag teal">UNIC-CASS 2024</span>
+            <span class="tag">Tiny Tapeout SKY25a</span>
+            <span class="tag">Ear-EEG</span>
+            <span class="tag">IHP SG13G2</span>
+            <span class="tag">I/Q Demodulation</span>
+            <span class="tag teal">UNIC-CASS 2025</span>
+            <span class="tag teal">BioCAS 2026</span>
           </div>
           <div class="specs">
-            <div class="s"><div class="v">8-bit</div><div class="k">resolution</div></div>
-            <div class="s"><div class="v">100 kSPS</div><div class="k">sample rate</div></div>
-            <div class="s"><div class="v">7.5 bit</div><div class="k">target ENOB</div></div>
-            <div class="s"><div class="v">1.8 V</div><div class="k">AVDD / DVDD</div></div>
+            <div class="s"><div class="v">12.6 dB</div><div class="k">artifact reduction</div></div>
+            <div class="s"><div class="v">1 kHz</div><div class="k">DRL stimulus</div></div>
+            <div class="s"><div class="v">1.8 V</div><div class="k">op-amp supply</div></div>
+            <div class="s"><div class="v">130nm</div><div class="k">SkyWater PDK</div></div>
           </div>
           <div class="proj-links">
-            <a href="https://github.com/SkillSurf/8b-sar-adc-unic_cass" target="_blank" rel="noopener">
+            <a href="https://github.com/LohanAtapattu/ttsky25_EpitaXC" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.7.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C18 4.6 19 4.9 19 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
               Repository
             </a>
-            <a href="https://www.linkedin.com/feed/update/urn:li:activity:7263060939707461633/" target="_blank" rel="noopener">
+            <a href="https://tinytapeout.com/chips/ttsky25a/tt_um_diff" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg>
+              Tiny Tapeout page
+            </a>
+            <a href="https://github.com/LohanAtapattu/Unic_Cass_IHP" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.7.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C18 4.6 19 4.9 19 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
+              IHP ASIC repo
+            </a>
+            <a href="https://arxiv.org/abs/2609.02777" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 7h10M7 12h10M7 17h6"/></svg>
+              BioCAS preprint
+            </a>
+            <a href="https://www.linkedin.com/feed/update/urn:li:activity:7373977419713744896/" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5V9h3v10zM6.5 7.7a1.8 1.8 0 1 1 0-3.5 1.8 1.8 0 0 1 0 3.5zM19 19h-3v-5.3c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V19h-3V9h2.9v1.4h.04A3.2 3.2 0 0 1 16 8.6c3 0 3.6 2 3.6 4.6V19z"/></svg>
               Tape-out announcement
             </a>
@@ -714,135 +700,143 @@
       <!-- Project 5 -->
       <article class="proj">
         <div class="proj-fig" style="background:#fff;">
-          <img src="assets/projects/epitaxc-tile-layout.jpg?v=2" alt="Layout of the EpitaXC fully-differential op-amp tile on Tiny Tapeout SKY25a" loading="lazy" />
+          <img src="assets/projects/sar-adc-chip-layout.jpg" alt="Full-chip layout of the SAR ADC on the Efabless chipIgnite (Caravel) harness" loading="lazy" />
         </div>
         <div class="proj-body">
           <span class="proj-index">PROJECT 05</span>
-          <h3>Dry-Contact Ear-EEG with Continuous Electrode-Skin Impedance Monitoring — Moving On Chip</h3>
-          <p class="desc">A dry-contact Ear-EEG system that injects a 1&nbsp;kHz driven-right-leg stimulus to continuously track electrode-skin impedance mismatch, using it as the reference for online adaptive motion-artifact cancellation (IEEE BioCAS&nbsp;2026). The team — Lohan Atapattu, Sajitha Madugalle, Imasha Nethmal and Erandee Jayathilaka — is now integrating the I/Q impedance-extraction path in CMOS: a fully-differential two-stage op-amp on Tiny&nbsp;Tapeout SKY25a (silicon received July&nbsp;2026) and fully-differential I/Q multipliers in IHP SG13G2 for UNIC-CASS&nbsp;2025, presented in a paper submitted to IEEE ICM&nbsp;2026.</p>
+          <h3>A 100&nbsp;kSPS 8-bit Fully-Differential SAR ADC for Low-Power Applications</h3>
+          <p class="desc">A charge-redistribution SAR ADC with binary-weighted capacitor arrays, an auto-zeroed pre-amplifier and regenerative latch comparator, and digital SAR logic — aimed at battery- or RF-powered IoT and wearable/implantable medical devices. Built from scratch by ENTC undergraduates in ten weeks with Xschem, Ngspice, Netgen, OpenLane, Magic and KLayout, and submitted to the Efabless chipIgnite shuttle through the IEEE CASS UNIC-CASS 2024 program — ENTC's first CMOS tape-out.</p>
           <div class="tags">
             <span class="tag">SkyWater 130nm</span>
-            <span class="tag">Tiny Tapeout SKY25a</span>
-            <span class="tag">Ear-EEG</span>
-            <span class="tag">IHP SG13G2</span>
-            <span class="tag">I/Q Demodulation</span>
-            <span class="tag teal">UNIC-CASS 2025</span>
-            <span class="tag teal">BioCAS 2026</span>
+            <span class="tag">Charge-Redistribution SAR</span>
+            <span class="tag">Fully-Differential</span>
+            <span class="tag">chipIgnite</span>
+            <span class="tag teal">UNIC-CASS 2024</span>
           </div>
           <div class="specs">
-            <div class="s"><div class="v">12.6 dB</div><div class="k">artifact reduction</div></div>
-            <div class="s"><div class="v">1 kHz</div><div class="k">DRL stimulus</div></div>
-            <div class="s"><div class="v">1.8 V</div><div class="k">op-amp supply</div></div>
-            <div class="s"><div class="v">130nm</div><div class="k">SkyWater PDK</div></div>
+            <div class="s"><div class="v">8-bit</div><div class="k">resolution</div></div>
+            <div class="s"><div class="v">100 kSPS</div><div class="k">sample rate</div></div>
+            <div class="s"><div class="v">7.5 bit</div><div class="k">target ENOB</div></div>
+            <div class="s"><div class="v">1.8 V</div><div class="k">AVDD / DVDD</div></div>
           </div>
           <div class="proj-links">
-            <a href="https://github.com/LohanAtapattu/ttsky25_EpitaXC" target="_blank" rel="noopener">
+            <a href="https://github.com/SkillSurf/8b-sar-adc-unic_cass" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.7.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C18 4.6 19 4.9 19 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
               Repository
             </a>
-            <a href="https://tinytapeout.com/chips/ttsky25a/tt_um_diff" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg>
-              Tiny Tapeout page
-            </a>
-            <a href="https://github.com/LohanAtapattu/Unic_Cass_IHP" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.7.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C18 4.6 19 4.9 19 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
-              IHP ASIC repo
-            </a>
-            <a href="https://arxiv.org/abs/2609.02777" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 7h10M7 12h10M7 17h6"/></svg>
-              BioCAS preprint
-            </a>
-            <a href="https://www.linkedin.com/feed/update/urn:li:activity:7373977419713744896/" target="_blank" rel="noopener">
+            <a href="https://www.linkedin.com/feed/update/urn:li:activity:7263060939707461633/" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5V9h3v10zM6.5 7.7a1.8 1.8 0 1 1 0-3.5 1.8 1.8 0 0 1 0 3.5zM19 19h-3v-5.3c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V19h-3V9h2.9v1.4h.04A3.2 3.2 0 0 1 16 8.6c3 0 3.6 2 3.6 4.6V19z"/></svg>
               Tape-out announcement
             </a>
           </div>
         </div>
       </article>
+
 
       <!-- Project 6 -->
       <article class="proj">
-        <div class="proj-fig" style="background:#000;">
-          <img src="assets/projects/pll-2g4-unic-cass-chip.jpg" alt="UNIC-CASS chip layout with the 2.4 GHz PLL: top view with fillers and 2.5D top view" loading="lazy" />
+        <div class="proj-fig" style="background:#fff;">
+          <img src="assets/projects/braineocare-shap-scalp-plots.jpg" alt="SHAP scalp plots localizing seizure focus for nine neonates" loading="lazy" />
         </div>
         <div class="proj-body">
           <span class="proj-index">PROJECT 06</span>
-          <h3>A 2.4&nbsp;GHz LC-VCO Fractional-N Phase-Locked Loop in 130&nbsp;nm BiCMOS</h3>
-          <p class="desc">A type-II Δ-Σ fractional-N PLL with a cross-coupled differential LC-VCO and a custom spiral inductor (4&nbsp;nH, Q&nbsp;=&nbsp;16.8) modelled in OpenEMS — the first fully open-source RF IC design of its kind from Sri Lanka, demonstrating that high-performance radios are achievable in the open CMOS ecosystem. Published at SMACD&nbsp;2026 and submitted for fabrication through the UNIC-CASS 2025 program with full DRC, LVS and PEX sign-off.</p>
+          <h3>BraiNeoCare: Low-Cost Dry-Contact EEG and Explainable AI for Neonatal Seizure Detection &amp; Prediction</h3>
+          <p class="desc">A research line toward affordable seizure care for newborns, where continuous video-EEG is costly and needs specialists. It combines an adjustable 3D-printed headset with active dry-contact electrodes and a custom analog front end, a multimodal artifact-removal algorithm, and explainable deep-learning models that work from a reduced EEG montage — detecting seizures in real time and, with added ECG, predicting them up to 30 minutes before onset. Clinically evaluated against a commercial wet-electrode cEEG system at Lady Ridgeway Hospital for Children, with work published in IEEE TBME and IEEE SMC and accepted at IEEE BHI&nbsp;2026.</p>
           <div class="tags">
-            <span class="tag">IHP SG13G2 130nm</span>
-            <span class="tag">Fractional-N PLL</span>
-            <span class="tag">Δ-Σ Modulation</span>
-            <span class="tag">OpenEMS</span>
-            <span class="tag teal">UNIC-CASS 2025</span>
-            <span class="tag teal">SMACD 2026</span>
+            <span class="tag">Dry-Contact EEG</span>
+            <span class="tag">Active Electrodes</span>
+            <span class="tag">Explainable AI</span>
+            <span class="tag">Neonatal Seizures</span>
+            <span class="tag teal">IEEE TBME</span>
+            <span class="tag teal">BHI 2026</span>
           </div>
           <div class="specs">
-            <div class="s"><div class="v">2.45 GHz</div><div class="k">center freq</div></div>
-            <div class="s"><div class="v">−100.8</div><div class="k">dBc/Hz @ 1MHz</div></div>
-            <div class="s"><div class="v">12.73 mW</div><div class="k">DC power</div></div>
-            <div class="s"><div class="v">0.347 mm²</div><div class="k">chip area</div></div>
+            <div class="s"><div class="v">&gt; 0.8</div><div class="k">corr. vs clinical cEEG</div></div>
+            <div class="s"><div class="v">97.5%</div><div class="k">prediction accuracy</div></div>
+            <div class="s"><div class="v">30 min</div><div class="k">warning before onset</div></div>
+            <div class="s"><div class="v">+16.3%</div><div class="k">detection recall</div></div>
           </div>
           <div class="proj-links">
-            <a href="https://github.com/Manimohan05/SG13G2_2.4GHz_LC_VCO_FPLL" target="_blank" rel="noopener">
+            <a href="https://ieeexplore.ieee.org/abstract/document/11230808" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 7h10M7 12h10M7 17h6"/></svg>
+              IEEE TBME
+            </a>
+            <a href="https://arxiv.org/abs/2511.14110" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 7h10M7 12h10M7 17h6"/></svg>
+              BHI preprint
+            </a>
+            <a href="https://ieeexplore.ieee.org/abstract/document/10831030" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 7h10M7 12h10M7 17h6"/></svg>
+              IEEE SMC
+            </a>
+            <a href="https://github.com/Dinuka-1999/BraiNeoCare" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.7.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C18 4.6 19 4.9 19 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
-              Repository
+              Detection repo
             </a>
-            <a href="https://ieeexplore.ieee.org/document/11647761/" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 7h10M7 12h10M7 17h6"/></svg>
-              IEEE Xplore
+            <a href="https://github.com/Sithminii/BraiNeoCare" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.7.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C18 4.6 19 4.9 19 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
+              Prediction repo
             </a>
-            <a href="https://arxiv.org/abs/2607.08852" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 7h10M7 12h10M7 17h6"/></svg>
-              arXiv
-            </a>
-            <a href="https://ent.uom.lk/2026/05/11/a-research-on-an-open-source-2-4-ghz-lc-vco-fractional-n-pll-in-130-nm-bicmos-accepted-for-publication-in-the-smacd-2026/" target="_blank" rel="noopener">
+            <a href="https://ent.uom.lk/2026/01/30/a-final-year-group-led-research-on-a-dry-contact-eeg-monitoring-system-accepted-for-publication-in-prestigious-ieee-tbme/" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 5h16v14H4zM8 9h8M8 13h5"/></svg>
               ENTC news
             </a>
-            <a href="https://www.linkedin.com/feed/update/urn:li:activity:7509967111998439424/" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5V9h3v10zM6.5 7.7a1.8 1.8 0 1 1 0-3.5 1.8 1.8 0 0 1 0 3.5zM19 19h-3v-5.3c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V19h-3V9h2.9v1.4h.04A3.2 3.2 0 0 1 16 8.6c3 0 3.6 2 3.6 4.6V19z"/></svg>
-              Tape-out announcement
-            </a>
           </div>
         </div>
       </article>
+
 
       <!-- Project 7 -->
       <article class="proj">
-        <div class="proj-fig">
-          <div class="ph">
-            <svg class="ph-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 4V2M16 4V2M8 22v-2M16 22v-2M4 8H2M4 16H2M22 8h-2M22 16h-2"/><path d="M9 9h6v6H9z"/></svg>
-            <span class="ph-cap">LLM-agent analog design flow</span>
-          </div>
+        <div class="proj-fig" style="background:#d1dad9;">
+          <img src="assets/projects/intelliscope-device.jpg" alt="Intelliscope ECG-PCG device: PCB with stethoscope diaphragm in its 3D-printed enclosure" loading="lazy" />
         </div>
         <div class="proj-body">
           <span class="proj-index">PROJECT 07</span>
-          <h3>A Forward and Inverse Design Approach for Automated Analog Design Optimization and Layout using LLM Agent-based Analytical Modelling</h3>
-          <p class="desc">An ongoing open-source framework that automates analog circuit sizing and layout in open PDKs, where silicon area on multi-project shuttles is a premium resource. It began as a hybrid mixed-variable particle-swarm optimizer built on the g<sub>m</sub>/I<sub>D</sub> methodology to minimize layout area while meeting design specifications — demonstrated on a low-power instrumentation amplifier in 130&nbsp;nm CMOS with a 90.33% gate-area reduction over existing implementations — and is being extended with LLM agent-based analytical modelling for both forward and inverse design.</p>
+          <h3>Intelliscope: A Simultaneous ECG-PCG Screening Tool for Cardiovascular Disease in Resource-Constrained Settings</h3>
+          <p class="desc">An end-to-end dual-modality device that records electrocardiogram and phonocardiogram signals together, with a real-time burst-adaptive NLMS noise-cancellation pipeline light enough for embedded hardware. Validated on real recordings from noisy hospital wards, it improved SNR by 30.32&nbsp;dB (ECG) and 37.01&nbsp;dB (PCG). Presented at IEEE EMBC&nbsp;2026 in Toronto and winner of the 2025 SLAAS Manamperi Main Award for the best inter-university final-year engineering project in Sri Lanka. The project began in 2020 as a low-cost AI-powered wireless stethoscope that won first runner-up in the IEEE CASS COVID-19 Special Student Design Competition at ISCAS&nbsp;2020, followed by a transfer-learning ECG-PCG screening paper at ISCAS&nbsp;2021.</p>
           <div class="tags">
-            <span class="tag">LLM Agents</span>
-            <span class="tag">g<sub>m</sub>/I<sub>D</sub></span>
-            <span class="tag">Mixed-Variable PSO</span>
-            <span class="tag">Analog Layout</span>
-            <span class="tag">130nm CMOS</span>
-            <span class="tag teal">Ongoing</span>
+            <span class="tag">ECG + PCG</span>
+            <span class="tag">Adaptive Noise Cancellation</span>
+            <span class="tag">Embedded</span>
+            <span class="tag">Manamperi Award 2025</span>
+            <span class="tag">ISCAS 2021</span>
+            <span class="tag teal">EMBC 2026</span>
           </div>
           <div class="specs">
-            <div class="s"><div class="v">90.33%</div><div class="k">gate-area reduction</div></div>
-            <div class="s"><div class="v">INA</div><div class="k">low-power demo</div></div>
-            <div class="s"><div class="v">Fwd + Inv</div><div class="k">design modes</div></div>
-            <div class="s"><div class="v">130nm</div><div class="k">open PDK</div></div>
+            <div class="s"><div class="v">30.3 dB</div><div class="k">ECG SNR gain</div></div>
+            <div class="s"><div class="v">37.0 dB</div><div class="k">PCG SNR gain</div></div>
+            <div class="s"><div class="v">2</div><div class="k">modalities</div></div>
+            <div class="s"><div class="v">Real-time</div><div class="k">on-device</div></div>
           </div>
           <div class="proj-links">
-            <a href="https://arxiv.org/abs/2604.04213" target="_blank" rel="noopener">
+            <a href="https://arxiv.org/abs/2510.23819" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 7h10M7 12h10M7 17h6"/></svg>
-              arXiv preprint
+              EMBC preprint
+            </a>
+            <a href="https://www.linkedin.com/posts/avishka-herath_research-entc-uom-ugcPost-7407672514522411009-c7jY" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5V9h3v10zM6.5 7.7a1.8 1.8 0 1 1 0-3.5 1.8 1.8 0 0 1 0 3.5zM19 19h-3v-5.3c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V19h-3V9h2.9v1.4h.04A3.2 3.2 0 0 1 16 8.6c3 0 3.6 2 3.6 4.6V19z"/></svg>
+              Awards &amp; milestones
+            </a>
+            <a href="https://ent.uom.lk/2026/07/05/a-final-year-group-research-paper-on-a-real-time-simultaneous-ecg-pcg-acquisition-system-has-been-accepted-to-ieee-embc-2026/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 5h16v14H4zM8 9h8M8 13h5"/></svg>
+              ENTC news: EMBC
+            </a>
+            <a href="https://ent.uom.lk/2026/01/30/entc-wins-manamperi-main-award-2025-for-the-best-inter-university-final-year-undergraduate-project-in-engineering/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 5h16v14H4zM8 9h8M8 13h5"/></svg>
+              ENTC news: Manamperi Award
+            </a>
+            <a href="https://ieeexplore.ieee.org/abstract/document/9401093" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 7h10M7 12h10M7 17h6"/></svg>
+              ISCAS 2021 paper
+            </a>
+            <a href="https://uom.lk/university_news/uom-wins-first-runner-award-2020-cass-covid-19-special-student-design-competition" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 5h16v14H4zM8 9h8M8 13h5"/></svg>
+              UoM news: CASS 2020
             </a>
           </div>
         </div>
       </article>
-
     </div>
   </div>
 </section>
