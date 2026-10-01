@@ -5,6 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>BRICD — Biomedical Research in Integrated Circuit Design</title>
 <meta name="description" content="BRICD is a research community of university undergraduates and academics applying biomedical integrated circuit design to solve healthcare problems — where biomedical engineering meets IC design innovation." />
+<link rel="canonical" href="https://www.thebricd.org/" />
+<link rel="icon" href="favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" href="favicon.png" />
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+<meta name="theme-color" content="#13294a" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="BRICD" />
+<meta property="og:title" content="BRICD — Biomedical Research in Integrated Circuit Design" />
+<meta property="og:description" content="An open community of undergraduates and academics designing biomedical integrated circuits on open-source PDKs and EDA flows." />
+<meta property="og:url" content="https://www.thebricd.org/" />
+<meta property="og:image" content="https://www.thebricd.org/assets/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Libre+Franklin:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -256,6 +270,7 @@
   .pub h4{font-size:18.5px;line-height:1.35;margin-bottom:7px;color:var(--navy);}
   .pub .authors{font-size:14.5px;color:var(--muted);}
   .pub .authors b{color:var(--ink);font-weight:600;}
+  .pub .pub-links{margin-top:8px;font-family:"IBM Plex Mono",monospace;font-size:12.5px;letter-spacing:.02em;}
   .pub-status{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.05em;padding:5px 11px;border-radius:5px;white-space:nowrap;}
   .pub-status.accepted{color:var(--gold);background:var(--gold-l);border:1px solid var(--gold-line);}
   .pub-status.prep{color:var(--muted);background:var(--bg-soft2);border:1px solid var(--line-2);}
@@ -265,6 +280,7 @@
   .lead-card{display:flex;gap:22px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:26px;box-shadow:var(--shadow);transition:.2s;}
   .lead-card:hover{box-shadow:var(--shadow-hover);transform:translateY(-2px);}
   .avatar{width:88px;height:88px;border-radius:10px;flex:0 0 auto;background:linear-gradient(160deg,#15406f,#0c2340);display:grid;place-items:center;color:#fff;font-family:"Spectral",serif;font-size:30px;font-weight:600;position:relative;overflow:hidden;}
+  .avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
   .avatar .ph-note{position:absolute;bottom:6px;font-size:8px;color:rgba(200,220,245,.55);letter-spacing:.05em;}
   .lead-card h4{font-size:20px;margin-bottom:3px;}
   .lead-card .role{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--blue);letter-spacing:.04em;margin-bottom:10px;}
@@ -625,7 +641,7 @@
     <div class="section-head">
       <span class="eyebrow">Chip Gallery</span>
       <h2>Silicon we've taped out.</h2>
-      <p>Layouts, die micrographs and inductor renders from our open-source designs. Drop in real images when ready.</p>
+      <p>Layouts, die micrographs and inductor renders from our open-source designs.</p>
     </div>
     <div class="gallery" id="gallery-grid">
       <!-- cards injected by JS -->
@@ -641,6 +657,18 @@
       <h2>Peer-reviewed &amp; open work.</h2>
     </div>
     <div class="pubs">
+      <article class="pub">
+        <div>
+          <div class="venue">IEEE EMBC</div>
+          <div class="year">2026</div>
+        </div>
+        <div>
+          <h4>A Simultaneous ECG-PCG Acquisition System with Real-Time Burst-Adaptive Noise Cancellation</h4>
+          <p class="authors"><b>A. Herath</b>, M. Jayalath, K. Kaushalya, S. Kapukotuwa, C. Wijegunawardena, P. Mendis, <b>K. Wickremasinghe</b>, D. Samarasinghe, W. N. Manamperi, C. U. S. Edussooriya · 48th Annual International Conference of the IEEE Engineering in Medicine &amp; Biology Society</p>
+          <p class="pub-links"><a href="https://arxiv.org/abs/2510.23819" target="_blank" rel="noopener">arXiv:2510.23819 →</a></p>
+        </div>
+        <div><span class="pub-status accepted">Accepted · Toronto, CA</span></div>
+      </article>
       <article class="pub">
         <div>
           <div class="venue">SMACD</div>
@@ -684,29 +712,33 @@
     <div class="section-head">
       <span class="eyebrow">Team &amp; Members</span>
       <h2>The people behind the silicon.</h2>
-      <p>A growing community of undergraduates and academics. Drop in real photos to replace the placeholders.</p>
+      <p>A growing community of undergraduates and academics.</p>
     </div>
 
     <div class="team-lead">
       <div class="lead-card">
-        <div class="avatar">KW<span class="ph-note">// photo</span></div>
+        <div class="avatar"><img src="assets/team/kithmin-wickremasinghe.jpg" alt="Kithmin Wickremasinghe" loading="lazy" /></div>
         <div>
           <h4>Kithmin Wickremasinghe</h4>
           <div class="role">FOUNDER · ADVISOR (MASc)</div>
           <p class="bio">Leads and supervises BRICD's research efforts, mentoring undergraduates through the full open-source IC design flow — from architecture to tape-out.</p>
           <div class="links">
-            <a href="https://www.linkedin.com/company/thebricd/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5V9h3v10zM6.5 7.7a1.8 1.8 0 1 1 0-3.5 1.8 1.8 0 0 1 0 3.5zM19 19h-3v-5.3c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V19h-3V9h2.9v1.4h.04A3.2 3.2 0 0 1 16 8.6c3 0 3.6 2 3.6 4.6V19z"/></svg></a>
+            <a href="https://www.kithminrw.com/" target="_blank" rel="noopener" aria-label="Website" title="Website"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5c2.6 2.8 3.9 6 3.9 9.5s-1.3 6.7-3.9 9.5c-2.6-2.8-3.9-6-3.9-9.5s1.3-6.7 3.9-9.5z"/></svg></a>
+            <a href="https://scholar.google.com/citations?hl=en&amp;user=R3hrTXIAAAAJ" target="_blank" rel="noopener" aria-label="Google Scholar" title="Google Scholar"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 1 9l4 2.5V17c0 2 3.1 4 7 4s7-2 7-4v-5.5l2-1.3V16h2V9L12 2zm0 2.4L19.3 9 12 13.6 4.7 9 12 4.4z"/></svg></a>
+            <a href="https://orcid.org/0000-0003-1822-649X" target="_blank" rel="noopener" aria-label="ORCID" title="ORCID"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5a10.5 10.5 0 1 0 0 21 10.5 10.5 0 0 0 0-21zM8.3 17.3H6.6V7.9h1.7v9.4zM7.4 6.8a1.1 1.1 0 1 1 0-2.2 1.1 1.1 0 0 1 0 2.2zm2.8 1.1h4c3 0 4.6 2.1 4.6 4.7 0 2.8-1.9 4.7-4.6 4.7h-4V7.9zm1.7 1.5v6.4h2.2c2.2 0 3-1.6 3-3.2 0-1.8-1.1-3.2-3-3.2h-2.2z"/></svg></a>
+            <a href="https://github.com/kithminrw" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.7.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C18 4.6 19 4.9 19 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg></a>
+            <a href="https://www.linkedin.com/in/kithminrw/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5V9h3v10zM6.5 7.7a1.8 1.8 0 1 1 0-3.5 1.8 1.8 0 0 1 0 3.5zM19 19h-3v-5.3c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V19h-3V9h2.9v1.4h.04A3.2 3.2 0 0 1 16 8.6c3 0 3.6 2 3.6 4.6V19z"/></svg></a>
           </div>
         </div>
       </div>
       <div class="lead-card">
-        <div class="avatar">AH<span class="ph-note">// photo</span></div>
+        <div class="avatar"><img src="assets/team/avishka-herath.jpg" alt="Avishka Herath" loading="lazy" /></div>
         <div>
           <h4>Avishka Herath</h4>
-          <div class="role">RESEARCHER · RF / MIXED-SIGNAL</div>
-          <p class="bio">Core contributor to BRICD's RF and mixed-signal work, including the 2.4&nbsp;GHz fractional-N PLL accepted at SMACD&nbsp;2026.</p>
+          <div class="role">RESEARCHER · ANALOG / MIXED-SIGNAL</div>
+          <p class="bio">Core contributor to BRICD's analog and mixed-signal work, including the 2.4&nbsp;GHz fractional-N PLL accepted at SMACD&nbsp;2026, and lead author of the ECG-PCG acquisition system accepted at IEEE EMBC&nbsp;2026.</p>
           <div class="links">
-            <a href="https://github.com/bricd-org" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.7.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C18 4.6 19 4.9 19 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg></a>
+            <a href="https://www.linkedin.com/in/avishka-herath/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5V9h3v10zM6.5 7.7a1.8 1.8 0 1 1 0-3.5 1.8 1.8 0 0 1 0 3.5zM19 19h-3v-5.3c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V19h-3V9h2.9v1.4h.04A3.2 3.2 0 0 1 16 8.6c3 0 3.6 2 3.6 4.6V19z"/></svg></a>
           </div>
         </div>
       </div>
@@ -799,15 +831,15 @@
         <div class="contact-list">
           <div class="contact-item">
             <div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></div>
-            <div><div class="ct">EMAIL</div><div class="cv"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="39515c555556795b4b505a5d17564b5e">[email&#160;protected]</a></div></div>
+            <div><div class="ct">EMAIL</div><div class="cv"><a href="mailto:bricd.org@gmail.com">bricd.org@gmail.com</a></div></div>
           </div>
           <div class="contact-item">
             <div class="ci"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5V9h3v10zM6.5 7.7a1.8 1.8 0 1 1 0-3.5 1.8 1.8 0 0 1 0 3.5zM19 19h-3v-5.3c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V19h-3V9h2.9v1.4h.04A3.2 3.2 0 0 1 16 8.6c3 0 3.6 2 3.6 4.6V19z"/></svg></div>
-            <div><div class="ct">LINKEDIN</div><div class="cv">@thebricd</div></div>
+            <div><div class="ct">LINKEDIN</div><div class="cv"><a href="https://www.linkedin.com/company/thebricd/" target="_blank" rel="noopener">@thebricd</a></div></div>
           </div>
           <div class="contact-item">
             <div class="ci"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.7.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C18 4.6 19 4.9 19 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg></div>
-            <div><div class="ct">GITHUB</div><div class="cv">github.com/bricd-org</div></div>
+            <div><div class="ct">GITHUB</div><div class="cv"><a href="https://github.com/bricd-org" target="_blank" rel="noopener">github.com/bricd-org</a></div></div>
           </div>
         </div>
       </div>
@@ -826,7 +858,7 @@
             <textarea id="cmsg" name="message" placeholder="Tell us about your interests in biomedical IC design…"></textarea>
           </div>
           <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Send message</button>
-          <p id="formNote" class="mono" style="font-size:12px;color:var(--muted-2);margin-top:14px;text-align:center;display:none;">Thanks — we'll be in touch. (Demo form: wire up to your inbox.)</p>
+          <p id="formNote" class="mono" style="font-size:12px;color:var(--muted-2);margin-top:14px;text-align:center;display:none;">Your email app should open with this message — just hit send. If it doesn't, write to bricd.org@gmail.com.</p>
         </form>
       </div>
     </div>
@@ -874,7 +906,7 @@
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   // ---- year ----
   document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -988,11 +1020,15 @@
   }
   tagReveals();
 
-  // ---- contact form (demo) ----
+  // ---- contact form: opens the visitor's mail client (static hosting has no backend) ----
   document.getElementById('contactForm').addEventListener('submit', function(e){
     e.preventDefault();
+    const val = id => document.getElementById(id).value.trim();
+    const name = val('cname'), email = val('cemail'), msg = val('cmsg');
+    const subject = 'BRICD enquiry' + (name ? ' from ' + name : '');
+    const body = msg + '\n\n— ' + name + (email ? ' <' + email + '>' : '');
+    window.location.href = 'mailto:bricd.org@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
     document.getElementById('formNote').style.display='block';
-    this.reset();
   });
 </script>
 </body>
