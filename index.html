@@ -226,6 +226,9 @@
   }
   .proj:hover{box-shadow:var(--shadow-hover);transform:translateY(-3px);border-color:var(--line-2);}
   .proj-fig{position:relative;min-height:280px;background:var(--panel-dark);overflow:hidden;}
+  .proj-fig > img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;}
+  .chip-thumb > img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;}
+  .news-card .more{margin-top:12px;font-family:"IBM Plex Mono",monospace;font-size:12px;}
   .proj-body{padding:34px 38px;}
   .proj-index{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--blue);letter-spacing:.12em;}
   .proj h3{font-size:25px;margin:8px 0 14px;line-height:1.25;}
@@ -459,7 +462,8 @@
         </a>
       </div>
       <div class="hero-meta">
-        <div class="stat"><div class="num">3</div><div class="lbl">research projects</div></div>
+        <div class="stat"><div class="num">4</div><div class="lbl">research projects</div></div>
+        <div class="stat"><div class="num">3</div><div class="lbl">tape-outs</div></div>
         <div class="stat"><div class="num">130nm</div><div class="lbl">open PDKs</div></div>
         <div class="stat"><div class="num">100%</div><div class="lbl">open-source flow</div></div>
       </div>
@@ -562,22 +566,58 @@
 
       <!-- Project 2 -->
       <article class="proj">
-        <div class="proj-fig">
-          <div class="ph">
-            <svg class="ph-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg>
-            <span class="ph-cap">LC-VCO PLL — layout (0.347 mm²)</span>
-            <span class="ph-note">drop layout / inductor render here</span>
-          </div>
+        <div class="proj-fig" style="background:#202020;">
+          <img src="assets/projects/pll-30m-layout.jpg" alt="Layout of the 30 MHz fractional-N PLL on IHP SG13G2" loading="lazy" />
         </div>
         <div class="proj-body">
           <span class="proj-index">PROJECT 02</span>
+          <h3>A 30&nbsp;MHz Charge-Pump Fractional-N PLL — Our First Tape-out on IHP 130&nbsp;nm BiCMOS</h3>
+          <p class="desc">A charge-pump type-II PLL that synthesizes programmable output frequencies from a 10&nbsp;MHz reference, using an 11-stage ring VCO and two 3-bit programmable dividers (f<sub>out</sub>&nbsp;=&nbsp;M/N&nbsp;×&nbsp;f<sub>ref</sub>). Designed over five months with Xschem, Ngspice, KLayout and KPEX, and submitted to the July&nbsp;2025 IHP OpenMPW shuttle — the team's first silicon tape-out.</p>
+          <div class="tags">
+            <span class="tag">IHP SG13G2 130nm</span>
+            <span class="tag">Charge-Pump PLL</span>
+            <span class="tag">Ring VCO</span>
+            <span class="tag">KPEX</span>
+            <span class="tag teal">IHP OpenMPW 2025</span>
+          </div>
+          <div class="specs">
+            <div class="s"><div class="v">10 MHz</div><div class="k">reference</div></div>
+            <div class="s"><div class="v">1.4–30</div><div class="k">MHz output</div></div>
+            <div class="s"><div class="v">3-bit</div><div class="k">M / N dividers</div></div>
+            <div class="s"><div class="v">130nm</div><div class="k">IHP SG13G2</div></div>
+          </div>
+          <div class="proj-links">
+            <a href="https://github.com/avishkaherath/TO_July2025/tree/main/30_MHz_Fractional_N_PLL" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.7.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C18 4.6 19 4.9 19 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
+              Repository
+            </a>
+            <a href="https://github.com/avishkaherath/TO_July2025/blob/main/30_MHz_Fractional_N_PLL/doc/source/designdata.rst" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 7h10M7 12h10M7 17h6"/></svg>
+              Design data
+            </a>
+            <a href="https://www.linkedin.com/feed/update/urn:li:activity:7364727582170284033/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5V9h3v10zM6.5 7.7a1.8 1.8 0 1 1 0-3.5 1.8 1.8 0 0 1 0 3.5zM19 19h-3v-5.3c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V19h-3V9h2.9v1.4h.04A3.2 3.2 0 0 1 16 8.6c3 0 3.6 2 3.6 4.6V19z"/></svg>
+              Tape-out announcement
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 3 -->
+      <article class="proj">
+        <div class="proj-fig" style="background:#000;">
+          <img src="assets/projects/pll-2g4-layout.jpg" alt="Layout of the 2.4 GHz LC-VCO fractional-N PLL with its 4 nH spiral inductor" loading="lazy" />
+        </div>
+        <div class="proj-body">
+          <span class="proj-index">PROJECT 03</span>
           <h3>A 2.4&nbsp;GHz LC-VCO Fractional-N Phase-Locked Loop in 130&nbsp;nm BiCMOS</h3>
-          <p class="desc">A type-II fractional-N PLL with a cross-coupled differential LC-VCO and a custom spiral inductor (4&nbsp;nH, Q&nbsp;=&nbsp;16.8) modelled in OpenEMS — the first fully open-source RF IC design demonstrating high-performance radios are achievable in the open CMOS ecosystem.</p>
+          <p class="desc">A type-II Δ-Σ fractional-N PLL with a cross-coupled differential LC-VCO and a custom spiral inductor (4&nbsp;nH, Q&nbsp;=&nbsp;16.8) modelled in OpenEMS — the first fully open-source RF IC design of its kind from Sri Lanka, demonstrating that high-performance radios are achievable in the open CMOS ecosystem. Published at SMACD&nbsp;2026 and submitted for fabrication through the UNIC-CASS 2025 program with full DRC, LVS and PEX sign-off.</p>
           <div class="tags">
             <span class="tag">IHP SG13G2 130nm</span>
             <span class="tag">Fractional-N PLL</span>
             <span class="tag">Δ-Σ Modulation</span>
             <span class="tag">OpenEMS</span>
+            <span class="tag">UNIC-CASS 2025</span>
             <span class="tag teal">SMACD 2026</span>
           </div>
           <div class="specs">
@@ -591,25 +631,29 @@
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.7.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C18 4.6 19 4.9 19 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
               Repository
             </a>
-            <a href="https://github.com/Manimohan05/SG13G2_2.4GHz_LC_VCO_FPLL#abstract" target="_blank" rel="noopener">
+            <a href="https://ieeexplore.ieee.org/document/11647761/" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 7h10M7 12h10M7 17h6"/></svg>
-              Read abstract
+              IEEE Xplore
+            </a>
+            <a href="https://arxiv.org/abs/2607.08852" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 7h10M7 12h10M7 17h6"/></svg>
+              arXiv
+            </a>
+            <a href="https://ent.uom.lk/2026/05/11/a-research-on-an-open-source-2-4-ghz-lc-vco-fractional-n-pll-in-130-nm-bicmos-accepted-for-publication-in-the-smacd-2026/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 5h16v14H4zM8 9h8M8 13h5"/></svg>
+              ENTC news
             </a>
           </div>
         </div>
       </article>
 
-      <!-- Project 3 -->
+      <!-- Project 4 -->
       <article class="proj">
-        <div class="proj-fig">
-          <div class="ph">
-            <svg class="ph-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 12h4l2-6 3 14 3-10 2 5h6"/></svg>
-            <span class="ph-cap">Fully-differential op-amp — Tiny Tapeout SKY25a</span>
-            <span class="ph-note">drop GDS render / chip photo here</span>
-          </div>
+        <div class="proj-fig" style="background:#000;">
+          <img src="assets/projects/ear-eeg-impedance-asic.jpg" alt="Block diagram of the planned electrode-skin impedance measurement ASIC" loading="lazy" />
         </div>
         <div class="proj-body">
-          <span class="proj-index">PROJECT 03</span>
+          <span class="proj-index">PROJECT 04</span>
           <h3>Dry-Contact Ear-EEG with Continuous Electrode-Skin Impedance Monitoring — and Its First Silicon</h3>
           <p class="desc">A dry-contact Ear-EEG system that injects a 1&nbsp;kHz stimulus through the driven-right-leg electrode to continuously track electrode-skin impedance mismatch, using it as the reference for online adaptive motion-artifact cancellation — accepted at IEEE BioCAS&nbsp;2026. As the first step toward integrating impedance measurement on chip, the team taped out a fully-differential two-stage op-amp (folded-cascode + common-source) on the Tiny&nbsp;Tapeout SKY25a shuttle; silicon has arrived and characterization is underway.</p>
           <div class="tags">
@@ -652,7 +696,7 @@
     <div class="section-head">
       <span class="eyebrow">Chip Gallery</span>
       <h2>Silicon we've taped out.</h2>
-      <p>Layouts, die micrographs and inductor renders from our open-source designs.</p>
+      <p>Layouts, 2.5D renders and design data from our open-source tape-outs — every one reproducible from the public repositories.</p>
     </div>
     <div class="gallery" id="gallery-grid">
       <!-- cards injected by JS -->
@@ -699,20 +743,10 @@
         </div>
         <div>
           <h4>A 2.4&nbsp;GHz LC-VCO Fractional-N Phase-Locked Loop Open-Source Design in 130&nbsp;nm BiCMOS</h4>
-          <p class="authors">M. Thiriloganathan, S. Ranasinghe, <b>A. Herath</b>, R. Rameshkumar, H. Marasinghe, A. Viduranga · Supervised by <b>K. Wickremasinghe</b> &amp; G. Leelarathne · Dept. of Electronic &amp; Telecommunication Engineering, University of Moratuwa</p>
+          <p class="authors"><b>M. Thiriloganathan</b>, <b>S. Ranasinghe</b>, <b>A. Herath</b>, <b>R. Rameshkumar</b>, <b>H. Marasinghe</b>, <b>A. Viduranga</b> · Supervised by <b>K. Wickremasinghe</b> &amp; <b>G. Leelarathne</b> · Intl. Conf. on Synthesis, Modeling, Analysis &amp; Simulation Methods and Applications to Circuit Design</p>
+          <p class="pub-links"><a href="https://ieeexplore.ieee.org/document/11647761/" target="_blank" rel="noopener">IEEE Xplore →</a> &nbsp; <a href="https://arxiv.org/abs/2607.08852" target="_blank" rel="noopener">arXiv:2607.08852 →</a> &nbsp; <a href="https://github.com/Manimohan05/SG13G2_2.4GHz_LC_VCO_FPLL" target="_blank" rel="noopener">GitHub →</a></p>
         </div>
-        <div><span class="pub-status accepted">Accepted · Dresden, DE</span></div>
-      </article>
-      <article class="pub">
-        <div>
-          <div class="venue">Open Project</div>
-          <div class="year">2024</div>
-        </div>
-        <div>
-          <h4>A 100&nbsp;kSPS 8-bit Fully-Differential SAR ADC for Low-Power Applications in 130&nbsp;nm SkyWater PDK</h4>
-          <p class="authors">BRICD research group · Open-source design &amp; verification in the SkyWater 130&nbsp;nm PDK</p>
-        </div>
-        <div><span class="pub-status prep">Open-source</span></div>
+        <div><span class="pub-status accepted">Published · Dresden, DE</span></div>
       </article>
       <article class="pub">
         <div>
@@ -725,6 +759,29 @@
           <p class="pub-links"><a href="https://tinytapeout.com/chips/ttsky25a/tt_um_diff" target="_blank" rel="noopener">Tiny Tapeout →</a> &nbsp; <a href="https://github.com/LohanAtapattu/ttsky25_EpitaXC" target="_blank" rel="noopener">GitHub →</a></p>
         </div>
         <div><span class="pub-status prep">Silicon received</span></div>
+      </article>
+      <article class="pub">
+        <div>
+          <div class="venue">IHP OpenMPW</div>
+          <div class="year">2025</div>
+        </div>
+        <div>
+          <h4>A 30&nbsp;MHz Charge-Pump Fractional-N PLL in IHP SG13G2 130&nbsp;nm BiCMOS</h4>
+          <p class="authors"><b>A. Herath</b>, <b>H. Marasinghe</b>, <b>M. Thiriloganathan</b>, N. Methsarani, U. Dilhara, Y. Amarasinghe, N. Kavinda · Mentored by <b>K. Wickremasinghe</b> · July 2025 IHP OpenMPW shuttle</p>
+          <p class="pub-links"><a href="https://github.com/avishkaherath/TO_July2025/tree/main/30_MHz_Fractional_N_PLL" target="_blank" rel="noopener">GitHub →</a></p>
+        </div>
+        <div><span class="pub-status prep">Tape-out</span></div>
+      </article>
+      <article class="pub">
+        <div>
+          <div class="venue">Open Project</div>
+          <div class="year">2024</div>
+        </div>
+        <div>
+          <h4>A 100&nbsp;kSPS 8-bit Fully-Differential SAR ADC for Low-Power Applications in 130&nbsp;nm SkyWater PDK</h4>
+          <p class="authors">BRICD research group · Open-source design &amp; verification in the SkyWater 130&nbsp;nm PDK</p>
+        </div>
+        <div><span class="pub-status prep">Open-source</span></div>
       </article>
     </div>
   </div>
@@ -796,21 +853,42 @@
       </article>
       <article class="news-card">
         <div class="date"><span class="dot"></span>Sep 2026</div>
+        <h4>2.4 GHz PLL taped out through UNIC-CASS 2025</h4>
+        <p>Our Δ-Σ fractional-N PLL with a cross-coupled LC-VCO and custom 4&nbsp;nH inductor has been submitted for fabrication in IHP SG13G2 via the UNIC-CASS program, after full DRC, LVS, PEX and post-layout verification.</p>
+        <div class="cat">Tape-out</div>
+      </article>
+      <article class="news-card">
+        <div class="date"><span class="dot"></span>Jul 2026</div>
         <h4>First silicon arrives from Tiny Tapeout SKY25a</h4>
         <p>Our fully-differential two-stage op-amp in SkyWater 130&nbsp;nm — the first analog building block toward on-chip impedance measurement — is back from the fab. Post-silicon characterization is underway.</p>
         <div class="cat">Silicon</div>
       </article>
       <article class="news-card">
-        <div class="date"><span class="dot"></span>2026</div>
+        <div class="date"><span class="dot"></span>Jul 2026</div>
+        <h4>PLL paper presented at SMACD 2026 &amp; published in IEEE Xplore</h4>
+        <p>Presented in Dresden, Germany (June 29 – July 2), the 2.4&nbsp;GHz LC-VCO fractional-N PLL paper is now available in IEEE Xplore, with every schematic, layout and simulation open on GitHub.</p>
+        <p class="more"><a href="https://ieeexplore.ieee.org/document/11647761/" target="_blank" rel="noopener">IEEE Xplore →</a></p>
+        <div class="cat">Publication</div>
+      </article>
+      <article class="news-card">
+        <div class="date"><span class="dot"></span>May 2026</div>
+        <h4>PLL paper accepted at SMACD 2026</h4>
+        <p>Our 2.4&nbsp;GHz fractional-N PLL was accepted for publication at SMACD 2026 — the first paper of its kind in Sri Lanka and the first RF IC design paper from ENTC, University of Moratuwa.</p>
+        <p class="more"><a href="https://ent.uom.lk/2026/05/11/a-research-on-an-open-source-2-4-ghz-lc-vco-fractional-n-pll-in-130-nm-bicmos-accepted-for-publication-in-the-smacd-2026/" target="_blank" rel="noopener">Read on ENTC news →</a></p>
+        <div class="cat">Research</div>
+      </article>
+      <article class="news-card">
+        <div class="date"><span class="dot"></span>Apr 2026</div>
         <h4>ECG-PCG system accepted at IEEE EMBC 2026</h4>
         <p>A simultaneous ECG-PCG acquisition system with real-time burst-adaptive noise cancellation, achieving 30&nbsp;dB+ SNR improvement on noisy hospital recordings, will appear at EMBC 2026 in Toronto.</p>
         <div class="cat">Research</div>
       </article>
       <article class="news-card">
-        <div class="date"><span class="dot"></span>2026</div>
-        <h4>PLL paper accepted at SMACD 2026</h4>
-        <p>Our 2.4&nbsp;GHz fractional-N PLL has been accepted for publication at SMACD 2026 in Dresden, Germany — the first RF IC design paper from ENTC, University of Moratuwa.</p>
-        <div class="cat">Research</div>
+        <div class="date"><span class="dot"></span>Jul 2025</div>
+        <h4>First tape-out: 30 MHz PLL on IHP OpenMPW</h4>
+        <p>Our first-ever IC tape-out — a charge-pump fractional-N PLL with programmable 3-bit dividers (1.4–30&nbsp;MHz) in IHP 130&nbsp;nm BiCMOS — was submitted to the July 2025 IHP OpenMPW shuttle after a five-month design effort.</p>
+        <p class="more"><a href="https://www.linkedin.com/feed/update/urn:li:activity:7364727582170284033/" target="_blank" rel="noopener">Announcement →</a></p>
+        <div class="cat">Tape-out</div>
       </article>
       <article class="news-card">
         <div class="date"><span class="dot"></span>2025</div>
@@ -850,6 +928,11 @@
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.7.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C18 4.6 19 4.9 19 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
             <div><div class="rn">SG13G2_2.4GHz_LC_VCO_FPLL</div><div class="rd">2.4 GHz fractional-N PLL · IHP 130nm BiCMOS</div></div>
             <span class="rmeta">RF</span>
+          </a>
+          <a class="repo" href="https://github.com/avishkaherath/TO_July2025/tree/main/30_MHz_Fractional_N_PLL" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.7.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C18 4.6 19 4.9 19 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
+            <div><div class="rn">TO_July2025 / 30_MHz_Fractional_N_PLL</div><div class="rd">Charge-pump PLL · IHP OpenMPW 2025</div></div>
+            <span class="rmeta">Mixed</span>
           </a>
           <a class="repo" href="https://github.com/LohanAtapattu/ttsky25_EpitaXC" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.7.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C18 4.6 19 4.9 19 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
@@ -988,33 +1071,23 @@
   })();
 
   // ---- chip gallery ----
+  // t: title · d: detail · src: image · bg: frame colour behind the image
   const chips = [
-    {t:'SAR ADC core', d:'8-bit · 130nm', ic:'M9 13h2l1-3 1 5 1-2h1', ico:'rect'},
-    {t:'LC-VCO + spiral inductor', d:'4 nH · Q 16.8', ic:'', ico:'ring'},
-    {t:'Fractional-N PLL layout', d:'0.347 mm²', ic:'', ico:'die'},
-    {t:'Fully-differential op-amp', d:'TT SKY25a tile', ic:'', ico:'wave'},
-    {t:'Charge pump & loop filter', d:'150 µA', ic:'', ico:'rect'},
-    {t:'Bandgap reference', d:'1.8 V', ic:'', ico:'ring'},
-    {t:'Δ-Σ modulator', d:'MMD 240–248', ic:'', ico:'die'},
-    {t:'Bio-impedance AFE', d:'EIS path', ic:'', ico:'wave'}
+    {t:'UNIC-CASS chip — full layout', d:'2.4 GHz PLL · IHP SG13G2', src:'assets/gallery/unic-cass-chip-fillers.jpg', bg:'#000'},
+    {t:'UNIC-CASS chip — 2.5D view', d:'Pad ring + PLL core', src:'assets/gallery/unic-cass-chip-2p5d.jpg', bg:'#000'},
+    {t:'2.4 GHz LC-VCO PLL', d:'0.347 mm² · 2.5D render', src:'assets/gallery/pll-2g4-oblique.jpg', bg:'#000'},
+    {t:'4 nH octagonal spiral inductor', d:'Q 16.8 @ 2.45 GHz · OpenEMS', src:'assets/gallery/inductor-4nh-lq.jpg', bg:'#fff'},
+    {t:'Δ-Σ modulator + divider', d:'Digital block · KLayout render', src:'assets/gallery/dsm-freq-divider.jpg', bg:'#fff'},
+    {t:'30 MHz fractional-N PLL', d:'IHP OpenMPW · Jul 2025', src:'assets/gallery/pll-30m-chip.jpg', bg:'#202020'},
+    {t:'11-stage ring VCO', d:'30 MHz PLL · layout', src:'assets/gallery/ring-vco-11stage.jpg', bg:'#202020'},
+    {t:'Fully-differential op-amp', d:'Tiny Tapeout SKY25a', src:'assets/gallery/opamp-folded-cascode.jpg', bg:'#000'}
   ];
-  const icons = {
-    rect:'<rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 4V2M16 4V2M8 22v-2M16 22v-2M4 8H2M4 16H2M22 8h-2M22 16h-2"/>',
-    ring:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/>',
-    die:'<rect x="3" y="3" width="18" height="18" rx="2"/><rect x="8" y="8" width="8" height="8" rx="1"/>',
-    wave:'<path d="M2 12h4l2-6 3 14 3-10 2 5h6"/>'
-  };
   const gg = document.getElementById('gallery-grid');
   chips.forEach(c => {
     const el = document.createElement('div');
     el.className = 'chip-card reveal';
     el.innerHTML = `
-      <div class="chip-thumb">
-        <div class="ph">
-          <svg class="ph-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">${icons[c.ico]}</svg>
-          <span class="ph-note">image</span>
-        </div>
-      </div>
+      <div class="chip-thumb" style="background:${c.bg}"><img src="${c.src}" alt="${c.t}" loading="lazy" /></div>
       <div class="chip-meta"><div class="t">${c.t}</div><div class="d">${c.d}</div></div>`;
     gg.appendChild(el);
   });
