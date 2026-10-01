@@ -295,6 +295,9 @@
   .member{display:flex;align-items:center;gap:13px;background:#fff;border:1px solid var(--line);border-radius:9px;padding:14px 15px;transition:.2s;}
   .member:hover{border-color:var(--blue);background:var(--blue-l);}
   .m-av{width:42px;height:42px;border-radius:8px;flex:0 0 auto;background:linear-gradient(160deg,#1f5fa6,#16467d);display:grid;place-items:center;color:#fff;font-family:"Spectral",serif;font-size:16px;font-weight:600;}
+  .m-av{overflow:hidden;}
+  .m-av img{width:100%;height:100%;object-fit:cover;display:block;}
+  a.member{color:inherit;}
   .member .mn{font-size:14.5px;font-weight:600;color:var(--navy);line-height:1.2;}
   .member .mr{font-size:12px;color:var(--muted-2);font-family:"IBM Plex Mono",monospace;}
 
@@ -601,31 +604,39 @@
         <div class="proj-fig">
           <div class="ph">
             <svg class="ph-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 12h4l2-6 3 14 3-10 2 5h6"/></svg>
-            <span class="ph-cap">Ear-EEG ASIC — Tiny Tapeout tile</span>
+            <span class="ph-cap">Fully-differential op-amp — Tiny Tapeout SKY25a</span>
             <span class="ph-note">drop GDS render / chip photo here</span>
           </div>
         </div>
         <div class="proj-body">
           <span class="proj-index">PROJECT 03</span>
-          <h3>A CMOS ASIC for Electrode-Skin Impedance Measurement &amp; Motion-Artifact Removal in Ear-EEG</h3>
-          <p class="desc">A mixed-signal front-end that simultaneously measures electrode-skin impedance and removes motion artifacts for wearable ear-EEG platforms — submitted to the SkyWater 130&nbsp;nm Tiny&nbsp;Tapeout 2025 (ttsky25) open shuttle as the "EpitaXC" tile.</p>
+          <h3>Dry-Contact Ear-EEG with Continuous Electrode-Skin Impedance Monitoring — and Its First Silicon</h3>
+          <p class="desc">A dry-contact Ear-EEG system that injects a 1&nbsp;kHz stimulus through the driven-right-leg electrode to continuously track electrode-skin impedance mismatch, using it as the reference for online adaptive motion-artifact cancellation — accepted at IEEE BioCAS&nbsp;2026. As the first step toward integrating impedance measurement on chip, the team taped out a fully-differential two-stage op-amp (folded-cascode + common-source) on the Tiny&nbsp;Tapeout SKY25a shuttle; silicon has arrived and characterization is underway.</p>
           <div class="tags">
             <span class="tag">SkyWater 130nm</span>
-            <span class="tag">Tiny Tapeout ttsky25</span>
+            <span class="tag">Tiny Tapeout SKY25a</span>
             <span class="tag">Ear-EEG</span>
-            <span class="tag">Bio-Impedance</span>
-            <span class="tag teal">Motion-Artifact Removal</span>
+            <span class="tag">Fully-Differential Op-Amp</span>
+            <span class="tag teal">BioCAS 2026</span>
           </div>
           <div class="specs">
-            <div class="s"><div class="v">Ear-EEG</div><div class="k">target platform</div></div>
-            <div class="s"><div class="v">EIS</div><div class="k">impedance sensing</div></div>
-            <div class="s"><div class="v">MAR</div><div class="k">artifact removal</div></div>
+            <div class="s"><div class="v">12.6 dB</div><div class="k">artifact reduction</div></div>
+            <div class="s"><div class="v">1 kHz</div><div class="k">DRL stimulus</div></div>
+            <div class="s"><div class="v">1.8 V</div><div class="k">op-amp supply</div></div>
             <div class="s"><div class="v">130nm</div><div class="k">SkyWater PDK</div></div>
           </div>
           <div class="proj-links">
             <a href="https://github.com/LohanAtapattu/ttsky25_EpitaXC" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.7.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C18 4.6 19 4.9 19 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
               Repository
+            </a>
+            <a href="https://tinytapeout.com/chips/ttsky25a/tt_um_diff" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg>
+              Tiny Tapeout page
+            </a>
+            <a href="https://arxiv.org/abs/2609.02777" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 7h10M7 12h10M7 17h6"/></svg>
+              BioCAS preprint
             </a>
           </div>
         </div>
@@ -657,6 +668,18 @@
       <h2>Peer-reviewed &amp; open work.</h2>
     </div>
     <div class="pubs">
+      <article class="pub">
+        <div>
+          <div class="venue">IEEE BioCAS</div>
+          <div class="year">2026</div>
+        </div>
+        <div>
+          <h4>A Dry-Contact Ear-EEG System With Continuous Electrode-Skin Impedance Mismatch Monitoring for Motion Artifact Cancellation Using DRL Stimulus</h4>
+          <p class="authors"><b>L. Atapattu</b>, <b>S. Madugalle</b>, <b>I. Nethmal</b>, <b>E. Jayathilaka</b>, <b>A. Herath</b>, <b>K. Wickremasinghe</b>, S. L. Kappel, N. Udayanga, C. U. S. Edussooriya · IEEE Biomedical Circuits and Systems Conference</p>
+          <p class="pub-links"><a href="https://arxiv.org/abs/2609.02777" target="_blank" rel="noopener">arXiv:2609.02777 →</a></p>
+        </div>
+        <div><span class="pub-status accepted">Accepted · Incheon, KR</span></div>
+      </article>
       <article class="pub">
         <div>
           <div class="venue">IEEE EMBC</div>
@@ -697,10 +720,11 @@
           <div class="year">2025</div>
         </div>
         <div>
-          <h4>EpitaXC — A CMOS ASIC for Electrode-Skin Impedance Measurement &amp; Motion-Artifact Removal in Ear-EEG</h4>
-          <p class="authors"><b>L. Atapattu</b> · BRICD research group · SkyWater 130&nbsp;nm Tiny Tapeout 2025 (ttsky25) shuttle</p>
+          <h4>EpitaXC — A Fully-Differential Two-Stage Operational Amplifier in SkyWater 130&nbsp;nm</h4>
+          <p class="authors"><b>L. Atapattu</b> · BRICD Ear-EEG team · Tiny Tapeout SKY25a shuttle</p>
+          <p class="pub-links"><a href="https://tinytapeout.com/chips/ttsky25a/tt_um_diff" target="_blank" rel="noopener">Tiny Tapeout →</a> &nbsp; <a href="https://github.com/LohanAtapattu/ttsky25_EpitaXC" target="_blank" rel="noopener">GitHub →</a></p>
         </div>
-        <div><span class="pub-status prep">Tape-out</span></div>
+        <div><span class="pub-status prep">Silicon received</span></div>
       </article>
     </div>
   </div>
@@ -744,6 +768,11 @@
       </div>
     </div>
 
+    <div class="members-block" style="margin-bottom:36px;">
+      <h4 class="sub">Research Mentors</h4>
+      <div class="members" id="mentors-grid"></div>
+    </div>
+
     <div class="members-block">
       <h4 class="sub">Researchers &amp; Contributors</h4>
       <div class="members" id="members-grid"></div>
@@ -760,6 +789,24 @@
     </div>
     <div class="news">
       <article class="news-card">
+        <div class="date"><span class="dot"></span>Sep 2026</div>
+        <h4>Ear-EEG paper accepted at IEEE BioCAS 2026</h4>
+        <p>Our dry-contact Ear-EEG system with continuous electrode-skin impedance mismatch monitoring for motion-artifact cancellation will be presented at BioCAS 2026 in Incheon, Korea (Oct 8–10).</p>
+        <div class="cat">Research</div>
+      </article>
+      <article class="news-card">
+        <div class="date"><span class="dot"></span>Sep 2026</div>
+        <h4>First silicon arrives from Tiny Tapeout SKY25a</h4>
+        <p>Our fully-differential two-stage op-amp in SkyWater 130&nbsp;nm — the first analog building block toward on-chip impedance measurement — is back from the fab. Post-silicon characterization is underway.</p>
+        <div class="cat">Silicon</div>
+      </article>
+      <article class="news-card">
+        <div class="date"><span class="dot"></span>2026</div>
+        <h4>ECG-PCG system accepted at IEEE EMBC 2026</h4>
+        <p>A simultaneous ECG-PCG acquisition system with real-time burst-adaptive noise cancellation, achieving 30&nbsp;dB+ SNR improvement on noisy hospital recordings, will appear at EMBC 2026 in Toronto.</p>
+        <div class="cat">Research</div>
+      </article>
+      <article class="news-card">
         <div class="date"><span class="dot"></span>2026</div>
         <h4>PLL paper accepted at SMACD 2026</h4>
         <p>Our 2.4&nbsp;GHz fractional-N PLL has been accepted for publication at SMACD 2026 in Dresden, Germany — the first RF IC design paper from ENTC, University of Moratuwa.</p>
@@ -767,8 +814,8 @@
       </article>
       <article class="news-card">
         <div class="date"><span class="dot"></span>2025</div>
-        <h4>Ear-EEG ASIC submitted to Tiny Tapeout</h4>
-        <p>The "EpitaXC" front-end for electrode-skin impedance measurement and motion-artifact removal joined the SkyWater 130&nbsp;nm Tiny Tapeout 2025 open shuttle.</p>
+        <h4>Op-amp submitted to Tiny Tapeout SKY25a</h4>
+        <p>"EpitaXC", a fully-differential folded-cascode op-amp for our Ear-EEG impedance-sensing work, joined the SkyWater 130&nbsp;nm Tiny Tapeout SKY25a open shuttle.</p>
         <div class="cat">Tape-out</div>
       </article>
       <article class="news-card">
@@ -806,7 +853,7 @@
           </a>
           <a class="repo" href="https://github.com/LohanAtapattu/ttsky25_EpitaXC" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.7.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C18 4.6 19 4.9 19 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
-            <div><div class="rn">ttsky25_EpitaXC</div><div class="rd">Ear-EEG impedance &amp; motion-artifact ASIC</div></div>
+            <div><div class="rn">ttsky25_EpitaXC</div><div class="rd">Fully-differential op-amp · Tiny Tapeout SKY25a</div></div>
             <span class="rmeta">Bio</span>
           </a>
           <a class="repo" href="https://github.com/bricd-org" target="_blank" rel="noopener">
@@ -945,7 +992,7 @@
     {t:'SAR ADC core', d:'8-bit · 130nm', ic:'M9 13h2l1-3 1 5 1-2h1', ico:'rect'},
     {t:'LC-VCO + spiral inductor', d:'4 nH · Q 16.8', ic:'', ico:'ring'},
     {t:'Fractional-N PLL layout', d:'0.347 mm²', ic:'', ico:'die'},
-    {t:'Ear-EEG front-end', d:'ttsky25 tile', ic:'', ico:'wave'},
+    {t:'Fully-differential op-amp', d:'TT SKY25a tile', ic:'', ico:'wave'},
     {t:'Charge pump & loop filter', d:'150 µA', ic:'', ico:'rect'},
     {t:'Bandgap reference', d:'1.8 V', ic:'', ico:'ring'},
     {t:'Δ-Σ modulator', d:'MMD 240–248', ic:'', ico:'die'},
@@ -972,24 +1019,36 @@
     gg.appendChild(el);
   });
 
-  // ---- members ----
+  // ---- mentors & members ----
+  // n: name · r: role · u: profile link · p: photo (assets/team/...), optional
+  const mentors = [
+    {n:'Lohan Atapattu', r:'Ear-EEG · Op-Amp Tape-out', u:'https://www.linkedin.com/in/lohan-atapattu-403171241/', p:'assets/team/lohan-atapattu.jpg'},
+    {n:'Imasha Nethmal', r:'Ear-EEG · BioCAS 2026', u:'https://www.linkedin.com/in/imasha-nethmal/', p:'assets/team/imasha-nethmal.jpg'},
+    {n:'Sajitha Madugalle', r:'Ear-EEG · BioCAS 2026', u:'https://www.linkedin.com/in/sajitha-madugalle/', p:'assets/team/sajitha-madugalle.jpg'},
+    {n:'Erandee Jayathilaka', r:'Ear-EEG · BioCAS 2026', u:'https://www.linkedin.com/in/erandee-jayathilaka-6523002b1/', p:'assets/team/erandee-jayathilaka.jpg'},
+  ];
   const members = [
-    {n:'Manimohan Thiriloganathan', r:'RF / PLL'},
-    {n:'Shenal Ranasinghe', r:'Mixed-Signal'},
-    {n:'Rajinthan Rameshkumar', r:'Layout / Verif.'},
-    {n:'Hansa Marasinghe', r:'Circuit Design'},
-    {n:'Anjana Viduranga', r:'Simulation'},
-    {n:'Lohan Atapattu', r:'Bio-Sensing ASIC'},
-    {n:'Gayangana Leelarathne', r:'Co-Supervisor'},
+    {n:'Manimohan Thiriloganathan', r:'RF / PLL', u:'https://www.linkedin.com/in/tmanimohan/'},
+    {n:'Shenal Ranasinghe', r:'Mixed-Signal', u:'https://www.linkedin.com/in/shenal-ranasinghe-4a5684207/'},
+    {n:'Rajinthan Rameshkumar', r:'Layout / Verif.', u:'https://www.linkedin.com/in/rajinthan/'},
+    {n:'Hansa Marasinghe', r:'Circuit Design', u:'https://www.linkedin.com/in/hansa-marasinghe-092487b9/'},
+    {n:'Anjana Viduranga', r:'Simulation', u:'https://www.linkedin.com/in/anjana-viduranga-292153292/'},
+    {n:'Gayangana Leelarathne', r:'Co-Supervisor', u:'https://www.linkedin.com/in/gayangana-leelarathne/'},
   ];
   const initials = n => n.split(' ').map(w=>w[0]).slice(0,2).join('');
-  const mg = document.getElementById('members-grid');
-  members.forEach(m => {
-    const el = document.createElement('div');
-    el.className = 'member';
-    el.innerHTML = `<div class="m-av">${initials(m.n)}</div><div><div class="mn">${m.n}</div><div class="mr">${m.r}</div></div>`;
-    mg.appendChild(el);
-  });
+  function renderPeople(list, gridId){
+    const grid = document.getElementById(gridId);
+    list.forEach(m => {
+      const el = document.createElement(m.u ? 'a' : 'div');
+      el.className = 'member';
+      if(m.u){ el.href = m.u; el.target = '_blank'; el.rel = 'noopener'; el.title = m.n + ' on LinkedIn'; }
+      const av = m.p ? `<img src="${m.p}" alt="${m.n}" loading="lazy" />` : initials(m.n);
+      el.innerHTML = `<div class="m-av">${av}</div><div><div class="mn">${m.n}</div><div class="mr">${m.r}</div></div>`;
+      grid.appendChild(el);
+    });
+  }
+  renderPeople(mentors, 'mentors-grid');
+  renderPeople(members, 'members-grid');
 
   // ---- active nav on scroll ----
   const sections = ['about','projects','gallery','publications','team','news','contact'];
