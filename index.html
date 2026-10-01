@@ -705,11 +705,8 @@
 
       <!-- Project 5 -->
       <article class="proj">
-        <div class="proj-fig">
-          <div class="ph">
-            <svg class="ph-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 12h4l2-6 3 14 3-10 2 5h6"/></svg>
-            <span class="ph-cap">ECG-PCG acquisition device</span>
-          </div>
+        <div class="proj-fig" style="background:#d1dad9;">
+          <img src="assets/projects/intelliscope-device.jpg" alt="Intelliscope ECG-PCG device: PCB with stethoscope diaphragm in its 3D-printed enclosure" loading="lazy" />
         </div>
         <div class="proj-body">
           <span class="proj-index">PROJECT 05</span>
@@ -1332,14 +1329,14 @@
   // ---- chip gallery ----
   // t: title · d: detail · src: image · bg: frame colour behind the image
   const chips = [
+    {t:'Our SKY25a silicon has arrived', d:'Tiny Tapeout ETR demo board · Jul 2026', src:'assets/gallery/tt-sky25a-silicon-kit.jpg', bg:'#fff'},
     {t:'SKY25a die photo — first silicon', d:'Received Jul 2026 · EpitaXC tile boxed', src:'assets/gallery/tt-sky25a-die-photo.jpg', bg:'#fff'},
     {t:'Tiny Tapeout SKY25a chip', d:'Full-chip layout · our tile highlighted', src:'assets/gallery/tt-sky25a-chip-layout.jpg', bg:'#fff'},
     {t:'UNIC-CASS chip — full layout', d:'2.4 GHz PLL · IHP SG13G2', src:'assets/gallery/unic-cass-chip-fillers.jpg', bg:'#000'},
     {t:'Fully-differential I/Q multiplier', d:'IHP SG13G2 · UNIC-CASS 2025', src:'assets/gallery/iq-multiplier-ihp-layout.jpg', bg:'#fff'},
     {t:'2.4 GHz LC-VCO PLL', d:'0.347 mm² · 2.5D render', src:'assets/gallery/pll-2g4-oblique.jpg', bg:'#000'},
     {t:'8-bit SAR ADC chip', d:'chipIgnite · SKY130 · Nov 2024', src:'assets/gallery/sar-adc-chipignite-layout.jpg', bg:'#fff'},
-    {t:'30 MHz fractional-N PLL', d:'IHP OpenMPW · Jul 2025', src:'assets/gallery/pll-30m-chip.jpg', bg:'#202020'},
-    {t:'11-stage ring VCO', d:'30 MHz PLL · layout', src:'assets/gallery/ring-vco-11stage.jpg', bg:'#202020'}
+    {t:'30 MHz fractional-N PLL', d:'IHP OpenMPW · Jul 2025', src:'assets/gallery/pll-30m-chip.jpg', bg:'#202020'}
   ];
   const gg = document.getElementById('gallery-grid');
   chips.forEach(c => {
