@@ -228,6 +228,8 @@
   .proj-fig{position:relative;min-height:280px;background:var(--panel-dark);overflow:hidden;}
   .proj-fig > img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;}
   .chip-thumb > img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;}
+  .news.collapsed .news-card:nth-child(n+7){display:none;}
+  .news-more{text-align:center;margin-top:32px;}
   .news-card .more{margin-top:12px;font-family:"IBM Plex Mono",monospace;font-size:12px;}
   .proj-body{padding:34px 38px;}
   .proj-index{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--blue);letter-spacing:.12em;}
@@ -462,8 +464,8 @@
         </a>
       </div>
       <div class="hero-meta">
-        <div class="stat"><div class="num">4</div><div class="lbl">research projects</div></div>
-        <div class="stat"><div class="num">3</div><div class="lbl">tape-outs</div></div>
+        <div class="stat"><div class="num">5</div><div class="lbl">research projects</div></div>
+        <div class="stat"><div class="num">4</div><div class="lbl">tape-outs</div></div>
         <div class="stat"><div class="num">130nm</div><div class="lbl">open PDKs</div></div>
         <div class="stat"><div class="num">100%</div><div class="lbl">open-source flow</div></div>
       </div>
@@ -532,33 +534,34 @@
 
       <!-- Project 1 -->
       <article class="proj">
-        <div class="proj-fig">
-          <div class="ph">
-            <svg class="ph-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 4V2M16 4V2M8 22v-2M16 22v-2M4 8H2M4 16H2M22 8h-2M22 16h-2"/><path d="M9 13h2l1-3 1 5 1-2h1"/></svg>
-            <span class="ph-cap">SAR ADC — die micrograph</span>
-            <span class="ph-note">drop chip photo / layout here</span>
-          </div>
+        <div class="proj-fig" style="background:#fff;">
+          <img src="assets/projects/sar-adc-architecture.jpg" alt="Fully-differential SAR ADC architecture: binary-weighted capacitor arrays, auto-zeroed comparator and SAR logic" loading="lazy" />
         </div>
         <div class="proj-body">
           <span class="proj-index">PROJECT 01</span>
           <h3>A 100&nbsp;kSPS 8-bit Fully-Differential SAR ADC for Low-Power Applications</h3>
-          <p class="desc">A compact successive-approximation register ADC designed for low-power biomedical data acquisition, implemented entirely in the open-source SkyWater 130&nbsp;nm PDK with a fully differential signal path for improved noise and supply rejection.</p>
+          <p class="desc">A charge-redistribution SAR ADC with binary-weighted capacitor arrays, an auto-zeroed pre-amplifier and regenerative latch comparator, and digital SAR logic — aimed at battery- or RF-powered IoT and wearable/implantable medical devices. Built from scratch by ENTC undergraduates in ten weeks with Xschem, Ngspice, Netgen, OpenLane, Magic and KLayout, and submitted to the Efabless chipIgnite shuttle through the IEEE CASS UNIC-CASS 2024 program — ENTC's first CMOS tape-out.</p>
           <div class="tags">
             <span class="tag">SkyWater 130nm</span>
-            <span class="tag">SAR Architecture</span>
+            <span class="tag">Charge-Redistribution SAR</span>
             <span class="tag">Fully-Differential</span>
-            <span class="tag teal">Open-Source EDA</span>
+            <span class="tag">chipIgnite</span>
+            <span class="tag teal">UNIC-CASS 2024</span>
           </div>
           <div class="specs">
             <div class="s"><div class="v">8-bit</div><div class="k">resolution</div></div>
             <div class="s"><div class="v">100 kSPS</div><div class="k">sample rate</div></div>
-            <div class="s"><div class="v">Diff.</div><div class="k">signal path</div></div>
-            <div class="s"><div class="v">130nm</div><div class="k">SkyWater PDK</div></div>
+            <div class="s"><div class="v">7.5 bit</div><div class="k">target ENOB</div></div>
+            <div class="s"><div class="v">1.8 V</div><div class="k">AVDD / DVDD</div></div>
           </div>
           <div class="proj-links">
-            <a href="https://www.linkedin.com/feed/update/urn:li:activity:7263060939707461633" target="_blank" rel="noopener">
+            <a href="https://github.com/SkillSurf/8b-sar-adc-unic_cass" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.7.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C18 4.6 19 4.9 19 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
+              Repository
+            </a>
+            <a href="https://www.linkedin.com/feed/update/urn:li:activity:7263060939707461633/" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5V9h3v10zM6.5 7.7a1.8 1.8 0 1 1 0-3.5 1.8 1.8 0 0 1 0 3.5zM19 19h-3v-5.3c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V19h-3V9h2.9v1.4h.04A3.2 3.2 0 0 1 16 8.6c3 0 3.6 2 3.6 4.6V19z"/></svg>
-              Project announcement
+              Tape-out announcement
             </a>
           </div>
         </div>
@@ -571,8 +574,8 @@
         </div>
         <div class="proj-body">
           <span class="proj-index">PROJECT 02</span>
-          <h3>A 30&nbsp;MHz Charge-Pump Fractional-N PLL — Our First Tape-out on IHP 130&nbsp;nm BiCMOS</h3>
-          <p class="desc">A charge-pump type-II PLL that synthesizes programmable output frequencies from a 10&nbsp;MHz reference, using an 11-stage ring VCO and two 3-bit programmable dividers (f<sub>out</sub>&nbsp;=&nbsp;M/N&nbsp;×&nbsp;f<sub>ref</sub>). Designed over five months with Xschem, Ngspice, KLayout and KPEX, and submitted to the July&nbsp;2025 IHP OpenMPW shuttle — the team's first silicon tape-out.</p>
+          <h3>A 30&nbsp;MHz Charge-Pump Fractional-N PLL — Our First IHP BiCMOS Tape-out</h3>
+          <p class="desc">A charge-pump type-II PLL that synthesizes programmable output frequencies from a 10&nbsp;MHz reference, using an 11-stage ring VCO and two 3-bit programmable dividers (f<sub>out</sub>&nbsp;=&nbsp;M/N&nbsp;×&nbsp;f<sub>ref</sub>). Designed over five months with Xschem, Ngspice, KLayout and KPEX, and submitted to the July&nbsp;2025 IHP OpenMPW shuttle — the team's first tape-out in the IHP 130&nbsp;nm BiCMOS open PDK.</p>
           <div class="tags">
             <span class="tag">IHP SG13G2 130nm</span>
             <span class="tag">Charge-Pump PLL</span>
@@ -649,13 +652,13 @@
 
       <!-- Project 4 -->
       <article class="proj">
-        <div class="proj-fig" style="background:#000;">
-          <img src="assets/projects/ear-eeg-impedance-asic.jpg" alt="Block diagram of the planned electrode-skin impedance measurement ASIC" loading="lazy" />
+        <div class="proj-fig" style="background:#fff;">
+          <img src="assets/projects/epitaxc-tile-layout.jpg" alt="Layout of the EpitaXC fully-differential op-amp tile on Tiny Tapeout SKY25a" loading="lazy" />
         </div>
         <div class="proj-body">
           <span class="proj-index">PROJECT 04</span>
           <h3>Dry-Contact Ear-EEG with Continuous Electrode-Skin Impedance Monitoring — and Its First Silicon</h3>
-          <p class="desc">A dry-contact Ear-EEG system that injects a 1&nbsp;kHz stimulus through the driven-right-leg electrode to continuously track electrode-skin impedance mismatch, using it as the reference for online adaptive motion-artifact cancellation — accepted at IEEE BioCAS&nbsp;2026. As the first step toward integrating impedance measurement on chip, the team taped out a fully-differential two-stage op-amp (folded-cascode + common-source) on the Tiny&nbsp;Tapeout SKY25a shuttle; silicon has arrived and characterization is underway.</p>
+          <p class="desc">A dry-contact Ear-EEG system that injects a 1&nbsp;kHz stimulus through the driven-right-leg electrode to continuously track electrode-skin impedance mismatch, using it as the reference for online adaptive motion-artifact cancellation — accepted at IEEE BioCAS&nbsp;2026. As the first step toward integrating impedance measurement on chip, the team — Lohan Atapattu, Sajitha Madugalle, Imasha Nethmal and Erandee Jayathilaka — taped out a fully-differential two-stage op-amp (folded-cascode + common-source) on the Tiny&nbsp;Tapeout SKY25a shuttle; silicon has arrived and characterization is underway.</p>
           <div class="tags">
             <span class="tag">SkyWater 130nm</span>
             <span class="tag">Tiny Tapeout SKY25a</span>
@@ -681,6 +684,49 @@
             <a href="https://arxiv.org/abs/2609.02777" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 7h10M7 12h10M7 17h6"/></svg>
               BioCAS preprint
+            </a>
+            <a href="https://www.linkedin.com/feed/update/urn:li:activity:7373977419713744896/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5V9h3v10zM6.5 7.7a1.8 1.8 0 1 1 0-3.5 1.8 1.8 0 0 1 0 3.5zM19 19h-3v-5.3c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V19h-3V9h2.9v1.4h.04A3.2 3.2 0 0 1 16 8.6c3 0 3.6 2 3.6 4.6V19z"/></svg>
+              Tape-out announcement
+            </a>
+          </div>
+        </div>
+      </article>
+
+
+      <!-- Project 5 -->
+      <article class="proj">
+        <div class="proj-fig">
+          <div class="ph">
+            <svg class="ph-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 12h4l2-6 3 14 3-10 2 5h6"/></svg>
+            <span class="ph-cap">ECG-PCG acquisition device</span>
+          </div>
+        </div>
+        <div class="proj-body">
+          <span class="proj-index">PROJECT 05</span>
+          <h3>Intelliscope: A Simultaneous ECG-PCG Screening Tool for Cardiovascular Disease in Resource-Constrained Settings</h3>
+          <p class="desc">An end-to-end dual-modality device that records electrocardiogram and phonocardiogram signals together, with a real-time burst-adaptive NLMS noise-cancellation pipeline light enough for embedded hardware. Validated on real recordings from noisy hospital wards, it improved SNR by 30.32&nbsp;dB (ECG) and 37.01&nbsp;dB (PCG). Accepted at IEEE EMBC&nbsp;2026 and winner of the 2025 SLAAS Manamperi Main Award for the best inter-university final-year engineering project in Sri Lanka.</p>
+          <div class="tags">
+            <span class="tag">ECG + PCG</span>
+            <span class="tag">Adaptive Noise Cancellation</span>
+            <span class="tag">Embedded</span>
+            <span class="tag">Manamperi Award 2025</span>
+            <span class="tag teal">EMBC 2026</span>
+          </div>
+          <div class="specs">
+            <div class="s"><div class="v">30.3 dB</div><div class="k">ECG SNR gain</div></div>
+            <div class="s"><div class="v">37.0 dB</div><div class="k">PCG SNR gain</div></div>
+            <div class="s"><div class="v">2</div><div class="k">modalities</div></div>
+            <div class="s"><div class="v">Real-time</div><div class="k">on-device</div></div>
+          </div>
+          <div class="proj-links">
+            <a href="https://arxiv.org/abs/2510.23819" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 7h10M7 12h10M7 17h6"/></svg>
+              EMBC preprint
+            </a>
+            <a href="https://www.linkedin.com/posts/avishka-herath_research-entc-uom-ugcPost-7407672514522411009-c7jY" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5V9h3v10zM6.5 7.7a1.8 1.8 0 1 1 0-3.5 1.8 1.8 0 0 1 0 3.5zM19 19h-3v-5.3c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V19h-3V9h2.9v1.4h.04A3.2 3.2 0 0 1 16 8.6c3 0 3.6 2 3.6 4.6V19z"/></svg>
+              Awards &amp; milestones
             </a>
           </div>
         </div>
@@ -755,7 +801,7 @@
         </div>
         <div>
           <h4>EpitaXC — A Fully-Differential Two-Stage Operational Amplifier in SkyWater 130&nbsp;nm</h4>
-          <p class="authors"><b>L. Atapattu</b> · BRICD Ear-EEG team · Tiny Tapeout SKY25a shuttle</p>
+          <p class="authors"><b>L. Atapattu</b>, <b>S. Madugalle</b>, <b>I. Nethmal</b>, <b>E. Jayathilaka</b> · Tiny Tapeout SKY25a shuttle</p>
           <p class="pub-links"><a href="https://tinytapeout.com/chips/ttsky25a/tt_um_diff" target="_blank" rel="noopener">Tiny Tapeout →</a> &nbsp; <a href="https://github.com/LohanAtapattu/ttsky25_EpitaXC" target="_blank" rel="noopener">GitHub →</a></p>
         </div>
         <div><span class="pub-status prep">Silicon received</span></div>
@@ -774,14 +820,15 @@
       </article>
       <article class="pub">
         <div>
-          <div class="venue">Open Project</div>
+          <div class="venue">UNIC-CASS</div>
           <div class="year">2024</div>
         </div>
         <div>
           <h4>A 100&nbsp;kSPS 8-bit Fully-Differential SAR ADC for Low-Power Applications in 130&nbsp;nm SkyWater PDK</h4>
-          <p class="authors">BRICD research group · Open-source design &amp; verification in the SkyWater 130&nbsp;nm PDK</p>
+          <p class="authors"><b>L. Atapattu</b>, <b>S. Madugalle</b>, H. Maduwantha, <b>I. Nethmal</b>, <b>E. Jayathilaka</b> · Mentored by U. Mendis, <b>K. Wickremasinghe</b> &amp; N. Udayanga · Efabless chipIgnite shuttle via IEEE CASS UNIC-CASS</p>
+          <p class="pub-links"><a href="https://github.com/SkillSurf/8b-sar-adc-unic_cass" target="_blank" rel="noopener">GitHub →</a></p>
         </div>
-        <div><span class="pub-status prep">Open-source</span></div>
+        <div><span class="pub-status prep">Tape-out</span></div>
       </article>
     </div>
   </div>
@@ -844,7 +891,7 @@
       <span class="eyebrow">News</span>
       <h2>Latest from the group.</h2>
     </div>
-    <div class="news">
+    <div class="news collapsed" id="newsGrid">
       <article class="news-card">
         <div class="date"><span class="dot"></span>Sep 2026</div>
         <h4>Ear-EEG paper accepted at IEEE BioCAS 2026</h4>
@@ -884,25 +931,34 @@
         <div class="cat">Research</div>
       </article>
       <article class="news-card">
-        <div class="date"><span class="dot"></span>Jul 2025</div>
-        <h4>First tape-out: 30 MHz PLL on IHP OpenMPW</h4>
-        <p>Our first-ever IC tape-out — a charge-pump fractional-N PLL with programmable 3-bit dividers (1.4–30&nbsp;MHz) in IHP 130&nbsp;nm BiCMOS — was submitted to the July 2025 IHP OpenMPW shuttle after a five-month design effort.</p>
-        <p class="more"><a href="https://www.linkedin.com/feed/update/urn:li:activity:7364727582170284033/" target="_blank" rel="noopener">Announcement →</a></p>
-        <div class="cat">Tape-out</div>
+        <div class="date"><span class="dot"></span>2025</div>
+        <h4>Intelliscope wins the SLAAS Manamperi Main Award</h4>
+        <p>Our ECG-PCG cardiovascular screening tool took the 2025 Manamperi Main Award for Sri Lanka's best inter-university final-year engineering project, was Sri Lanka winner of the IEEE CASS Student Design Competition, and placed in IESL's Top 10 Undergraduate Inventions.</p>
+        <p class="more"><a href="https://www.linkedin.com/posts/avishka-herath_research-entc-uom-ugcPost-7407672514522411009-c7jY" target="_blank" rel="noopener">Read more →</a></p>
+        <div class="cat">Award</div>
       </article>
       <article class="news-card">
-        <div class="date"><span class="dot"></span>2025</div>
+        <div class="date"><span class="dot"></span>Sep 2025</div>
         <h4>Op-amp submitted to Tiny Tapeout SKY25a</h4>
         <p>"EpitaXC", a fully-differential folded-cascode op-amp for our Ear-EEG impedance-sensing work, joined the SkyWater 130&nbsp;nm Tiny Tapeout SKY25a open shuttle.</p>
         <div class="cat">Tape-out</div>
       </article>
       <article class="news-card">
-        <div class="date"><span class="dot"></span>2024</div>
-        <h4>Fully-differential SAR ADC released</h4>
-        <p>An 8-bit, 100&nbsp;kSPS fully-differential SAR ADC for low-power applications, designed end-to-end in the open-source SkyWater 130&nbsp;nm PDK.</p>
-        <div class="cat">Project</div>
+        <div class="date"><span class="dot"></span>Jul 2025</div>
+        <h4>First IHP BiCMOS tape-out: 30 MHz PLL</h4>
+        <p>Our first design in the IHP 130&nbsp;nm BiCMOS open PDK — a charge-pump fractional-N PLL with programmable 3-bit dividers (1.4–30&nbsp;MHz) — was submitted to the July 2025 IHP OpenMPW shuttle after a five-month design effort.</p>
+        <p class="more"><a href="https://www.linkedin.com/feed/update/urn:li:activity:7364727582170284033/" target="_blank" rel="noopener">Announcement →</a></p>
+        <div class="cat">Tape-out</div>
+      </article>
+      <article class="news-card">
+        <div class="date"><span class="dot"></span>Nov 2024</div>
+        <h4>First CMOS tape-out: SAR ADC on chipIgnite</h4>
+        <p>Five ENTC undergraduates designed an 8-bit, 100&nbsp;kSPS fully-differential SAR ADC from scratch in ten weeks and submitted it to the Efabless chipIgnite shuttle through IEEE CASS's UNIC-CASS program.</p>
+        <p class="more"><a href="https://www.linkedin.com/feed/update/urn:li:activity:7263060939707461633/" target="_blank" rel="noopener">Announcement →</a></p>
+        <div class="cat">Tape-out</div>
       </article>
     </div>
+    <div class="news-more"><button class="btn btn-ghost" id="newsMore" type="button" aria-expanded="false">Show older news</button></div>
   </div>
 </section>
 
@@ -932,6 +988,11 @@
           <a class="repo" href="https://github.com/avishkaherath/TO_July2025/tree/main/30_MHz_Fractional_N_PLL" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.7.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C18 4.6 19 4.9 19 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
             <div><div class="rn">TO_July2025 / 30_MHz_Fractional_N_PLL</div><div class="rd">Charge-pump PLL · IHP OpenMPW 2025</div></div>
+            <span class="rmeta">Mixed</span>
+          </a>
+          <a class="repo" href="https://github.com/SkillSurf/8b-sar-adc-unic_cass" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.7.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C18 4.6 19 4.9 19 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
+            <div><div class="rn">8b-sar-adc-unic_cass</div><div class="rd">8-bit fully-differential SAR ADC · SKY130</div></div>
             <span class="rmeta">Mixed</span>
           </a>
           <a class="repo" href="https://github.com/LohanAtapattu/ttsky25_EpitaXC" target="_blank" rel="noopener">
@@ -1073,14 +1134,14 @@
   // ---- chip gallery ----
   // t: title · d: detail · src: image · bg: frame colour behind the image
   const chips = [
+    {t:'SKY25a die photo — first silicon', d:'Received Jul 2026 · EpitaXC tile boxed', src:'assets/gallery/tt-sky25a-die-photo.jpg', bg:'#fff'},
+    {t:'Tiny Tapeout SKY25a chip', d:'Full-chip layout · our tile highlighted', src:'assets/gallery/tt-sky25a-chip-layout.jpg', bg:'#fff'},
     {t:'UNIC-CASS chip — full layout', d:'2.4 GHz PLL · IHP SG13G2', src:'assets/gallery/unic-cass-chip-fillers.jpg', bg:'#000'},
     {t:'UNIC-CASS chip — 2.5D view', d:'Pad ring + PLL core', src:'assets/gallery/unic-cass-chip-2p5d.jpg', bg:'#000'},
     {t:'2.4 GHz LC-VCO PLL', d:'0.347 mm² · 2.5D render', src:'assets/gallery/pll-2g4-oblique.jpg', bg:'#000'},
-    {t:'4 nH octagonal spiral inductor', d:'Q 16.8 @ 2.45 GHz · OpenEMS', src:'assets/gallery/inductor-4nh-lq.jpg', bg:'#fff'},
     {t:'Δ-Σ modulator + divider', d:'Digital block · KLayout render', src:'assets/gallery/dsm-freq-divider.jpg', bg:'#fff'},
     {t:'30 MHz fractional-N PLL', d:'IHP OpenMPW · Jul 2025', src:'assets/gallery/pll-30m-chip.jpg', bg:'#202020'},
-    {t:'11-stage ring VCO', d:'30 MHz PLL · layout', src:'assets/gallery/ring-vco-11stage.jpg', bg:'#202020'},
-    {t:'Fully-differential op-amp', d:'Tiny Tapeout SKY25a', src:'assets/gallery/opamp-folded-cascode.jpg', bg:'#000'}
+    {t:'11-stage ring VCO', d:'30 MHz PLL · layout', src:'assets/gallery/ring-vco-11stage.jpg', bg:'#202020'}
   ];
   const gg = document.getElementById('gallery-grid');
   chips.forEach(c => {
@@ -1107,6 +1168,10 @@
     {n:'Hansa Marasinghe', r:'Circuit Design', u:'https://www.linkedin.com/in/hansa-marasinghe-092487b9/'},
     {n:'Anjana Viduranga', r:'Simulation', u:'https://www.linkedin.com/in/anjana-viduranga-292153292/'},
     {n:'Gayangana Leelarathne', r:'Co-Supervisor', u:'https://www.linkedin.com/in/gayangana-leelarathne/'},
+    {n:'Nilasi Methsarani', r:'30 MHz PLL'},
+    {n:'Upeksha Dilhara', r:'30 MHz PLL'},
+    {n:'Yasiru Amarasinghe', r:'30 MHz PLL'},
+    {n:'Nimesh Kavinda', r:'30 MHz PLL'},
   ];
   const initials = n => n.split(' ').map(w=>w[0]).slice(0,2).join('');
   function renderPeople(list, gridId){
@@ -1122,6 +1187,17 @@
   }
   renderPeople(mentors, 'mentors-grid');
   renderPeople(members, 'members-grid');
+
+  // ---- news: show older ----
+  (function(){
+    const grid = document.getElementById('newsGrid'), btn = document.getElementById('newsMore');
+    if(grid.children.length <= 6){ btn.parentNode.remove(); return; }
+    btn.addEventListener('click', () => {
+      const open = grid.classList.toggle('collapsed') === false;
+      btn.textContent = open ? 'Show fewer' : 'Show older news';
+      btn.setAttribute('aria-expanded', open);
+    });
+  })();
 
   // ---- active nav on scroll ----
   const sections = ['about','projects','gallery','publications','team','news','contact'];
