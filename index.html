@@ -134,6 +134,43 @@
   .section-head h2{font-size:40px;margin-bottom:16px;}
   .section-head p{color:var(--muted);font-size:18px;}
 
+  /* ---------- ANNOUNCEMENT BAR ---------- */
+  .announce{background:linear-gradient(90deg,#a9822a,#cfa646 55%,#b8902f);color:#1c1606;font-size:14px;}
+  .announce-inner{display:flex;align-items:center;justify-content:center;gap:14px;min-height:42px;padding-top:6px;padding-bottom:6px;flex-wrap:wrap;text-align:center;}
+  .announce-pill{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;background:#13294a;color:#f3d48a;border-radius:30px;padding:3px 10px;}
+  .announce b{font-weight:700;}
+  .announce-link{color:#13294a;font-weight:700;text-decoration:underline;text-underline-offset:3px;white-space:nowrap;}
+  .announce-link:hover{color:#000;}
+  .announce-x{margin-left:4px;background:none;border:0;color:#1c1606;font-size:20px;line-height:1;cursor:pointer;opacity:.65;padding:2px 6px;border-radius:6px;}
+  .announce-x:hover{opacity:1;background:rgba(0,0,0,.08);}
+  .announce .short{display:none;}
+  @media(max-width:760px){ .announce .long{display:none;} .announce .short{display:inline;} .announce-pill{display:none;} .announce-inner{flex-wrap:nowrap;gap:10px;font-size:13px;min-height:38px;} }
+
+  /* ---------- CALL FOR APPLICATIONS ---------- */
+  .apply{display:grid;grid-template-columns:1.45fr .8fr;gap:44px;align-items:start;background:var(--surface);border:1px solid var(--gold-line);border-radius:14px;padding:38px;box-shadow:var(--shadow);margin-bottom:64px;position:relative;overflow:hidden;}
+  .apply::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:linear-gradient(180deg,var(--gold-b),var(--blue));}
+  .apply .eyebrow{color:var(--gold);display:block;margin-bottom:12px;}
+  .apply h2{font-size:32px;margin-bottom:12px;}
+  .apply-lead{color:var(--muted);font-size:17px;margin-bottom:26px;}
+  .apply-cols{display:grid;grid-template-columns:1.1fr 1fr;gap:30px;margin-bottom:28px;}
+  .apply h4{font-size:18px;margin-bottom:12px;}
+  .apply ul{list-style:none;margin:0;padding:0;}
+  .apply li{position:relative;padding-left:22px;margin-bottom:9px;font-size:15px;color:var(--ink);line-height:1.5;}
+  .apply li::before{content:"";position:absolute;left:0;top:.5em;width:9px;height:9px;background:var(--gold-b);border-radius:2px;}
+  .apply dl{margin:0;}
+  .apply dt{font-family:"Spectral",serif;font-weight:600;font-size:16.5px;color:var(--navy);display:flex;align-items:center;gap:9px;}
+  .apply dt::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--gold-b);flex:0 0 auto;}
+  .apply dd{margin:4px 0 16px 19px;font-size:15px;color:var(--muted);line-height:1.5;}
+  .apply-cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center;}
+  .apply-meta{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--muted-2);letter-spacing:.02em;margin-top:14px;}
+  .apply-meta b{color:var(--navy);font-weight:600;}
+  .apply-flier{display:block;border-radius:10px;overflow:hidden;border:1px solid var(--line-2);box-shadow:var(--shadow-hover);transition:.25s;}
+  .apply-flier:hover{transform:translateY(-3px) rotate(-.4deg);}
+  .apply-flier img{display:block;width:100%;height:auto;}
+  .apply-flier-cap{display:block;text-align:center;font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--muted-2);margin-top:10px;}
+  @media(max-width:980px){ .apply{grid-template-columns:1fr;padding:30px 26px;} .apply-side{max-width:360px;} }
+  @media(max-width:760px){ .apply-cols{grid-template-columns:1fr;gap:10px;} .apply h2{font-size:26px;} }
+
   /* ---------- HEADER ---------- */
   header.nav{
     position:sticky;top:0;z-index:50;
@@ -454,6 +491,16 @@
 <body>
 
 <!-- ============ HEADER ============ -->
+<div class="announce" id="announce" role="region" aria-label="Announcement">
+  <div class="wrap announce-inner">
+    <span class="announce-pill">Now recruiting</span>
+    <span class="long"><b>Call for Applications</b> — undergraduate researchers in ECE &amp; BME · apply by <b>30 Nov 2026</b></span>
+    <span class="short"><b>Call for Applications</b> · by <b>30 Nov</b></span>
+    <a class="announce-link" href="#apply"><span class="long">Read the call →</span><span class="short">Read →</span></a>
+    <button class="announce-x" type="button" id="announceClose" aria-label="Dismiss announcement">×</button>
+  </div>
+</div>
+
 <header class="nav">
   <div class="wrap nav-inner">
     <a class="brand" href="#top" aria-label="BRICD home">
@@ -1182,6 +1229,13 @@
     </div>
     <div class="news collapsed" id="newsGrid">
       <article class="news-card">
+        <div class="date"><span class="dot"></span>Oct 2026</div>
+        <h4>Call for Applications: undergraduate researchers</h4>
+        <p>We’re recruiting ECE and BME undergraduates to design biomedical ICs through a 2027 tape-out and lead an IEEE BioCAS 2027 paper. Applications close 30 November 2026.</p>
+        <p class="more"><a href="#apply">Read the call →</a></p>
+        <div class="cat">Join</div>
+      </article>
+      <article class="news-card">
         <div class="date"><span class="dot"></span>Sep 2026</div>
         <h4>2.4 GHz PLL taped out through UNIC-CASS 2025</h4>
         <p>Our Δ-Σ fractional-N PLL with a cross-coupled LC-VCO and custom 4&nbsp;nH inductor has been submitted for fabrication in IHP SG13G2 via the UNIC-CASS program, after full DRC, LVS, PEX and post-layout verification.</p>
@@ -1338,6 +1392,48 @@
 <!-- ============ CONTACT / JOIN ============ -->
 <section class="section section--soft" id="contact">
   <div class="wrap">
+    <article class="apply" id="apply">
+      <div>
+        <span class="eyebrow">Call for Applications · closes 30 Nov 2026</span>
+        <h2>Design biomedical ICs with us — from schematic to silicon to paper.</h2>
+        <p class="apply-lead">Join BRICD as an undergraduate researcher and design integrated circuits for biomedical applications, all the way through tapeout and publication.</p>
+        <div class="apply-cols">
+          <div>
+            <h4>Who we’re looking for</h4>
+            <ul>
+              <li>Enrolled in a bachelor’s in Electrical and Computer Engineering (ECE) or Biomedical Engineering (BME)</li>
+              <li>Passionate about biomedical microelectronics and its role in healthcare</li>
+              <li>Organized and methodical, with careful attention to detail</li>
+              <li>Collaborative and comfortable working as part of a team</li>
+              <li>Able to integrate AI coding agents into their design workflow</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Your commitment</h4>
+            <dl>
+              <dt>Tape out in 2027</dt>
+              <dd>You’ll be expected to meet the tapeout deadlines.</dd>
+              <dt>Lead the BioCAS paper</dt>
+              <dd>Prepare a manuscript of the work for the IEEE Biomedical Circuits and Systems Conference 2027.</dd>
+            </dl>
+          </div>
+        </div>
+        <div class="apply-cta">
+          <a class="btn btn-primary" href="mailto:bricd.org@gmail.com?subject=BRICD%20Call%20for%20Applications%20%E2%80%94%20CV">Email your CV
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="assets/call-for-applications-2026.webp" download="BRICD-Call-for-Applications-2026.webp">Download the flier</a>
+        </div>
+        <p class="apply-meta">Applications close <b>30 November 2026</b> · send your CV to <a href="mailto:bricd.org@gmail.com?subject=BRICD%20Call%20for%20Applications%20%E2%80%94%20CV">bricd.org@gmail.com</a></p>
+      </div>
+      <div class="apply-side">
+        <a class="apply-flier" href="assets/call-for-applications-2026.webp" target="_blank" rel="noopener" aria-label="Open the Call for Applications flier">
+          <img src="assets/call-for-applications-2026.webp" alt="BRICD Call for Applications flier: undergraduate researchers in ECE or BME; tape out in 2027 and lead a BioCAS 2027 paper; applications close 30 November 2026; send your CV to bricd.org@gmail.com" loading="lazy" width="1280" height="1600" />
+        </a>
+        <span class="apply-flier-cap">Click to open the full flier</span>
+      </div>
+    </article>
+
     <div class="contact-grid">
       <div>
         <span class="eyebrow">Join Us</span>
@@ -1422,6 +1518,17 @@
 </footer>
 
 <script>
+  // ---- call-for-applications banner: dismissible, expires after the deadline ----
+  (function(){
+    const bar = document.getElementById('announce'), card = document.getElementById('apply');
+    const closesAt = new Date('2026-11-30T23:59:59+05:30');
+    if(Date.now() > closesAt){ if(bar) bar.remove(); if(card) card.remove(); return; }
+    let dismissed = false; try{ dismissed = localStorage.getItem('bricd-cfa-2026') === 'dismissed'; }catch(e){}
+    if(dismissed && bar) bar.remove();
+    const x = document.getElementById('announceClose');
+    if(x) x.addEventListener('click', ()=>{ bar.remove(); try{ localStorage.setItem('bricd-cfa-2026','dismissed'); }catch(e){} });
+  })();
+
   // ---- year ----
   document.getElementById('year').textContent = new Date().getFullYear();
 
