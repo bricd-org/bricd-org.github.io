@@ -199,6 +199,15 @@
   .die-grid span{border-radius:2px;background:rgba(120,170,225,.10);border:1px solid rgba(120,170,225,.16);}
   .die-grid span.lit{background:rgba(86,156,222,.45);border-color:rgba(140,195,255,.5);}
   .die-grid span.lit2{background:rgba(200,162,68,.5);border-color:rgba(225,185,90,.6);}
+  .die-grid span{transition:background .25s ease,border-color .25s ease,box-shadow .25s ease,opacity .25s ease,transform .25s ease;}
+  .die-grid span.lit,.die-grid span.lit2{cursor:pointer;}
+  .die-grid span.lit:focus-visible,.die-grid span.lit2:focus-visible{outline:2px solid #9fd0ff;outline-offset:2px;}
+  .die-grid.focus span{opacity:.35;}
+  .die-grid.focus span.on{opacity:1;transform:scale(1.06);}
+  .die-grid span.lit.on{background:rgba(110,180,245,.85);border-color:#bfe0ff;box-shadow:0 0 14px rgba(120,190,255,.55);}
+  .die-grid span.lit2.on{background:rgba(222,184,90,.9);border-color:#f3d48a;box-shadow:0 0 14px rgba(230,190,95,.55);}
+  .die-label{transition:color .2s ease;}
+  .die-label.active{color:var(--blue);}
   .die-grid span.big{grid-column:span 3;grid-row:span 3;background:rgba(120,170,225,.16);}
   .die-grid span.wide{grid-column:span 4;}
   .die-label{position:absolute;bottom:-13px;left:50%;transform:translateX(-50%);background:#fff;border:1px solid var(--line-2);border-radius:30px;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.1em;color:var(--muted);padding:5px 16px;white-space:nowrap;box-shadow:var(--shadow);}
@@ -471,9 +480,9 @@
       </div>
     </div>
     <div class="hero-fig">
-      <div class="die" aria-hidden="true">
+      <div class="die" role="group" aria-label="Interactive die: hover or tap a block to explore our tape-outs">
         <div class="die-grid" id="dieGrid"></div>
-        <div class="die-label">// taped out on open silicon</div>
+        <div class="die-label" id="dieLabel" aria-live="polite">// taped out on open silicon</div>
       </div>
     </div>
   </div>
@@ -533,7 +542,7 @@
     <div class="proj-list">
 
       <!-- Project 1 -->
-      <article class="proj proj--nofig">
+      <article class="proj proj--nofig" id="p-llm-analog">
         <div class="proj-body">
           <span class="proj-index">PROJECT 01</span>
           <h3>A Forward and Inverse Design Approach for Automated Analog Design Optimization and Layout using LLM Agent-based Analytical Modelling (Ongoing)</h3>
@@ -562,7 +571,7 @@
       </article>
 
       <!-- Project 2 -->
-      <article class="proj">
+      <article class="proj" id="p-pll-2g4">
         <div class="proj-fig" style="background:#000;">
           <img src="assets/projects/pll-2g4-unic-cass-chip.jpg" alt="UNIC-CASS chip layout with the 2.4 GHz PLL: top view with fillers and 2.5D top view" loading="lazy" />
         </div>
@@ -610,7 +619,7 @@
       </article>
 
       <!-- Project 3 -->
-      <article class="proj">
+      <article class="proj" id="p-ear-eeg">
         <div class="proj-fig" style="background:#fff;">
           <img src="assets/projects/epitaxc-tile-layout.jpg?v=2" alt="Layout of the EpitaXC fully-differential op-amp tile on Tiny Tapeout SKY25a" loading="lazy" />
         </div>
@@ -660,7 +669,7 @@
       </article>
 
       <!-- Project 4 -->
-      <article class="proj">
+      <article class="proj" id="p-pll-30m">
         <div class="proj-fig" style="background:#202020;">
           <img src="assets/projects/pll-30m-layout.jpg" alt="Layout of the 30 MHz fractional-N PLL on IHP SG13G2" loading="lazy" />
         </div>
@@ -699,7 +708,7 @@
       </article>
 
       <!-- Project 5 -->
-      <article class="proj">
+      <article class="proj" id="p-sar-adc">
         <div class="proj-fig" style="background:#fff;">
           <img src="assets/projects/sar-adc-chip-layout.jpg" alt="Full-chip layout of the SAR ADC on the Efabless chipIgnite (Caravel) harness" loading="lazy" />
         </div>
@@ -735,7 +744,7 @@
 
 
       <!-- Project 6 -->
-      <article class="proj">
+      <article class="proj" id="p-braineocare">
         <div class="proj-fig" style="background:#fff;">
           <img src="assets/projects/braineocare-headset-electrode.jpg" alt="BraiNeoCare adjustable EEG headset with active dry-contact electrodes, and the active electrode PCB in its 3D-printed housing" loading="lazy" />
         </div>
@@ -789,7 +798,7 @@
 
 
       <!-- Project 7 -->
-      <article class="proj">
+      <article class="proj" id="p-intelliscope">
         <div class="proj-fig" style="background:#d1dad9;">
           <img src="assets/projects/intelliscope-device.jpg" alt="Intelliscope ECG-PCG device: PCB with stethoscope diaphragm in its 3D-printed enclosure" loading="lazy" />
         </div>
@@ -1373,16 +1382,64 @@
   menuToggle.addEventListener('click', () => navlinks.classList.toggle('open'));
   navlinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navlinks.classList.remove('open')));
 
-  // ---- die grid motif ----
+  // ---- interactive die: each lit block is one of our tape-outs ----
   (function(){
     const grid = document.getElementById('dieGrid');
-    const lit = new Set([10,11,18,19, 28,36, 45,46,53,54, 5,13,21]);
-    const lit2 = new Set([2,3, 58,59,60]);
+    const label = document.getElementById('dieLabel');
+    const idle = label.textContent;
+    const blocks = [
+      {cells:[10,11,18,19], gold:false, text:'SAR ADC · chipIgnite 2024', href:'#p-sar-adc'},
+      {cells:[5,13,21],     gold:false, text:'30 MHz PLL · IHP OpenMPW 2025', href:'#p-pll-30m'},
+      {cells:[28,36],       gold:false, text:'Op-amp · SKY25a · first silicon', href:'#p-ear-eeg'},
+      {cells:[45,46,53,54], gold:false, text:'2.4 GHz PLL · UNIC-CASS 2025', href:'#p-pll-2g4'},
+      {cells:[2,3],         gold:true,  text:'I/Q multiplier · UNIC-CASS 2025', href:'#p-ear-eeg'},
+      {cells:[58,59,60],    gold:true,  text:'Your design here · join us', href:'#contact'}
+    ];
+    const owner = {}; blocks.forEach((b,i)=>b.cells.forEach(c=>owner[c]=i));
+    const spans = [];
     for(let i=0;i<64;i++){
       const s = document.createElement('span');
-      if(lit.has(i)) s.classList.add('lit');
-      if(lit2.has(i)) s.classList.add('lit2');
-      grid.appendChild(s);
+      if(i in owner){
+        const b = blocks[owner[i]];
+        s.className = b.gold ? 'lit2' : 'lit';
+        s.dataset.b = owner[i];
+        if(b.cells[0]===i){ s.tabIndex = 0; s.setAttribute('role','link'); s.setAttribute('aria-label', b.text); }
+      }
+      grid.appendChild(s); spans.push(s);
+    }
+    let current = -1;
+    function show(i){
+      if(i===current) return; current = i;
+      spans.forEach(s=>s.classList.remove('on'));
+      if(i<0){ grid.classList.remove('focus'); label.textContent = idle; label.classList.remove('active'); return; }
+      blocks[i].cells.forEach(c=>spans[c].classList.add('on'));
+      grid.classList.add('focus');
+      label.textContent = '// ' + blocks[i].text + ' →';
+      label.classList.add('active');
+    }
+    function go(i){ const t = document.querySelector(blocks[i].href); if(t) t.scrollIntoView({behavior:'smooth', block:'start'}); }
+    // pointer + keyboard
+    let userActive = false, resumeT;
+    function interact(){ userActive = true; clearTimeout(resumeT); resumeT = setTimeout(()=>{ userActive = false; }, 6000); }
+    grid.addEventListener('mouseover', e=>{ const b = e.target.dataset && e.target.dataset.b; if(b!==undefined){ interact(); show(+b); } });
+    grid.addEventListener('mouseleave', ()=>{ show(-1); });
+    grid.addEventListener('click', e=>{ const b = e.target.dataset && e.target.dataset.b; if(b!==undefined){ interact(); show(+b); go(+b); } });
+    grid.addEventListener('focusin', e=>{ const b = e.target.dataset && e.target.dataset.b; if(b!==undefined){ interact(); show(+b); } });
+    grid.addEventListener('focusout', ()=>{ if(!grid.contains(document.activeElement)) show(-1); });
+    grid.addEventListener('keydown', e=>{ const b = e.target.dataset && e.target.dataset.b; if(b!==undefined && (e.key==='Enter'||e.key===' ')){ e.preventDefault(); go(+b); } });
+    // gentle auto-tour while the hero is visible (skipped for reduced motion)
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(!reduce){
+      let visible = true, step = 0;
+      if('IntersectionObserver' in window){
+        new IntersectionObserver(es=>{ visible = es[0].isIntersecting; if(!visible && !userActive) show(-1); }, {threshold:.3}).observe(grid);
+      }
+      setInterval(()=>{
+        if(userActive || !visible || document.hidden) return;
+        // tour the chips, then rest on the idle caption for one beat
+        if(step === blocks.length){ show(-1); step = 0; return; }
+        show(step++);
+      }, 2400);
     }
   })();
 
