@@ -161,6 +161,8 @@
   .apply dt{font-family:"Spectral",serif;font-weight:600;font-size:16.5px;color:var(--navy);display:flex;align-items:center;gap:9px;}
   .apply dt::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--gold-b);flex:0 0 auto;}
   .apply dd{margin:4px 0 16px 19px;font-size:15px;color:var(--muted);line-height:1.5;}
+  .apply-note{display:flex;gap:12px;align-items:flex-start;margin:4px 0 0;padding:12px 14px;border:1px solid var(--gold-line);background:var(--gold-l);border-radius:8px;font-size:14px;line-height:1.5;color:var(--navy);font-weight:500;}
+  .apply-note svg{width:24px;height:24px;flex:0 0 auto;color:var(--gold);margin-top:1px;}
   .apply-cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center;}
   .apply-meta{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--muted-2);letter-spacing:.02em;margin-top:14px;}
   .apply-meta b{color:var(--navy);font-weight:600;}
@@ -494,7 +496,7 @@
 <div class="announce" id="announce" role="region" aria-label="Announcement">
   <div class="wrap announce-inner">
     <span class="announce-pill">Now recruiting</span>
-    <span class="long"><b>Call for Applications</b> — undergraduate researchers in ECE &amp; BME · apply by <b>30 Nov 2026</b></span>
+    <span class="long"><b>Call for Applications</b> — undergraduate researchers in ECE/EEE &amp; BME · apply by <b>30 Nov 2026</b></span>
     <span class="short"><b>Call for Applications</b> · by <b>30 Nov</b></span>
     <a class="announce-link" href="#apply"><span class="long">Read the call →</span><span class="short">Read →</span></a>
     <button class="announce-x" type="button" id="announceClose" aria-label="Dismiss announcement">×</button>
@@ -1231,7 +1233,7 @@
       <article class="news-card">
         <div class="date"><span class="dot"></span>Oct 2026</div>
         <h4>Call for Applications: undergraduate researchers</h4>
-        <p>We’re recruiting ECE and BME undergraduates to design biomedical ICs through a 2027 tape-out and lead an IEEE BioCAS 2027 paper. Applications close 30 November 2026.</p>
+        <p>We’re recruiting ECE/EEE and BME undergraduates to design biomedical ICs through a 2027 tapeout and lead an IEEE BioCAS paper. Applications close 30 November 2026.</p>
         <p class="more"><a href="#apply">Read the call →</a></p>
         <div class="cat">Join</div>
       </article>
@@ -1401,9 +1403,9 @@
           <div>
             <h4>Who we’re looking for</h4>
             <ul>
-              <li>Enrolled in a bachelor’s in Electrical and Computer Engineering (ECE) or Biomedical Engineering (BME)</li>
+              <li>Enrolled in a bachelor’s degree in Electrical and Computer/Electronics Engineering (ECE/EEE) or Biomedical Engineering (BME)</li>
               <li>Passionate about biomedical microelectronics and its role in healthcare</li>
-              <li>Organized and methodical, with careful attention to detail</li>
+              <li>Highly organized and methodical, with careful attention to detail</li>
               <li>Collaborative and comfortable working as part of a team</li>
               <li>Able to integrate AI coding agents into their design workflow</li>
             </ul>
@@ -1411,24 +1413,25 @@
           <div>
             <h4>Your commitment</h4>
             <dl>
-              <dt>Tape out in 2027</dt>
-              <dd>You’ll be expected to meet the tapeout deadlines.</dd>
-              <dt>Lead the BioCAS paper</dt>
-              <dd>Prepare a manuscript of the work for the IEEE Biomedical Circuits and Systems Conference 2027.</dd>
+              <dt>Tapeout in 2027</dt>
+              <dd>You’re expected to meet the tapeout deadlines.</dd>
+              <dt>Lead a BioCAS paper</dt>
+              <dd>Prepare a manuscript of the work for submission to the IEEE Biomedical Circuits and Systems Conference.</dd>
             </dl>
+            <p class="apply-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="1.5"/><rect x="9.5" y="9.5" width="5" height="5" rx=".5"/><path d="M9 3v3M12 3v3M15 3v3M9 18v3M12 18v3M15 18v3M3 9h3M3 12h3M3 15h3M18 9h3M18 12h3M18 15h3"/></svg>More details of the projects will be shared with selected candidates and on our website.</p>
           </div>
         </div>
         <div class="apply-cta">
           <a class="btn btn-primary" href="mailto:bricd.org@gmail.com?subject=BRICD%20Call%20for%20Applications%20%E2%80%94%20CV">Email your CV
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
-          <a class="btn btn-ghost" href="assets/call-for-applications-2026.webp" download="BRICD-Call-for-Applications-2026.webp">Download the flier</a>
+          <a class="btn btn-ghost" href="assets/call-for-applications-2026-v2.webp" download="BRICD-Call-for-Applications-2026.webp">Download the flier</a>
         </div>
         <p class="apply-meta">Applications close <b>30 November 2026</b> · send your CV to <a href="mailto:bricd.org@gmail.com?subject=BRICD%20Call%20for%20Applications%20%E2%80%94%20CV">bricd.org@gmail.com</a></p>
       </div>
       <div class="apply-side">
-        <a class="apply-flier" href="assets/call-for-applications-2026.webp" target="_blank" rel="noopener" aria-label="Open the Call for Applications flier">
-          <img src="assets/call-for-applications-2026.webp" alt="BRICD Call for Applications flier: undergraduate researchers in ECE or BME; tape out in 2027 and lead a BioCAS 2027 paper; applications close 30 November 2026; send your CV to bricd.org@gmail.com" loading="lazy" width="1280" height="1600" />
+        <a class="apply-flier" href="assets/call-for-applications-2026-v2.webp" target="_blank" rel="noopener" aria-label="Open the Call for Applications flier">
+          <img src="assets/call-for-applications-2026-v2.webp" alt="BRICD Call for Applications flier: undergraduate researchers in ECE/EEE or BME; tapeout in 2027 and lead a BioCAS paper; applications close 30 November 2026; send your CV to bricd.org@gmail.com" loading="lazy" width="1600" height="2000" />
         </a>
         <span class="apply-flier-cap">Click to open the full flier</span>
       </div>
