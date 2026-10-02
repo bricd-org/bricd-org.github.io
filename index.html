@@ -196,7 +196,12 @@
   .sig{position:relative;border-radius:12px;background:linear-gradient(160deg,#0c2340,#143a66);padding:18px 18px 16px;box-shadow:0 30px 60px -30px rgba(12,35,64,.6);color:#d7e6f7;}
   .sig::before{content:"";position:absolute;inset:8px;border:1px solid rgba(120,170,225,.28);border-radius:8px;pointer-events:none;}
   .sig-head{display:flex;justify-content:space-between;align-items:baseline;font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(170,205,240,.7);margin:2px 2px 10px;}
-  .sig-head b{color:#e9d08f;font-weight:500;}
+  .sig-head{align-items:center;}
+  .sig-mode{display:inline-flex;border:1px solid rgba(230,190,95,.45);border-radius:30px;overflow:hidden;}
+  .sig-mode button{font:inherit;letter-spacing:.12em;color:rgba(233,208,143,.7);background:transparent;border:0;padding:3px 10px;cursor:pointer;transition:.2s;}
+  .sig-mode button[aria-pressed="true"]{background:rgba(230,190,95,.22);color:#f3d48a;}
+  .sig-mode button:hover{color:#fff;}
+  .sig-mode button:focus-visible{outline:2px solid #9fd0ff;outline-offset:-2px;}
   .sig-chain{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-bottom:10px;}
   .sig-stage{position:relative;font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.02em;color:rgba(205,225,248,.8);background:rgba(255,255,255,.05);border:1px solid rgba(140,190,240,.22);border-radius:6px;padding:7px 2px 6px;cursor:pointer;transition:.2s;line-height:1.15;}
   .sig-stage small{display:block;font-size:9px;color:rgba(160,195,230,.6);margin-bottom:2px;}
@@ -512,7 +517,7 @@
     </div>
     <div class="hero-fig">
       <div class="sig" id="sig" role="group" aria-label="Interactive biomedical signal chain: from electrode to bits">
-        <div class="sig-head"><span>// electrode → bits</span><b>ECG · live</b></div>
+        <div class="sig-head"><span>// electrode → bits</span><span class="sig-mode" role="group" aria-label="Signal type"><button type="button" data-sig="ecg" aria-pressed="true">ECG</button><button type="button" data-sig="eeg" aria-pressed="false">EEG</button></span></div>
         <div class="sig-chain">
           <button class="sig-stage" type="button" data-stage="0" aria-pressed="false"><small>01</small>Electrode</button>
           <button class="sig-stage" type="button" data-stage="1" aria-pressed="false"><small>02</small>Amplifier</button>
@@ -1451,31 +1456,44 @@
     const W8 = [128,64,32,16,8,4,2,1];
     const caps = W8.map(w=>{ const d=document.createElement('div'); d.className='sig-cap'; d.innerHTML='<b>0</b><i>'+w+'C</i>'; capsEl.appendChild(d); return d; });
 
+    const SAR = {tag:'sample & quantize · 8-bit', cap:'A charge-redistribution SAR ADC holds each sample and binary-searches its code: 8 comparator decisions, MSB first, against a capacitor DAC.', link:['#p-sar-adc','Our 8-bit, 100 kSPS SAR ADC →']};
+    const AMP_LINK = ['#p-ear-eeg','Our op-amp, first silicon on SKY25a →'];
     const STAGES = [
-      {tag:'electrode · ~1 mV', cap:'Dry-contact electrodes pick up millivolt-level biopotentials — buried in 50 Hz mains hum, baseline wander and motion artifacts.', link:['#p-braineocare','BraiNeoCare dry-contact EEG →']},
-      {tag:'amplifier · gain ×100', cap:'A low-noise, fully-differential amplifier lifts the signal ×100 while rejecting common-mode interference — noise and all.', link:['#p-ear-eeg','Our op-amp, first silicon on SKY25a →']},
-      {tag:'band-pass filter', cap:'Band-pass filtering strips mains hum and baseline wander, leaving the physiological band. Toggle a motion artifact to see what filtering alone can’t remove.', link:['#p-intelliscope','Intelliscope adaptive noise cancellation →']},
-      {tag:'sample & quantize · 8-bit', cap:'A charge-redistribution SAR ADC holds each sample and binary-searches its code: 8 comparator decisions, MSB first, against a capacitor DAC.', link:['#p-sar-adc','Our 8-bit, 100 kSPS SAR ADC →']},
-      {tag:'digital codes', cap:'8-bit codes stream to on-chip logic or a radio link — ready for real-time ML screening of heart and brain signals.', link:['#p-pll-2g4','Our 2.4 GHz PLL for the radio →']}
+      {ecg:{tag:'electrode · ~1 mV', cap:'Electrodes pick up millivolt-level heart signals — buried in 50 Hz mains hum, baseline wander and motion artifacts.', link:['#p-intelliscope','Intelliscope ECG-PCG device →']},
+       eeg:{tag:'electrode · ~50 µV', cap:'Dry-contact EEG electrodes pick up just tens of microvolts — swamped by mains hum, drift and motion artifacts.', link:['#p-braineocare','BraiNeoCare dry-contact EEG headset →']}},
+      {ecg:{tag:'amplifier · gain ×100', cap:'A low-noise, fully-differential amplifier lifts the signal ×100 while rejecting common-mode interference — noise and all.', link:AMP_LINK},
+       eeg:{tag:'amplifier · gain ×1000', cap:'Microvolt EEG needs ~1000× of low-noise, fully-differential gain with high common-mode rejection before anything else touches it.', link:AMP_LINK}},
+      {ecg:{tag:'band-pass 0.5–40 Hz', cap:'Band-pass filtering strips mains hum and baseline wander, leaving the physiological band. Toggle a motion artifact to see what filtering alone can’t remove.', link:['#p-intelliscope','Intelliscope adaptive noise cancellation →']},
+       eeg:{tag:'band-pass 0.5–40 Hz', cap:'Band-pass filtering removes mains hum and drift, revealing the ~10 Hz alpha rhythm. Toggle a motion artifact to see what filtering alone can’t remove.', link:['#p-braineocare','BraiNeoCare seizure detection →']}},
+      {ecg:SAR, eeg:SAR},
+      {ecg:{tag:'digital codes', cap:'8-bit codes stream to on-chip logic or a radio link — ready for real-time ML screening of heart signals.', link:['#p-pll-2g4','Our 2.4 GHz PLL for the radio →']},
+       eeg:{tag:'digital codes', cap:'8-bit codes stream to on-chip logic or a radio link — ready for real-time neonatal seizure detection and prediction.', link:['#p-pll-2g4','Our 2.4 GHz PLL for the radio →']}}
     ];
     const CANCEL_CAP = 'Impedance-based cancellation: a 1 kHz drive tracks the electrode-skin impedance mismatch, and an adaptive filter subtracts the motion artifact it predicts.';
     const CANCEL_LINK = ['#p-ear-eeg','Ear-EEG impedance monitoring (BioCAS 2026) →'];
 
-    let stage = 0, artifact = false, cancel = false;
+    let stage = 0, artifact = false, cancel = false, sig = 'ecg', sigChosen = false;
+    const modeBtns = [...root.querySelectorAll('.sig-mode button')];
 
     // ---- synthetic signal (mV) ----
     const g = (x,m,s)=>Math.exp(-((x-m)*(x-m))/(2*s*s));
     function ecg(t){ const T=60/72, p=(t%T)/T; return .12*g(p,.2,.025) - .12*g(p,.36,.01) + 1.0*g(p,.39,.012) - .25*g(p,.42,.012) + .3*g(p,.62,.045); }
-    function hum(t){ return .16*Math.sin(2*Math.PI*50*t); }
+    function eeg(t){                                    // normalised: alpha ~10 Hz with waxing/waning, plus theta and beta
+      const env = .42 + .2*Math.sin(2*Math.PI*.27*t) + .08*Math.sin(2*Math.PI*.71*t+2);
+      return env*Math.sin(2*Math.PI*10*t + .6*Math.sin(2*Math.PI*.5*t))
+           + .14*Math.sin(2*Math.PI*5.7*t+.5) + .07*Math.sin(2*Math.PI*21*t+1.3) + .05*Math.sin(2*Math.PI*27.3*t+.2) + .25;
+    }
+    const base = t => sig==='ecg' ? ecg(t) : eeg(t);
+    function hum(t){ return (sig==='ecg' ? .16 : .3)*Math.sin(2*Math.PI*50*t); }
     function wander(t){ return .25*Math.sin(2*Math.PI*.23*t) + .1*Math.sin(2*Math.PI*.61*t+1); }
     function noise(t){ const x=Math.sin(t*12345.678)*43758.5453; return (x-Math.floor(x)-.5)*.06; }
     function art(t){ const a=t%3.7, b=t%5.3; return .62*g(a,1.1,.22) - .5*g(b,3.0,.3) + .25*g(a,1.6,.12); }
     function filtered(t){
-      let v = ecg(t) + .25*noise(t);
+      let v = base(t) + .25*noise(t);
       if(artifact) v += cancel ? .06*art(t) : art(t);
       return v;
     }
-    function raw(t){ return ecg(t) + hum(t) + wander(t) + noise(t) + (artifact ? art(t) : 0); }
+    function raw(t){ return base(t) + hum(t) + (sig==='ecg' ? 1 : 1.5)*wander(t) + noise(t) + (artifact ? art(t) : 0); }
     const VMIN=-1.0, VMAX=1.6, toCode = v=>Math.max(0,Math.min(255,Math.round((v-VMIN)/(VMAX-VMIN)*255)));
 
     // ---- scope ----
@@ -1516,7 +1534,7 @@
           tagR.textContent = codes.join(' ');
         }
       }
-      if(stage!==4) tagR.textContent = stage===1 ? '×100' : (stage===3 ? '8-bit' : '');
+      if(stage!==4) tagR.textContent = stage===1 ? (sig==='ecg' ? '×100' : '×1000') : (stage===3 ? '8-bit' : '');
     }
 
     // ---- SAR ADC binary search (runs on the live filtered signal) ----
@@ -1549,14 +1567,22 @@
     // ---- interaction ----
     function setStage(i, user){
       stage=i; stagesEl.forEach((b,k)=>b.setAttribute('aria-pressed', k===i ? 'true':'false'));
-      adcBox.classList.toggle('focus', i===3); tagL.textContent = STAGES[i].tag;
+      const st = STAGES[i][sig];
+      adcBox.classList.toggle('focus', i===3); tagL.textContent = st.tag;
       const useCancel = artifact && cancel && i===2;
-      const st = STAGES[i], text = useCancel ? CANCEL_CAP : st.cap, link = useCancel ? CANCEL_LINK : st.link;
+      const text = useCancel ? CANCEL_CAP : st.cap, link = useCancel ? CANCEL_LINK : st.link;
       caption.innerHTML = text + ' <a href="'+link[0]+'">'+link[1]+'</a>';
       if(user) interact();
       if(reduce) draw(performance.now()/1000);
     }
     stagesEl.forEach((b,k)=>b.addEventListener('click', ()=>setStage(k,true)));
+    function setSig(v, user){
+      sig = v; if(user) sigChosen = true;
+      modeBtns.forEach(b=>b.setAttribute('aria-pressed', b.dataset.sig===v ? 'true':'false'));
+      root.setAttribute('aria-label', 'Interactive biomedical signal chain ('+v.toUpperCase()+'): from electrode to bits');
+      adc.bit = -1; setStage(stage, user);
+    }
+    modeBtns.forEach(b=>b.addEventListener('click', ()=>setSig(b.dataset.sig, true)));
     artBtn.addEventListener('click', ()=>{ artifact=!artifact; artBtn.setAttribute('aria-pressed',artifact); cancelBtn.disabled=!artifact; if(!artifact){ cancel=false; cancelBtn.setAttribute('aria-pressed','false'); } setStage(stage,true); });
     cancelBtn.addEventListener('click', ()=>{ cancel=!cancel; cancelBtn.setAttribute('aria-pressed',cancel); setStage(Math.max(stage,2),true); });
     caption.addEventListener('click', e=>{ const a=e.target.closest('a'); if(a){ e.preventDefault(); const t=document.querySelector(a.getAttribute('href')); if(t) t.scrollIntoView({behavior:'smooth',block:'start'}); } });
@@ -1579,7 +1605,7 @@
       if(now>=nextAdc) nextAdc = now + adcStep(now)/1000;
       if(!userActive){
         if(!nextTour) nextTour = now + 4.5;
-        else if(now>=nextTour){ const n=(stage+1)%5; setStage(n); nextTour = now + (n===3 ? 6.5 : 4.5); }
+        else if(now>=nextTour){ const n=(stage+1)%5; if(n===0 && !sigChosen) setSig(sig==='ecg' ? 'eeg' : 'ecg'); setStage(n); nextTour = now + (n===3 ? 6.5 : 4.5); }
       }
     }
     size(); { const t=performance.now()/1000; adc.vin=toCode(filtered(t)); adc.code=adc.vin; adc.bit=-1; renderAdc(); draw(t); }
