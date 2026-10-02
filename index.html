@@ -89,7 +89,6 @@
   [data-theme="dark"] .news-card,
   [data-theme="dark"] .contact-card,
   [data-theme="dark"] .member,
-  [data-theme="dark"] .die-label{background:var(--surface);}
   [data-theme="dark"] .field input,
   [data-theme="dark"] .field textarea{background:var(--bg-soft2);}
   [data-theme="dark"] .field input:focus,
@@ -193,24 +192,56 @@
   .hero-meta .stat .lbl{font-size:13px;color:var(--muted-2);margin-top:6px;font-family:"IBM Plex Mono",monospace;letter-spacing:.04em;}
 
   /* die / chip motif */
-  .die{position:relative;aspect-ratio:1/1;border-radius:12px;background:linear-gradient(160deg,#0c2340,#143a66);padding:22px;box-shadow:0 30px 60px -30px rgba(12,35,64,.6);}
-  .die::before{content:"";position:absolute;inset:13px;border:1px solid rgba(120,170,225,.35);border-radius:7px;pointer-events:none;}
-  .die-grid{position:relative;width:100%;height:100%;display:grid;grid-template-columns:repeat(8,1fr);grid-template-rows:repeat(8,1fr);gap:5px;}
-  .die-grid span{border-radius:2px;background:rgba(120,170,225,.10);border:1px solid rgba(120,170,225,.16);}
-  .die-grid span.lit{background:rgba(86,156,222,.45);border-color:rgba(140,195,255,.5);}
-  .die-grid span.lit2{background:rgba(200,162,68,.5);border-color:rgba(225,185,90,.6);}
-  .die-grid span{transition:background .25s ease,border-color .25s ease,box-shadow .25s ease,opacity .25s ease,transform .25s ease;}
-  .die-grid span.lit,.die-grid span.lit2{cursor:pointer;}
-  .die-grid span.lit:focus-visible,.die-grid span.lit2:focus-visible{outline:2px solid #9fd0ff;outline-offset:2px;}
-  .die-grid.focus span{opacity:.35;}
-  .die-grid.focus span.on{opacity:1;transform:scale(1.06);}
-  .die-grid span.lit.on{background:rgba(110,180,245,.85);border-color:#bfe0ff;box-shadow:0 0 14px rgba(120,190,255,.55);}
-  .die-grid span.lit2.on{background:rgba(222,184,90,.9);border-color:#f3d48a;box-shadow:0 0 14px rgba(230,190,95,.55);}
-  .die-label{transition:color .2s ease;}
-  .die-label.active{color:var(--blue);}
-  .die-grid span.big{grid-column:span 3;grid-row:span 3;background:rgba(120,170,225,.16);}
-  .die-grid span.wide{grid-column:span 4;}
-  .die-label{position:absolute;bottom:-13px;left:50%;transform:translateX(-50%);background:#fff;border:1px solid var(--line-2);border-radius:30px;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.1em;color:var(--muted);padding:5px 16px;white-space:nowrap;box-shadow:var(--shadow);}
+  /* ---------- HERO: interactive signal chain ---------- */
+  .sig{position:relative;border-radius:12px;background:linear-gradient(160deg,#0c2340,#143a66);padding:18px 18px 16px;box-shadow:0 30px 60px -30px rgba(12,35,64,.6);color:#d7e6f7;}
+  .sig::before{content:"";position:absolute;inset:8px;border:1px solid rgba(120,170,225,.28);border-radius:8px;pointer-events:none;}
+  .sig-head{display:flex;justify-content:space-between;align-items:baseline;font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(170,205,240,.7);margin:2px 2px 10px;}
+  .sig-head b{color:#e9d08f;font-weight:500;}
+  .sig-chain{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-bottom:10px;}
+  .sig-stage{position:relative;font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.02em;color:rgba(205,225,248,.8);background:rgba(255,255,255,.05);border:1px solid rgba(140,190,240,.22);border-radius:6px;padding:7px 2px 6px;cursor:pointer;transition:.2s;line-height:1.15;}
+  .sig-stage small{display:block;font-size:9px;color:rgba(160,195,230,.6);margin-bottom:2px;}
+  .sig-stage:hover{border-color:rgba(160,205,255,.6);color:#fff;}
+  .sig-stage[aria-pressed="true"]{background:rgba(86,156,222,.38);border-color:#9fd0ff;color:#fff;box-shadow:0 0 14px rgba(120,190,255,.35);}
+  .sig-stage[aria-pressed="true"] small{color:#cfe6ff;}
+  .sig-stage:not(:last-child)::after{content:"";position:absolute;right:-6px;top:50%;width:6px;height:1px;background:rgba(140,190,240,.45);}
+  .sig-stage:focus-visible,.sig-toggle:focus-visible{outline:2px solid #9fd0ff;outline-offset:2px;}
+  .sig-scope{position:relative;border-radius:7px;background:rgba(5,16,32,.55);border:1px solid rgba(120,170,225,.2);overflow:hidden;}
+  .sig-scope canvas{display:block;width:100%;height:150px;}
+  .sig-scope .sig-tag{position:absolute;top:6px;left:8px;font-family:"IBM Plex Mono",monospace;font-size:10px;color:rgba(170,205,240,.75);letter-spacing:.04em;}
+  .sig-scope .sig-tag.r{left:auto;right:8px;color:#e9d08f;}
+  .sig-adc{margin-top:10px;border-radius:7px;padding:9px 10px 8px;background:rgba(5,16,32,.35);border:1px solid rgba(120,170,225,.16);transition:border-color .25s,background .25s;}
+  .sig-adc.focus{border-color:rgba(230,190,95,.55);background:rgba(40,32,10,.28);}
+  .sig-adc-top{display:flex;justify-content:space-between;align-items:baseline;font-family:"IBM Plex Mono",monospace;font-size:10px;color:rgba(170,205,240,.7);letter-spacing:.06em;margin-bottom:6px;}
+  .sig-adc-top .code{color:#fff;font-size:11.5px;letter-spacing:.08em;}
+  .sig-adc-top .code em{font-style:normal;color:#e9d08f;}
+  .sig-caps{display:grid;grid-template-columns:repeat(8,1fr);gap:4px;}
+  .sig-cap{border-radius:4px;border:1px solid rgba(140,190,240,.22);background:rgba(255,255,255,.04);text-align:center;padding:4px 0 3px;font-family:"IBM Plex Mono",monospace;transition:background .15s,border-color .15s,box-shadow .15s;}
+  .sig-cap b{display:block;font-size:13px;font-weight:600;color:rgba(205,225,248,.35);line-height:1.1;}
+  .sig-cap i{display:block;font-style:normal;font-size:8.5px;color:rgba(160,195,230,.55);}
+  .sig-cap.one{background:rgba(86,156,222,.4);border-color:rgba(160,210,255,.7);}
+  .sig-cap.one b{color:#fff;}
+  .sig-cap.trial{border-color:#f3d48a;box-shadow:0 0 10px rgba(230,190,95,.55);}
+  .sig-cap.trial b{color:#f3d48a;}
+  .sig-cmp{display:grid;grid-template-columns:34px 1fr;gap:4px 8px;align-items:center;margin-top:7px;font-family:"IBM Plex Mono",monospace;font-size:9.5px;color:rgba(170,205,240,.7);}
+  .sig-bar{height:6px;border-radius:3px;background:rgba(255,255,255,.07);overflow:hidden;}
+  .sig-bar span{display:block;height:100%;width:0;border-radius:3px;background:#6aa6e0;transition:width .15s ease;}
+  .sig-bar.dac span{background:#e0b85a;}
+  .sig-controls{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;}
+  .sig-toggle{font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:rgba(205,225,248,.8);background:transparent;border:1px solid rgba(140,190,240,.3);border-radius:30px;padding:5px 11px;cursor:pointer;transition:.2s;}
+  .sig-toggle::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:7px;background:rgba(160,195,230,.35);vertical-align:1px;}
+  .sig-toggle[aria-pressed="true"]{border-color:#9fd0ff;color:#fff;background:rgba(86,156,222,.22);}
+  .sig-toggle[aria-pressed="true"]::before{background:#7fe0a0;box-shadow:0 0 6px #7fe0a0;}
+  .sig-toggle.warn[aria-pressed="true"]::before{background:#f08a6a;box-shadow:0 0 6px #f08a6a;}
+  .sig-toggle:disabled{opacity:.4;cursor:not-allowed;}
+  .sig-caption{margin:10px 2px 0;font-size:13px;line-height:1.5;color:rgba(215,230,247,.88);min-height:58px;}
+  .sig-caption a{color:#9fd0ff;font-weight:600;white-space:nowrap;}
+  .sig-caption a:hover{color:#fff;}
+  @media(max-width:760px){
+    .sig{padding:14px 12px 12px;}
+    .sig-stage{font-size:9.5px;}
+    .sig-cap i{font-size:7.5px;}
+    .sig-caption{font-size:12.5px;}
+  }
   .hero-fig{position:relative;}
   .hero-bg-dots{position:absolute;inset:0;background-image:radial-gradient(var(--line-2) 1px,transparent 1px);background-size:22px 22px;opacity:.5;-webkit-mask-image:radial-gradient(circle at 70% 35%,#000,transparent 70%);mask-image:radial-gradient(circle at 70% 35%,#000,transparent 70%);z-index:0;pointer-events:none;}
 
@@ -480,9 +511,33 @@
       </div>
     </div>
     <div class="hero-fig">
-      <div class="die" role="group" aria-label="Interactive die: hover or tap a block to explore our tape-outs">
-        <div class="die-grid" id="dieGrid"></div>
-        <div class="die-label" id="dieLabel" aria-live="polite">// taped out on open silicon</div>
+      <div class="sig" id="sig" role="group" aria-label="Interactive biomedical signal chain: from electrode to bits">
+        <div class="sig-head"><span>// electrode → bits</span><b>ECG · live</b></div>
+        <div class="sig-chain">
+          <button class="sig-stage" type="button" data-stage="0" aria-pressed="false"><small>01</small>Electrode</button>
+          <button class="sig-stage" type="button" data-stage="1" aria-pressed="false"><small>02</small>Amplifier</button>
+          <button class="sig-stage" type="button" data-stage="2" aria-pressed="false"><small>03</small>Filter</button>
+          <button class="sig-stage" type="button" data-stage="3" aria-pressed="false"><small>04</small>SAR ADC</button>
+          <button class="sig-stage" type="button" data-stage="4" aria-pressed="false"><small>05</small>Digital</button>
+        </div>
+        <div class="sig-scope">
+          <canvas id="sigScope" aria-hidden="true"></canvas>
+          <span class="sig-tag" id="sigTagL">electrode · ~1 mV</span>
+          <span class="sig-tag r" id="sigTagR"></span>
+        </div>
+        <div class="sig-adc" id="sigAdc" aria-hidden="true">
+          <div class="sig-adc-top"><span>SAR ADC · binary search, MSB first</span><span class="code" id="sigCode">-------- </span></div>
+          <div class="sig-caps" id="sigCaps"></div>
+          <div class="sig-cmp">
+            <span>V<sub>in</sub></span><div class="sig-bar"><span id="sigVin"></span></div>
+            <span>V<sub>DAC</sub></span><div class="sig-bar dac"><span id="sigVdac"></span></div>
+          </div>
+        </div>
+        <div class="sig-controls">
+          <button class="sig-toggle warn" type="button" id="sigArt" aria-pressed="false">Motion artifact</button>
+          <button class="sig-toggle" type="button" id="sigCancel" aria-pressed="false" disabled>Impedance cancellation</button>
+        </div>
+        <p class="sig-caption" id="sigCaption" aria-live="polite"></p>
       </div>
     </div>
   </div>
@@ -1382,65 +1437,153 @@
   menuToggle.addEventListener('click', () => navlinks.classList.toggle('open'));
   navlinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navlinks.classList.remove('open')));
 
-  // ---- interactive die: each lit block is one of our tape-outs ----
+  // ---- hero: interactive signal chain (electrode → amplifier → filter → SAR ADC → digital) ----
   (function(){
-    const grid = document.getElementById('dieGrid');
-    const label = document.getElementById('dieLabel');
-    const idle = label.textContent;
-    const blocks = [
-      {cells:[10,11,18,19], gold:false, text:'SAR ADC · chipIgnite 2024', href:'#p-sar-adc'},
-      {cells:[5,13,21],     gold:false, text:'30 MHz PLL · IHP OpenMPW 2025', href:'#p-pll-30m'},
-      {cells:[28,36],       gold:false, text:'Op-amp · SKY25a · first silicon', href:'#p-ear-eeg'},
-      {cells:[45,46,53,54], gold:false, text:'2.4 GHz PLL · UNIC-CASS 2025', href:'#p-pll-2g4'},
-      {cells:[2,3],         gold:true,  text:'I/Q multiplier · UNIC-CASS 2025', href:'#p-ear-eeg'},
-      {cells:[58,59,60],    gold:true,  text:'Your design here · join us', href:'#contact'}
+    const root = document.getElementById('sig'); if(!root) return;
+    const canvas = document.getElementById('sigScope'), ctx = canvas.getContext('2d');
+    const stagesEl = [...root.querySelectorAll('.sig-stage')];
+    const tagL = document.getElementById('sigTagL'), tagR = document.getElementById('sigTagR');
+    const caption = document.getElementById('sigCaption');
+    const adcBox = document.getElementById('sigAdc'), codeEl = document.getElementById('sigCode');
+    const vinBar = document.getElementById('sigVin'), vdacBar = document.getElementById('sigVdac');
+    const artBtn = document.getElementById('sigArt'), cancelBtn = document.getElementById('sigCancel');
+    const capsEl = document.getElementById('sigCaps');
+    const W8 = [128,64,32,16,8,4,2,1];
+    const caps = W8.map(w=>{ const d=document.createElement('div'); d.className='sig-cap'; d.innerHTML='<b>0</b><i>'+w+'C</i>'; capsEl.appendChild(d); return d; });
+
+    const STAGES = [
+      {tag:'electrode · ~1 mV', cap:'Dry-contact electrodes pick up millivolt-level biopotentials — buried in 50 Hz mains hum, baseline wander and motion artifacts.', link:['#p-braineocare','BraiNeoCare dry-contact EEG →']},
+      {tag:'amplifier · gain ×100', cap:'A low-noise, fully-differential amplifier lifts the signal ×100 while rejecting common-mode interference — noise and all.', link:['#p-ear-eeg','Our op-amp, first silicon on SKY25a →']},
+      {tag:'band-pass filter', cap:'Band-pass filtering strips mains hum and baseline wander, leaving the physiological band. Toggle a motion artifact to see what filtering alone can’t remove.', link:['#p-intelliscope','Intelliscope adaptive noise cancellation →']},
+      {tag:'sample & quantize · 8-bit', cap:'A charge-redistribution SAR ADC holds each sample and binary-searches its code: 8 comparator decisions, MSB first, against a capacitor DAC.', link:['#p-sar-adc','Our 8-bit, 100 kSPS SAR ADC →']},
+      {tag:'digital codes', cap:'8-bit codes stream to on-chip logic or a radio link — ready for real-time ML screening of heart and brain signals.', link:['#p-pll-2g4','Our 2.4 GHz PLL for the radio →']}
     ];
-    const owner = {}; blocks.forEach((b,i)=>b.cells.forEach(c=>owner[c]=i));
-    const spans = [];
-    for(let i=0;i<64;i++){
-      const s = document.createElement('span');
-      if(i in owner){
-        const b = blocks[owner[i]];
-        s.className = b.gold ? 'lit2' : 'lit';
-        s.dataset.b = owner[i];
-        if(b.cells[0]===i){ s.tabIndex = 0; s.setAttribute('role','link'); s.setAttribute('aria-label', b.text); }
+    const CANCEL_CAP = 'Impedance-based cancellation: a 1 kHz drive tracks the electrode-skin impedance mismatch, and an adaptive filter subtracts the motion artifact it predicts.';
+    const CANCEL_LINK = ['#p-ear-eeg','Ear-EEG impedance monitoring (BioCAS 2026) →'];
+
+    let stage = 0, artifact = false, cancel = false;
+
+    // ---- synthetic signal (mV) ----
+    const g = (x,m,s)=>Math.exp(-((x-m)*(x-m))/(2*s*s));
+    function ecg(t){ const T=60/72, p=(t%T)/T; return .12*g(p,.2,.025) - .12*g(p,.36,.01) + 1.0*g(p,.39,.012) - .25*g(p,.42,.012) + .3*g(p,.62,.045); }
+    function hum(t){ return .16*Math.sin(2*Math.PI*50*t); }
+    function wander(t){ return .25*Math.sin(2*Math.PI*.23*t) + .1*Math.sin(2*Math.PI*.61*t+1); }
+    function noise(t){ const x=Math.sin(t*12345.678)*43758.5453; return (x-Math.floor(x)-.5)*.06; }
+    function art(t){ const a=t%3.7, b=t%5.3; return .62*g(a,1.1,.22) - .5*g(b,3.0,.3) + .25*g(a,1.6,.12); }
+    function filtered(t){
+      let v = ecg(t) + .25*noise(t);
+      if(artifact) v += cancel ? .06*art(t) : art(t);
+      return v;
+    }
+    function raw(t){ return ecg(t) + hum(t) + wander(t) + noise(t) + (artifact ? art(t) : 0); }
+    const VMIN=-1.0, VMAX=1.6, toCode = v=>Math.max(0,Math.min(255,Math.round((v-VMIN)/(VMAX-VMIN)*255)));
+
+    // ---- scope ----
+    let cw=0, ch=0, dpr=1;
+    function size(){ dpr=Math.min(window.devicePixelRatio||1,2); cw=canvas.clientWidth; ch=canvas.clientHeight; canvas.width=Math.round(cw*dpr); canvas.height=Math.round(ch*dpr); }
+    function draw(now){
+      if(!cw) size(); ctx.setTransform(dpr,0,0,dpr,0,0); ctx.clearRect(0,0,cw,ch);
+      ctx.strokeStyle='rgba(120,170,225,.10)'; ctx.lineWidth=1;
+      for(let x=0;x<=cw;x+=cw/12){ ctx.beginPath(); ctx.moveTo(Math.round(x)+.5,0); ctx.lineTo(Math.round(x)+.5,ch); ctx.stroke(); }
+      for(let y=0;y<=ch;y+=ch/6){ ctx.beginPath(); ctx.moveTo(0,Math.round(y)+.5); ctx.lineTo(cw,Math.round(y)+.5); ctx.stroke(); }
+      const span=3, t0=now-span, mid=ch*.56;
+      const Y = (v,scale)=> mid - v*scale;
+      ctx.lineJoin='round'; ctx.lineCap='round';
+      if(stage<=2){
+        const scale = stage===0 ? ch*.13 : ch*.24;
+        ctx.strokeStyle = stage===2 ? '#8fc3f2' : '#6aa6e0'; ctx.lineWidth = 1.6; ctx.beginPath();
+        for(let x=0;x<=cw;x++){ const t=t0+span*x/cw, v = stage===2 ? filtered(t) : raw(t); x?ctx.lineTo(x,Y(v,scale)):ctx.moveTo(x,Y(v,scale)); }
+        ctx.stroke();
+      } else {
+        const scale=ch*.24, fs=40, dt=1/fs;                       // illustrative sample rate on screen
+        const q=v=>VMIN+toCode(v)/255*(VMAX-VMIN);
+        const first=Math.ceil(t0/dt)*dt;
+        if(stage===3){
+          ctx.strokeStyle='rgba(143,195,242,.35)'; ctx.lineWidth=1.2; ctx.beginPath();
+          for(let x=0;x<=cw;x++){ const t=t0+span*x/cw; const v=filtered(t); x?ctx.lineTo(x,Y(v,scale)):ctx.moveTo(x,Y(v,scale)); }
+          ctx.stroke();
+          ctx.strokeStyle='#e0b85a'; ctx.lineWidth=1.6; ctx.beginPath(); let started=false, prevY=0;
+          for(let t=first-dt;t<=now;t+=dt){ const x0=(t-t0)/span*cw, x1=(t+dt-t0)/span*cw, y=Y(q(filtered(t)),scale);
+            if(!started){ ctx.moveTo(x0,y); started=true; } else ctx.lineTo(x0,y); ctx.lineTo(x1,y); prevY=y; }
+          ctx.stroke();
+        } else {
+          ctx.lineWidth=2;
+          for(let t=first;t<=now;t+=dt){ const x=(t-t0)/span*cw, c=toCode(filtered(t)), y=Y(q(filtered(t)),scale);
+            ctx.strokeStyle='rgba(224,184,90,.55)'; ctx.beginPath(); ctx.moveTo(x,ch); ctx.lineTo(x,y); ctx.stroke();
+            ctx.fillStyle='#f3d48a'; ctx.beginPath(); ctx.arc(x,y,1.8,0,7); ctx.fill(); }
+          const lastT=Math.floor(now/dt)*dt, codes=[];
+          for(let k=3;k>=0;k--) codes.push(toCode(filtered(lastT-k*dt)).toString(2).padStart(8,'0'));
+          tagR.textContent = codes.join(' ');
+        }
       }
-      grid.appendChild(s); spans.push(s);
+      if(stage!==4) tagR.textContent = stage===1 ? '×100' : (stage===3 ? '8-bit' : '');
     }
-    let current = -1;
-    function show(i){
-      if(i===current) return; current = i;
-      spans.forEach(s=>s.classList.remove('on'));
-      if(i<0){ grid.classList.remove('focus'); label.textContent = idle; label.classList.remove('active'); return; }
-      blocks[i].cells.forEach(c=>spans[c].classList.add('on'));
-      grid.classList.add('focus');
-      label.textContent = '// ' + blocks[i].text + ' →';
-      label.classList.add('active');
+
+    // ---- SAR ADC binary search (runs on the live filtered signal) ----
+    let adc = {vin:0, code:0, bit:-1, timer:0};
+    function renderAdc(trialCode){
+      const done = adc.bit<0, chars=[];
+      caps.forEach((c,i)=>{
+        const k=7-i, decided = done || k>adc.bit, isTrial = !done && k===adc.bit;
+        const on = decided ? (adc.code>>k)&1 : (isTrial ? 1 : 0);
+        const ch = decided ? String(on) : (isTrial ? '1' : '·');
+        c.classList.toggle('one', decided && !!on); c.classList.toggle('trial', isTrial);
+        c.querySelector('b').textContent = ch; chars.push(ch);
+      });
+      vinBar.style.width = (adc.vin/255*100)+'%';
+      vdacBar.style.width = ((trialCode!==undefined?trialCode:adc.code)/255*100)+'%';
+      codeEl.innerHTML = chars.join('') + (done ? ' = <em>'+adc.code+'</em>' : '');
     }
-    function go(i){ const t = document.querySelector(blocks[i].href); if(t) t.scrollIntoView({behavior:'smooth', block:'start'}); }
-    // pointer + keyboard
-    let userActive = false, resumeT;
-    function interact(){ userActive = true; clearTimeout(resumeT); resumeT = setTimeout(()=>{ userActive = false; }, 6000); }
-    grid.addEventListener('mouseover', e=>{ const b = e.target.dataset && e.target.dataset.b; if(b!==undefined){ interact(); show(+b); } });
-    grid.addEventListener('mouseleave', ()=>{ show(-1); });
-    grid.addEventListener('click', e=>{ const b = e.target.dataset && e.target.dataset.b; if(b!==undefined){ interact(); show(+b); go(+b); } });
-    grid.addEventListener('focusin', e=>{ const b = e.target.dataset && e.target.dataset.b; if(b!==undefined){ interact(); show(+b); } });
-    grid.addEventListener('focusout', ()=>{ if(!grid.contains(document.activeElement)) show(-1); });
-    grid.addEventListener('keydown', e=>{ const b = e.target.dataset && e.target.dataset.b; if(b!==undefined && (e.key==='Enter'||e.key===' ')){ e.preventDefault(); go(+b); } });
-    // gentle auto-tour while the hero is visible (skipped for reduced motion)
+    function adcStep(now){
+      if(adc.bit<0){                                    // sample & hold a new value
+        adc.vin = toCode(filtered(now)); adc.code = 0; adc.bit = 7; renderAdc(128); return 260;
+      }
+      const trial = adc.code | (1<<adc.bit);
+      renderAdc(trial);
+      if(trial <= adc.vin) adc.code = trial;            // comparator: keep the bit if V_DAC ≤ V_in
+      adc.bit--;
+      if(adc.bit<0){ renderAdc(); return 1100; }        // show the finished code for a beat
+      return 230;
+    }
+
+    // ---- interaction ----
+    function setStage(i, user){
+      stage=i; stagesEl.forEach((b,k)=>b.setAttribute('aria-pressed', k===i ? 'true':'false'));
+      adcBox.classList.toggle('focus', i===3); tagL.textContent = STAGES[i].tag;
+      const useCancel = artifact && cancel && i===2;
+      const st = STAGES[i], text = useCancel ? CANCEL_CAP : st.cap, link = useCancel ? CANCEL_LINK : st.link;
+      caption.innerHTML = text + ' <a href="'+link[0]+'">'+link[1]+'</a>';
+      if(user) interact();
+      if(reduce) draw(performance.now()/1000);
+    }
+    stagesEl.forEach((b,k)=>b.addEventListener('click', ()=>setStage(k,true)));
+    artBtn.addEventListener('click', ()=>{ artifact=!artifact; artBtn.setAttribute('aria-pressed',artifact); cancelBtn.disabled=!artifact; if(!artifact){ cancel=false; cancelBtn.setAttribute('aria-pressed','false'); } setStage(stage,true); });
+    cancelBtn.addEventListener('click', ()=>{ cancel=!cancel; cancelBtn.setAttribute('aria-pressed',cancel); setStage(Math.max(stage,2),true); });
+    caption.addEventListener('click', e=>{ const a=e.target.closest('a'); if(a){ e.preventDefault(); const t=document.querySelector(a.getAttribute('href')); if(t) t.scrollIntoView({behavior:'smooth',block:'start'}); } });
+
+    // ---- loop, auto-tour, visibility ----
     const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if(!reduce){
-      let visible = true, step = 0;
-      if('IntersectionObserver' in window){
-        new IntersectionObserver(es=>{ visible = es[0].isIntersecting; if(!visible && !userActive) show(-1); }, {threshold:.3}).observe(grid);
-      }
-      setInterval(()=>{
-        if(userActive || !visible || document.hidden) return;
-        // tour the chips, then rest on the idle caption for one beat
-        if(step === blocks.length){ show(-1); step = 0; return; }
-        show(step++);
-      }, 2400);
+    let userActive=false, resumeT, visible=true, nextAdc=0, nextTour=0;
+    function interact(){ userActive=true; clearTimeout(resumeT); resumeT=setTimeout(()=>{ userActive=false; nextTour=0; }, 9000); }
+    if('IntersectionObserver' in window) new IntersectionObserver(es=>{ visible=es[0].isIntersecting; },{threshold:.2}).observe(root);
+    window.addEventListener('resize', ()=>{ size(); if(reduce) draw(performance.now()/1000); });
+    setStage(0);
+    if(reduce){                                          // static frame + a finished conversion
+      size(); const t=performance.now()/1000; adc.vin=toCode(filtered(t)); adc.code=adc.vin; adc.bit=-1; renderAdc(); draw(t); return;
     }
+    function frame(ms){
+      requestAnimationFrame(frame);
+      if(!visible || document.hidden) return;
+      const now=ms/1000;
+      draw(now);
+      if(now>=nextAdc) nextAdc = now + adcStep(now)/1000;
+      if(!userActive){
+        if(!nextTour) nextTour = now + 4.5;
+        else if(now>=nextTour){ const n=(stage+1)%5; setStage(n); nextTour = now + (n===3 ? 6.5 : 4.5); }
+      }
+    }
+    size(); { const t=performance.now()/1000; adc.vin=toCode(filtered(t)); adc.code=adc.vin; adc.bit=-1; renderAdc(); draw(t); }
+    requestAnimationFrame(frame);
   })();
 
   // ---- chip gallery ----
