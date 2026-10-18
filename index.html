@@ -372,20 +372,14 @@
   .nx-layer b{font-family:"IBM Plex Mono",monospace;font-size:11.5px;font-weight:500;color:var(--navy);letter-spacing:.04em;text-transform:uppercase;padding-top:2px;}
   .nx-layer span{color:var(--muted);}
   .nx-layer em{font-style:normal;color:var(--gold);font-weight:600;}
-  .nx-principles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
-  .nx-p{padding:16px 18px;border-left:3px solid var(--gold-b);background:var(--surface);border-radius:0 10px 10px 0;font-size:14px;color:var(--muted);line-height:1.5;}
-  .nx-p b{display:block;color:var(--navy);font-size:14.5px;margin-bottom:3px;}
   .nx-paper{display:grid;grid-template-columns:1.2fr 1fr;gap:24px;background:linear-gradient(155deg,#0c2340 0%,#16467d 100%);border-radius:16px;padding:34px;color:#dbe7f6;}
   .nx-paper h4{color:#fff;font-size:22px;margin:6px 0 12px;line-height:1.3;}
   .nx-paper .k{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#e9d08f;}
   .nx-paper ol,.nx-paper ul{margin:0;padding-left:18px;font-size:14.5px;line-height:1.6;color:rgba(220,232,248,.88);}
   .nx-paper li{margin-bottom:6px;}
   .nx-paper h5{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:#9fd0ff;margin:0 0 8px;}
-  .nx-qs{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 28px;margin:0;padding:0;list-style:none;}
-  .nx-qs li{position:relative;padding-left:26px;font-size:14.5px;color:var(--ink);line-height:1.5;}
-  .nx-qs li::before{content:"?";position:absolute;left:0;top:0;width:18px;height:18px;border-radius:50%;background:var(--blue-l);color:var(--blue);font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:600;display:grid;place-items:center;}
-  @media(max-width:980px){ .nx-grid3,.nx-arch,.nx-paper{grid-template-columns:1fr;} .nx-caps{grid-template-columns:repeat(2,1fr);} .nx-principles{grid-template-columns:1fr 1fr;} }
-  @media(max-width:760px){ .nx-caps,.nx-principles,.nx-road,.nx-qs{grid-template-columns:1fr;} .nx-layer{grid-template-columns:1fr;gap:2px;} .nx-paper{padding:26px 22px;} }
+  @media(max-width:980px){ .nx-grid3,.nx-arch,.nx-paper{grid-template-columns:1fr;} .nx-caps{grid-template-columns:repeat(2,1fr);} }
+  @media(max-width:760px){ .nx-caps{grid-template-columns:1fr;} .nx-layer{grid-template-columns:1fr;gap:2px;} .nx-paper{padding:26px 22px;} }
 
   /* ---------- GALLERY ---------- */
   .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
@@ -1104,17 +1098,6 @@
       </div>
     </div>
 
-    <h3 class="nx-h">How we’ll build it</h3>
-    <p class="nx-sub">An organized, open development process so a student team can move fast without breaking interfaces.</p>
-    <div class="nx-principles">
-      <div class="nx-p"><b>Polyrepo by layer</b>hardware · firmware · protocol · SDKs · apps · docs, each with a clear owner.</div>
-      <div class="nx-p"><b>Single source of truth</b>hardware owns pins, firmware owns the wire protocol, one version file.</div>
-      <div class="nx-p"><b>Versioned interfaces</b>capability bits and schema versions; SDKs and apps gate features on them.</div>
-      <div class="nx-p"><b>Agent-ready repos</b>an AGENTS.md per repo with maps, review checklists and cross-repo rules.</div>
-      <div class="nx-p"><b>Validation ≠ compiling</b>bring-up tests per driver, host-side unit tests, and written on-hardware validation.</div>
-      <div class="nx-p"><b>Open by default</b>permissive licences, revision-tagged hardware snapshots, reproducible builds.</div>
-    </div>
-
     <h3 class="nx-h">Toward IEEE BioCAS 2027</h3>
     <div class="nx-paper">
       <div>
@@ -1134,15 +1117,6 @@
       </div>
     </div>
 
-    <h3 class="nx-h">Open questions for the team</h3>
-    <ul class="nx-qs">
-      <li>Form factor: fully in-ear, or earbud + behind-ear module?</li>
-      <li>Battery and power budget for all-day multimodal recording?</li>
-      <li>Front end: commercial EEG AFE first, or straight to our own?</li>
-      <li>Electrodes: canal vs. concha placement, materials, custom-fit tips?</li>
-      <li>SoC: nRF5340 (LE Audio) vs. nRF54L15 (low power)?</li>
-      <li>Hearing scope: research-only ASSR/AEP, staying clear of clinical claims?</li>
-    </ul>
   </div>
 </section>
 
