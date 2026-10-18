@@ -342,6 +342,51 @@
   .ph .ph-cap{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:rgba(180,205,235,.85);text-align:center;padding:0 16px;}
   .ph .ph-note{font-family:"IBM Plex Mono",monospace;font-size:10px;color:rgba(150,180,215,.6);letter-spacing:.04em;}
 
+  .proj.proj--next,[data-theme="dark"] .proj.proj--next{border:1px dashed var(--gold-line);background:linear-gradient(135deg,var(--surface),var(--gold-l));}
+  .next-badge{display:inline-block;margin-left:6px;padding:2px 9px;border-radius:30px;background:var(--gold-l);border:1px solid var(--gold-line);color:var(--gold);letter-spacing:.08em;}
+
+  /* ---------- NEXT PROJECT (concept) ---------- */
+  .nx-grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .nx-card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:24px;box-shadow:var(--shadow);display:flex;flex-direction:column;}
+  .nx-card .k{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:8px;}
+  .nx-card h4{font-size:19px;margin-bottom:8px;}
+  .nx-card p{font-size:14.5px;color:var(--muted);line-height:1.55;margin-bottom:10px;}
+  .nx-card .take{margin-top:auto;padding-top:12px;border-top:1px solid var(--line);font-size:14px;color:var(--ink);}
+  .nx-card .take b{color:var(--gold);font-weight:600;}
+  .nx-card a.src{font-size:13px;font-weight:600;}
+  .nx-card.ours{border-color:var(--gold-line);}
+  .nx-h{font-size:26px;margin:56px 0 8px;}
+  .nx-sub{color:var(--muted);margin-bottom:22px;max-width:760px;}
+  .nx-caps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+  .nx-cap{border-radius:12px;padding:20px;border:1px solid var(--line);background:var(--surface);}
+  .nx-cap h5{font-family:"Spectral",serif;font-size:17px;color:var(--navy);margin:0 0 6px;}
+  .nx-cap p{font-size:14px;color:var(--muted);line-height:1.5;margin-bottom:8px;}
+  .nx-cap .m{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--blue);}
+  .nx-cap:nth-child(1){border-top:3px solid #6aa6e0;} .nx-cap:nth-child(2){border-top:3px solid #7fc6a4;}
+  .nx-cap:nth-child(3){border-top:3px solid #b394e0;} .nx-cap:nth-child(4){border-top:3px solid #e0a28a;}
+  .nx-arch{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  .nx-stack{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px 24px;}
+  .nx-stack h5{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin:0 0 12px;}
+  .nx-layer{display:grid;grid-template-columns:118px 1fr;gap:12px;padding:10px 0;border-top:1px solid var(--line);font-size:14px;line-height:1.5;}
+  .nx-layer:first-of-type{border-top:0;}
+  .nx-layer b{font-family:"IBM Plex Mono",monospace;font-size:11.5px;font-weight:500;color:var(--navy);letter-spacing:.04em;text-transform:uppercase;padding-top:2px;}
+  .nx-layer span{color:var(--muted);}
+  .nx-layer em{font-style:normal;color:var(--gold);font-weight:600;}
+  .nx-principles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .nx-p{padding:16px 18px;border-left:3px solid var(--gold-b);background:var(--surface);border-radius:0 10px 10px 0;font-size:14px;color:var(--muted);line-height:1.5;}
+  .nx-p b{display:block;color:var(--navy);font-size:14.5px;margin-bottom:3px;}
+  .nx-paper{display:grid;grid-template-columns:1.2fr 1fr;gap:24px;background:linear-gradient(155deg,#0c2340 0%,#16467d 100%);border-radius:16px;padding:34px;color:#dbe7f6;}
+  .nx-paper h4{color:#fff;font-size:22px;margin:6px 0 12px;line-height:1.3;}
+  .nx-paper .k{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#e9d08f;}
+  .nx-paper ol,.nx-paper ul{margin:0;padding-left:18px;font-size:14.5px;line-height:1.6;color:rgba(220,232,248,.88);}
+  .nx-paper li{margin-bottom:6px;}
+  .nx-paper h5{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:#9fd0ff;margin:0 0 8px;}
+  .nx-qs{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 28px;margin:0;padding:0;list-style:none;}
+  .nx-qs li{position:relative;padding-left:26px;font-size:14.5px;color:var(--ink);line-height:1.5;}
+  .nx-qs li::before{content:"?";position:absolute;left:0;top:0;width:18px;height:18px;border-radius:50%;background:var(--blue-l);color:var(--blue);font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:600;display:grid;place-items:center;}
+  @media(max-width:980px){ .nx-grid3,.nx-arch,.nx-paper{grid-template-columns:1fr;} .nx-caps{grid-template-columns:repeat(2,1fr);} .nx-principles{grid-template-columns:1fr 1fr;} }
+  @media(max-width:760px){ .nx-caps,.nx-principles,.nx-road,.nx-qs{grid-template-columns:1fr;} .nx-layer{grid-template-columns:1fr;gap:2px;} .nx-paper{padding:26px 22px;} }
+
   /* ---------- GALLERY ---------- */
   .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
   .chip-card{background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;box-shadow:var(--shadow);transition:.2s;}
@@ -480,8 +525,7 @@
     .os{padding:36px 26px;}
     .hero-meta{flex-wrap:wrap;gap:24px;}
     .foot-grid{grid-template-columns:1fr 1fr;}
-  }
-</style>
+  }</style>
 <script>
   // Apply saved theme before paint to avoid flash
   (function(){
@@ -561,7 +605,7 @@
         </a>
       </div>
       <div class="hero-meta">
-        <div class="stat"><div class="num">7</div><div class="lbl">research projects</div></div>
+        <div class="stat"><div class="num">8</div><div class="lbl">research projects</div></div>
         <div class="stat"><div class="num">5</div><div class="lbl">tape-outs</div></div>
         <div class="stat"><div class="num">130nm</div><div class="lbl">open PDKs</div></div>
         <div class="stat"><div class="num">100%</div><div class="lbl">open-source flow</div></div>
@@ -654,9 +698,41 @@
     <div class="proj-list">
 
       <!-- Project 1 -->
+      <article class="proj proj--nofig proj--next" id="p-auric">
+        <div class="proj-body">
+          <span class="proj-index">PROJECT 01 · <span class="next-badge">To be commenced</span></span>
+          <h3>NeurEar: An Open, Impedance-Aware In-Ear Biosensing Platform</h3>
+          <p class="desc">Our next step takes the impedance-aware ear-EEG from our BioCAS&nbsp;2026 and ICM&nbsp;2026 work out of a 5&nbsp;W headband prototype and into an earbud. NeurEar is a modular, open in-ear platform that combines multichannel ear-EEG and continuous electrode-skin impedance tracking with in-ear physiological and acoustic sensing — built on an organized hardware–firmware–software stack and designed toward our own CMOS ASIC. Target applications span neural sensing, physiological monitoring and objective hearing assessment, all from one ear-worn device.</p>
+          <div class="tags">
+            <span class="tag">Ear-EEG</span>
+            <span class="tag">In-Ear Biosensing</span>
+            <span class="tag">Impedance-Aware</span>
+            <span class="tag">Zephyr · BLE</span>
+            <span class="tag">Open Hardware</span>
+            <span class="tag teal">BioCAS 2027 · Target</span>
+          </div>
+          <div class="specs">
+            <div class="s"><div class="v">EEG+</div><div class="k">PPG · IMU · audio</div></div>
+            <div class="s"><div class="v">I/Q</div><div class="k">continuous ESI tracking</div></div>
+            <div class="s"><div class="v">5 W → mW</div><div class="k">headband → earbud</div></div>
+            <div class="s"><div class="v">2027</div><div class="k">platform + paper</div></div>
+          </div>
+          <div class="proj-links">
+            <a href="#next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 7h10M7 12h10M7 17h6"/></svg>
+              Read the concept & roadmap
+            </a>
+            <a href="#apply"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 7h10M7 12h10M7 17h6"/></svg>
+              Join the team
+            </a>
+          </div>
+        </div>
+      </article>
+
+
+      <!-- Project 2 -->
       <article class="proj proj--nofig" id="p-llm-analog">
         <div class="proj-body">
-          <span class="proj-index">PROJECT 01</span>
+          <span class="proj-index">PROJECT 02</span>
           <h3>A Forward and Inverse Design Approach for Automated Analog Design Optimization and Layout using LLM Agent-based Analytical Modelling (Ongoing)</h3>
           <p class="desc">An ongoing open-source framework that automates analog circuit sizing and layout in open PDKs, where silicon area on multi-project shuttles is a premium resource. It began as a hybrid mixed-variable particle-swarm optimizer built on the g<sub>m</sub>/I<sub>D</sub> methodology to minimize layout area while meeting design specifications — demonstrated on a low-power instrumentation amplifier in 130&nbsp;nm CMOS with a 90.33% gate-area reduction over existing implementations — and is being extended with LLM agent-based analytical modelling for both forward and inverse design.</p>
           <div class="tags">
@@ -682,13 +758,13 @@
         </div>
       </article>
 
-      <!-- Project 2 -->
+      <!-- Project 3 -->
       <article class="proj" id="p-pll-2g4">
         <div class="proj-fig" style="background:#000;">
           <img src="assets/projects/pll-2g4-unic-cass-chip.jpg" alt="UNIC-CASS chip layout with the 2.4 GHz PLL: top view with fillers and 2.5D top view" loading="lazy" />
         </div>
         <div class="proj-body">
-          <span class="proj-index">PROJECT 02</span>
+          <span class="proj-index">PROJECT 03</span>
           <h3>A 2.4&nbsp;GHz LC-VCO Fractional-N Phase-Locked Loop in 130&nbsp;nm BiCMOS</h3>
           <p class="desc">A type-II Δ-Σ fractional-N PLL with a cross-coupled differential LC-VCO and a custom spiral inductor (4&nbsp;nH, Q&nbsp;=&nbsp;16.8) modelled in OpenEMS — the first fully open-source RF IC design of its kind from Sri Lanka, demonstrating that high-performance radios are achievable in the open CMOS ecosystem. Published at SMACD&nbsp;2026 and submitted for fabrication through the UNIC-CASS 2025 program with full DRC, LVS and PEX sign-off.</p>
           <div class="tags">
@@ -730,13 +806,13 @@
         </div>
       </article>
 
-      <!-- Project 3 -->
+      <!-- Project 4 -->
       <article class="proj" id="p-ear-eeg">
         <div class="proj-fig" style="background:#fff;">
           <img src="assets/projects/epitaxc-tile-layout.jpg?v=2" alt="Layout of the EpitaXC fully-differential op-amp tile on Tiny Tapeout SKY25a" loading="lazy" />
         </div>
         <div class="proj-body">
-          <span class="proj-index">PROJECT 03</span>
+          <span class="proj-index">PROJECT 04</span>
           <h3>Dry-Contact Ear-EEG with Continuous Electrode-Skin Impedance Monitoring — Moving On Chip</h3>
           <p class="desc">A dry-contact Ear-EEG system that injects a 1&nbsp;kHz driven-right-leg stimulus to continuously track electrode-skin impedance mismatch, using it as the reference for online adaptive motion-artifact cancellation (IEEE BioCAS&nbsp;2026). The team — Lohan Atapattu, Sajitha Madugalle, Imasha Nethmal and Erandee Jayathilaka — is now integrating the I/Q impedance-extraction path in CMOS: a fully-differential two-stage op-amp on Tiny&nbsp;Tapeout SKY25a (silicon received July&nbsp;2026) and fully-differential I/Q multipliers in IHP SG13G2 for UNIC-CASS&nbsp;2025, presented in a paper accepted at IEEE ICM&nbsp;2026.</p>
           <div class="tags">
@@ -780,13 +856,13 @@
         </div>
       </article>
 
-      <!-- Project 4 -->
+      <!-- Project 5 -->
       <article class="proj" id="p-pll-30m">
         <div class="proj-fig" style="background:#202020;">
           <img src="assets/projects/pll-30m-layout.jpg" alt="Layout of the 30 MHz fractional-N PLL on IHP SG13G2" loading="lazy" />
         </div>
         <div class="proj-body">
-          <span class="proj-index">PROJECT 04</span>
+          <span class="proj-index">PROJECT 05</span>
           <h3>A 30&nbsp;MHz Charge-Pump Fractional-N PLL — Our First IHP BiCMOS Tape-out</h3>
           <p class="desc">A charge-pump type-II PLL that synthesizes programmable output frequencies from a 10&nbsp;MHz reference, using an 11-stage ring VCO and two 3-bit programmable dividers (f<sub>out</sub>&nbsp;=&nbsp;M/N&nbsp;×&nbsp;f<sub>ref</sub>). Designed over five months with Xschem, Ngspice, KLayout and KPEX, and submitted to the July&nbsp;2025 IHP OpenMPW shuttle — the team's first tape-out in the IHP 130&nbsp;nm BiCMOS open PDK.</p>
           <div class="tags">
@@ -819,13 +895,13 @@
         </div>
       </article>
 
-      <!-- Project 5 -->
+      <!-- Project 6 -->
       <article class="proj" id="p-sar-adc">
         <div class="proj-fig" style="background:#fff;">
           <img src="assets/projects/sar-adc-chip-layout.jpg" alt="Full-chip layout of the SAR ADC on the Efabless chipIgnite (Caravel) harness" loading="lazy" />
         </div>
         <div class="proj-body">
-          <span class="proj-index">PROJECT 05</span>
+          <span class="proj-index">PROJECT 06</span>
           <h3>A 100&nbsp;kSPS 8-bit Fully-Differential SAR ADC for Low-Power Applications</h3>
           <p class="desc">A charge-redistribution SAR ADC with binary-weighted capacitor arrays, an auto-zeroed pre-amplifier and regenerative latch comparator, and digital SAR logic — aimed at battery- or RF-powered IoT and wearable/implantable medical devices. Built from scratch by ENTC undergraduates in ten weeks with Xschem, Ngspice, Netgen, OpenLane, Magic and KLayout, and submitted to the Efabless chipIgnite shuttle through the IEEE CASS UNIC-CASS 2024 program — ENTC's first CMOS tape-out.</p>
           <div class="tags">
@@ -855,13 +931,13 @@
       </article>
 
 
-      <!-- Project 6 -->
+      <!-- Project 7 -->
       <article class="proj" id="p-braineocare">
         <div class="proj-fig" style="background:#fff;">
           <img src="assets/projects/braineocare-headset-electrode.jpg" alt="BraiNeoCare adjustable EEG headset with active dry-contact electrodes, and the active electrode PCB in its 3D-printed housing" loading="lazy" />
         </div>
         <div class="proj-body">
-          <span class="proj-index">PROJECT 06</span>
+          <span class="proj-index">PROJECT 07</span>
           <h3>BraiNeoCare: Low-Cost Dry-Contact EEG and Explainable AI for Neonatal Seizure Detection &amp; Prediction</h3>
           <p class="desc">A research line toward affordable seizure care for newborns, where continuous video-EEG is costly and needs specialists. It combines an adjustable 3D-printed headset with active dry-contact electrodes and a custom analog front end, a multimodal artifact-removal algorithm, and explainable deep-learning models that work from a reduced EEG montage — detecting seizures in real time and, with added ECG, predicting them up to 30 minutes before onset. Clinically evaluated against a commercial wet-electrode cEEG system at Lady Ridgeway Hospital for Children, with work published in IEEE TBME and IEEE SMC and accepted at IEEE BHI&nbsp;2026 (Hong Kong, December&nbsp;2026).</p>
           <div class="tags">
@@ -909,13 +985,13 @@
       </article>
 
 
-      <!-- Project 7 -->
+      <!-- Project 8 -->
       <article class="proj" id="p-intelliscope">
         <div class="proj-fig" style="background:#d1dad9;">
           <img src="assets/projects/intelliscope-device.jpg" alt="Intelliscope ECG-PCG device: PCB with stethoscope diaphragm in its 3D-printed enclosure" loading="lazy" />
         </div>
         <div class="proj-body">
-          <span class="proj-index">PROJECT 07</span>
+          <span class="proj-index">PROJECT 08</span>
           <h3>Intelliscope: A Simultaneous ECG-PCG Screening Tool for Cardiovascular Disease in Resource-Constrained Settings</h3>
           <p class="desc">An end-to-end dual-modality device that records electrocardiogram and phonocardiogram signals together, with a real-time burst-adaptive NLMS noise-cancellation pipeline light enough for embedded hardware. Validated on real recordings from noisy hospital wards, it improved SNR by 30.32&nbsp;dB (ECG) and 37.01&nbsp;dB (PCG). Presented at IEEE EMBC&nbsp;2026 in Toronto and winner of the 2025 SLAAS Manamperi Main Award for the best inter-university final-year engineering project in Sri Lanka. The project began in 2020 as a low-cost AI-powered wireless stethoscope that won first runner-up in the IEEE CASS COVID-19 Special Student Design Competition at ISCAS&nbsp;2020, followed by a transfer-learning ECG-PCG screening paper at ISCAS&nbsp;2021.</p>
           <div class="tags">
@@ -965,6 +1041,108 @@
         </div>
       </article>
     </div>
+  </div>
+</section>
+
+<!-- ============ NEXT PROJECT (CONCEPT) ============ -->
+<section class="section" id="next">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Next Project · To Be Commenced</span>
+      <h2>NeurEar: taking impedance-aware ear-EEG from a headband into an earbud.</h2>
+      <p>A working concept for discussion — what the platform should do, how we plan to build it, and the paper we’re aiming for at IEEE BioCAS&nbsp;2027. Details will evolve as the team forms.</p>
+    </div>
+
+    <div class="nx-grid3">
+      <article class="nx-card ours">
+        <span class="k">Where it starts</span>
+        <h4>Impedance-aware ear-EEG</h4>
+        <p>Our dry-contact ear-EEG system injects a ~1&nbsp;kHz stimulus through the DRL electrode, extracts electrode-skin impedance mismatch by I/Q demodulation, and feeds it to an impedance-aware NLMS filter — cutting motion-artifact power by 77–93% across head nodding, tapping and jaw clenching. Accepted at BioCAS&nbsp;2026 and ICM&nbsp;2026, with key blocks taped out in SKY130 and IHP SG13G2.</p>
+        <a class="src" href="#p-ear-eeg">Our Ear-EEG project →</a>
+      </article>
+      <article class="nx-card">
+        <span class="k">The challenge</span>
+        <h4>From a headband to an earbud</h4>
+        <p>Our prototype is a headband that draws close to 5&nbsp;W and needs a heat sink and fan for its ~130&nbsp;mA multipliers — far too large and power-hungry for daily wear. And off-the-shelf EEG front ends offer only start-up lead-off checks, not continuous contact monitoring.</p>
+        <p class="take"><b>So:</b> the impedance path has to shrink by orders of magnitude in power and area.</p>
+      </article>
+      <article class="nx-card">
+        <span class="k">The idea</span>
+        <h4>An open, modular in-ear platform</h4>
+        <p>A compact core board in front of the ear, swappable flex sensor boards that fold into the concha and ear canal, and our impedance-extraction ASIC on the EEG flex — so neural, physiological and acoustic signals can be captured together, reliably, every day.</p>
+        <p class="take"><b>Built to last:</b> every hardware module maps cleanly to firmware, protocol and software.</p>
+      </article>
+    </div>
+
+    <h3 class="nx-h">What the platform should do</h3>
+    <p class="nx-sub">One ear-worn device, four capabilities — in the spirit of hearing-and-health earables, built openly and grounded in our ear-EEG research.</p>
+    <div class="nx-caps">
+      <div class="nx-cap"><h5>In-ear biosensing</h5><p>Simultaneous neural, physiological and acoustic signals from the ear canal and concha.</p><span class="m">EEG · PPG · IMU · mics · temp</span></div>
+      <div class="nx-cap"><h5>Reliable contact</h5><p>Continuous electrode-skin impedance tracking flags loose electrodes and drives real-time motion-artifact cancellation.</p><span class="m">I/Q impedance · adaptive NLMS</span></div>
+      <div class="nx-cap"><h5>Objective hearing</h5><p>The in-ear speaker plays stimuli while ear-EEG records the brain’s response — auditory steady-state and evoked responses, alongside app-based tone tests.</p><span class="m">ASSR · AEP · tone audiometry</span></div>
+      <div class="nx-cap"><h5>Open data &amp; insight</h5><p>Timestamped multimodal streams to an app and SDKs for longitudinal, research-grade analysis and ML.</p><span class="m">BLE · Python · Web · CSV</span></div>
+    </div>
+
+    <h3 class="nx-h">Proposed architecture</h3>
+    <p class="nx-sub">A core-plus-flex hardware split and a layered software stack, with the ear-EEG flex designed around our impedance front end.</p>
+    <div class="nx-arch">
+      <div class="nx-stack">
+        <h5>Hardware</h5>
+        <div class="nx-layer"><b>Ear interface</b><span>Custom-fit tips with dry electrodes in canal and concha, plus DRL and reference; printable shell.</span></div>
+        <div class="nx-layer"><b>Sensor flex</b><span>In-ear mic, PPG, temperature — on a swappable flex board.</span></div>
+        <div class="nx-layer"><b>EEG flex</b><span>Multichannel biopotential front end with DRL, plus our <em>I/Q impedance-extraction block</em> — discrete first, then our ASIC. Hardware SPI to the core for multichannel throughput.</span></div>
+        <div class="nx-layer"><b>Core board</b><span>Nordic BLE SoC, IMU, speaker + codec, flash/microSD, charger and fuel gauge, debug kept off-device.</span></div>
+        <div class="nx-layer"><b>Silicon</b><span>Low-power ASIC replacing the ~130&nbsp;mA multipliers of our headband — the path from watts to milliwatts.</span></div>
+      </div>
+      <div class="nx-stack">
+        <h5>Software</h5>
+        <div class="nx-layer"><b>Firmware</b><span>Zephyr / nRF Connect SDK; each flex board is a build-time shield selected by Kconfig.</span></div>
+        <div class="nx-layer"><b>Signal path</b><span>A device manager publishes typed streams; on-device filtering and <em>impedance-aware NLMS</em> (CMSIS-DSP), contact-quality flags.</span></div>
+        <div class="nx-layer"><b>Protocol</b><span>One versioned BLE service per modality, byte-level docs, a capabilities bitmask; never reuse a UUID with a new layout.</span></div>
+        <div class="nx-layer"><b>SDKs &amp; apps</b><span>Python and Web Bluetooth SDKs in lockstep; a recorder app with live EEG, impedance and hearing-test views.</span></div>
+        <div class="nx-layer"><b>Data</b><span>Timestamped, schema-versioned recordings with CSV / pandas export for open datasets.</span></div>
+      </div>
+    </div>
+
+    <h3 class="nx-h">How we’ll build it</h3>
+    <p class="nx-sub">An organized, open development process so a student team can move fast without breaking interfaces.</p>
+    <div class="nx-principles">
+      <div class="nx-p"><b>Polyrepo by layer</b>hardware · firmware · protocol · SDKs · apps · docs, each with a clear owner.</div>
+      <div class="nx-p"><b>Single source of truth</b>hardware owns pins, firmware owns the wire protocol, one version file.</div>
+      <div class="nx-p"><b>Versioned interfaces</b>capability bits and schema versions; SDKs and apps gate features on them.</div>
+      <div class="nx-p"><b>Agent-ready repos</b>an AGENTS.md per repo with maps, review checklists and cross-repo rules.</div>
+      <div class="nx-p"><b>Validation ≠ compiling</b>bring-up tests per driver, host-side unit tests, and written on-hardware validation.</div>
+      <div class="nx-p"><b>Open by default</b>permissive licences, revision-tagged hardware snapshots, reproducible builds.</div>
+    </div>
+
+    <h3 class="nx-h">Toward IEEE BioCAS 2027</h3>
+    <div class="nx-paper">
+      <div>
+        <span class="k">Potential paper · working title</span>
+        <h4>An Open, Impedance-Aware In-Ear Biosensing Platform for Wearable Ear-EEG and Objective Hearing Assessment</h4>
+        <p style="margin:0;color:rgba(220,232,248,.8);font-size:14.5px;line-height:1.6;">NeurEar is being scoped with a BioCAS&nbsp;2027 submission in mind: an earbud-scale system that pairs ear-EEG with continuous contact monitoring, evaluated on neural, auditory and motion-artifact benchmarks.</p>
+      </div>
+      <div>
+        <h5>Evaluation plan</h5>
+        <ul>
+          <li>Alpha-band modulation (eyes open/closed) vs. a reference system</li>
+          <li>Auditory steady-state responses to in-ear stimuli</li>
+          <li>Artifact power reduction for nodding, tapping, jaw clenching, chewing, walking</li>
+          <li>Loose-electrode detection accuracy</li>
+          <li>Power, size and battery-life budget</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="nx-h">Open questions for the team</h3>
+    <ul class="nx-qs">
+      <li>Form factor: fully in-ear, or earbud + behind-ear module?</li>
+      <li>Battery and power budget for all-day multimodal recording?</li>
+      <li>Front end: commercial EEG AFE first, or straight to our own?</li>
+      <li>Electrodes: canal vs. concha placement, materials, custom-fit tips?</li>
+      <li>SoC: nRF5340 (LE Audio) vs. nRF54L15 (low power)?</li>
+      <li>Hearing scope: research-only ASSR/AEP, staying clear of clinical claims?</li>
+    </ul>
   </div>
 </section>
 
