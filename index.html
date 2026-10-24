@@ -326,6 +326,18 @@
   .specs{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:24px;padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
   .specs .s .v{font-family:"Spectral",serif;font-size:21px;font-weight:700;color:var(--navy);line-height:1;}
   .specs .s .k{font-size:11.5px;color:var(--muted-2);font-family:"IBM Plex Mono",monospace;margin-top:6px;letter-spacing:.02em;}
+  .sd-chain{display:flex;flex-direction:column;align-items:center;gap:7px;margin-top:10px;font-family:"IBM Plex Mono",monospace;}
+  .sd-chain .g{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#e6c26a;}
+  .sd-chain .r{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;}
+  .sd-chain i{font-style:normal;font-size:11.5px;color:#F4F8FC;background:rgba(244,248,252,.1);border:1px solid rgba(207,224,240,.35);border-radius:6px;padding:4px 9px;}
+  .sd-chain i.ch{border-style:dashed;color:#CFE0F0;}
+  .sd-chain .a{color:#CFE0F0;font-size:13px;line-height:1;}
+  .proj-ideas{display:grid;grid-template-columns:1fr 1fr;gap:12px 22px;margin:-4px 0 18px;}
+  .proj-ideas .pi{font-size:14.5px;line-height:1.5;color:var(--muted);padding-left:14px;border-left:3px solid var(--gold-b);}
+  .proj-ideas .pi b{display:block;color:var(--navy);font-size:15px;font-weight:600;margin-bottom:2px;}
+  .proj-space{font-family:"IBM Plex Mono",monospace;font-size:12.5px;line-height:1.6;color:var(--muted);margin:0 0 16px;}
+  .proj-space span{color:var(--gold);text-transform:uppercase;letter-spacing:.1em;margin-right:6px;}
+  @media(max-width:760px){ .proj-ideas{grid-template-columns:1fr;} }
   .proj-links{display:flex;gap:18px;flex-wrap:wrap;align-items:center;}
   .proj-links a{font-size:14.5px;font-weight:600;display:inline-flex;align-items:center;gap:6px;}
   .proj-links a svg{width:15px;height:15px;}
@@ -733,32 +745,43 @@
               <path opacity=".45" d="M0 29H560M0 211H560"/><path d="M0 34H560M0 206H560"/><path opacity=".45" d="M0 38H560M0 202H560"/>
             </g>
           </svg>
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.12em;color:#CFE0F0;text-transform:uppercase;">5 Gb/s NRZ · open the eye</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.12em;color:#CFE0F0;text-transform:uppercase;">Open the eye</span>
+          <div class="sd-chain" aria-label="Serial link signal chain">
+            <span class="g">Transmitter</span>
+            <div class="r"><i>Serializer</i><i>FFE</i><i>Driver</i></div>
+            <span class="a">↓</span>
+            <div class="r"><i class="ch">Channel</i></div>
+            <span class="a">↓</span>
+            <span class="g">Receiver</span>
+            <div class="r"><i>CTLE</i><i>Sampler</i><i>CDR</i></div>
+            <div class="r"><i>Deserializer</i></div>
+          </div>
         </div>
         <div class="proj-body">
           <span class="proj-index">PROJECT 02</span>
           <h3>Open-SERDES: Towards an Open-Source High-Speed Serial Link in IHP SG13G2 (Ongoing)</h3>
-          <p class="desc">Every fast interface — PCIe, USB, Ethernet, chiplet links — rides on a SerDes, yet production SerDes IP is closed, NDA-bound and locked to one process, and no open PDK yet has a multi-Gb/s mixed-signal transceiver with equalization and clock-data recovery. Open-SERDES targets a 5&nbsp;Gb/s NRZ transceiver in IHP’s 130&nbsp;nm SiGe BiCMOS, whose ~300&nbsp;GHz-f<sub>T</sub> HBTs give current-mode logic ample headroom, clocked at half rate from our open 2.4&nbsp;GHz LC-VCO PLL (SMACD&nbsp;2026). The baseline pairs an HBT CML driver with a 2–3 tap TX FFE, an RX CTLE, CML and StrongARM samplers and a bang-bang CDR. The core contribution is a reproducible channel-to-GDS flow on open tools — link model, transistor-level design, digital SER/DES and CDR logic, layout and EM — with post-layout results fed back to calibrate an open link model.</p>
+          <p class="desc">Every fast interface — PCIe, USB, Ethernet, chiplet links — rides on a SerDes, yet SerDes IP is closed, NDA-bound and locked to a single process. Open-SERDES is an open project to build a high-speed serial transceiver in IHP’s 130&nbsp;nm SiGe BiCMOS, together with a reproducible channel-to-GDS flow on open tools, for anyone to study, reuse and extend. SG13G2’s fast SiGe HBTs give current-mode logic ample headroom, its thick top metals support inductors and low-loss lines, and open shuttles give a real path to silicon.</p>
+          <div class="proj-ideas">
+            <div class="pi"><b>Open reference design</b>A complete transmitter, channel model and receiver with equalization and clock-data recovery.</div>
+            <div class="pi"><b>Reusable cell library</b>HBT current-mode drivers, latches and muxes for SG13G2 that others can build on.</div>
+            <div class="pi"><b>Calibrated link model</b>Post-layout results fed back so every number in the model traces to a simulated cell.</div>
+            <div class="pi"><b>A teaching path</b>From textbook link theory to real silicon — open tutorials, testbenches and data.</div>
+          </div>
+          <p class="proj-space"><span>Design space</span> NRZ / PAM4 · CML / SST drivers · TX FFE · CTLE · DFE · CML &amp; StrongARM samplers · bang-bang CDR</p>
           <div class="tags">
             <span class="tag">IHP SG13G2</span>
             <span class="tag">SiGe BiCMOS</span>
-            <span class="tag">5 Gb/s NRZ</span>
-            <span class="tag">FFE · CTLE · CDR</span>
+            <span class="tag">High-Speed Serial Link</span>
             <span class="tag">Open Channel-to-GDS Flow</span>
-            <span class="tag teal">Ongoing</span>
+            <span class="tag teal">Open Project</span>
           </div>
           <div class="specs">
-            <div class="s"><div class="v">5 Gb/s</div><div class="k">NRZ data rate</div></div>
-            <div class="s"><div class="v">200 ps</div><div class="k">unit interval</div></div>
-            <div class="s"><div class="v">2.5 GHz</div><div class="k">half-rate clock</div></div>
-            <div class="s"><div class="v">10⁻¹²</div><div class="k">BER target</div></div>
+            <div class="s"><div class="v">SG13G2</div><div class="k">IHP open PDK</div></div>
+            <div class="s"><div class="v">FFE·CTLE</div><div class="k">equalization</div></div>
+            <div class="s"><div class="v">CDR</div><div class="k">clock &amp; data recovery</div></div>
+            <div class="s"><div class="v">Ch→GDS</div><div class="k">open design flow</div></div>
           </div>
-          <div class="proj-links">
-            <a href="#p-pll-2g4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 7h10M7 12h10M7 17h6"/></svg>
-              Built on our 2.4 GHz PLL
-            </a>
           </div>
-        </div>
       </article>
 
 
