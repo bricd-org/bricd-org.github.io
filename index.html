@@ -1477,11 +1477,6 @@
       </div>
     </div>
 
-    <div class="members-block" style="margin-bottom:36px;">
-      <h4 class="sub">Research Mentors</h4>
-      <div class="members" id="mentors-grid"></div>
-    </div>
-
     <div class="members-block">
       <h4 class="sub">Researchers &amp; Contributors</h4>
       <div class="members" id="members-grid"></div>
@@ -2018,15 +2013,13 @@
     gg.appendChild(el);
   });
 
-  // ---- mentors & members ----
+  // ---- members ----
   // n: name · r: role · u: profile link · p: photo (assets/team/...), optional
-  const mentors = [
+  const members = [
     {n:'Lohan Atapattu', r:'Ear-EEG · Op-Amp Tape-out', u:'https://www.linkedin.com/in/lohan-atapattu-403171241/', p:'assets/team/lohan-atapattu.jpg'},
     {n:'Imasha Nethmal', r:'Ear-EEG · BioCAS 2026', u:'https://www.linkedin.com/in/imasha-nethmal/', p:'assets/team/imasha-nethmal.jpg'},
     {n:'Sajitha Madugalle', r:'Ear-EEG · BioCAS 2026', u:'https://www.linkedin.com/in/sajitha-madugalle/', p:'assets/team/sajitha-madugalle.jpg'},
     {n:'Erandee Jayathilaka', r:'Ear-EEG · BioCAS 2026', u:'https://www.linkedin.com/in/erandee-jayathilaka-6523002b1/', p:'assets/team/erandee-jayathilaka.jpg'},
-  ];
-  const members = [
     {n:'Manimohan Thiriloganathan', r:'RF / PLL', u:'https://www.linkedin.com/in/tmanimohan/'},
     {n:'Shenal Ranasinghe', r:'Mixed-Signal', u:'https://www.linkedin.com/in/shenal-ranasinghe-4a5684207/'},
     {n:'Rajinthan Rameshkumar', r:'Layout / Verif.', u:'https://www.linkedin.com/in/rajinthan/'},
@@ -2059,7 +2052,6 @@
       grid.appendChild(el);
     });
   }
-  renderPeople(mentors, 'mentors-grid');
   renderPeople(members, 'members-grid');
 
   // ---- news: show older ----
